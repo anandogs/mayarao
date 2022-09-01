@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.svelte";
+---
+
+<Layout title="Menu">
+    <div class="">
+        <Navbar menuPage={true} client:load/>
+        <section class="bg-black h-screen grid grid-cols-3 px-[16%] content-center">
+            <img src="/src/images/menu/productions.svg" alt="Productions" class="w-[366.15px] h-[82.23px]"/>
+        </section>
+    </div>
+</Layout>
