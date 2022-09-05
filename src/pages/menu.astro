@@ -1,22 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.svelte";
+import productions from '../images/menu/productions.svg';
+import comedy from '../images/menu/comedy.svg';
+import street from '../images/menu/street.svg';
+import appliedTheatre from '../images/menu/applied_theatre.svg';
+import kathakali from '../images/menu/kathakali.svg';
+import making from '../images/menu/making.svg';
+import teaching from '../images/menu/teaching.svg';
+import digitalCreations from '../images/menu/digital_creations.svg';
+import events from '../images/menu/events.svg';
+import about from '../images/menu/about.svg';
 ---
 
 <Layout title="Menu">
     <div class="">
         <Navbar menuPage={true} client:load/>
         <section class="bg-black h-screen flex flex-wrap px-[16%] content-center gap-x-2 gap-y-4 justify-center">
-            <img src="/src/images/menu/productions.svg" alt="Productions" class="w-[366.15px] h-[82.23px]"/>
-            <img src="/src/images/menu/comedy.svg" alt="Comedy" class="w-[235.65px] h-[61.81px]"/>
-            <img src="/src/images/menu/street.svg" alt="Street" class="w-[205.75px] h-[62.54px]"/>
-            <img src="/src/images/menu/applied_theatre.svg" alt="Applied Theatre" class="w-[458.32px] h-[63.19px]"/>
-            <img src="/src/images/menu/kathakali.svg" alt="Kathakali" class="w-[268.32px] h-[57.81px]"/>
-            <img src="/src/images/menu/making.svg" alt="Making" class="w-[228.15px] h-[67.63px]"/>
-            <img src="/src/images/menu/teaching.svg" alt="Teaching" class="w-[285.6px] h-[57.16px]"/>
-            <img src="/src/images/menu/digital_creations.svg" alt="Digital Creations" class="w-[487.67px] h-[71.56px]"/>
-            <img src="/src/images/menu/events.svg" alt="Events" class="w-[172.61px] h-[53.66px]"/>
-            <img src="/src/images/menu/about.svg" alt="About" class="w-[188.73px] h-[49.06px] col-span-3 m-auto"/>
+            <img src={productions} alt="Productions" class="w-[366.15px] h-[82.23px]"/>
+            <img src={comedy} alt="Comedy" class="w-[235.65px] h-[61.81px]"/>
+            <img src={street} alt="Street" class="w-[205.75px] h-[62.54px]"/>
+            <img src={appliedTheatre} alt="Applied Theatre" class="w-[458.32px] h-[63.19px]"/>
+            <img src={kathakali} alt="Kathakali" class="w-[268.32px] h-[57.81px]"/>
+            <img src={making} alt="Making" class="w-[228.15px] h-[67.63px]"/>
+            <img src={teaching} alt="Teaching" class="w-[285.6px] h-[57.16px]"/>
+            <img src={digitalCreations} alt="Digital Creations" class="w-[487.67px] h-[71.56px]"/>
+            <img src={events} alt="Events" class="w-[172.61px] h-[53.66px]"/>
+            <img src={about} alt="About" class="w-[188.73px] h-[49.06px] col-span-3 m-auto"/>
         </section>
     </div>
 </Layout>
