@@ -65,7 +65,7 @@
     background-color: #000;
     min-height: 100vh;
     width: 100vw;
-    padding-top: 100px;
+    padding-top: 130px;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
