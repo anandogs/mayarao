@@ -25,9 +25,9 @@
 <nav>
   <div>
 
-    <p>
+    <a href="/">
       <img src={logo} alt="logo" class="h-[44px] w-[81px] lg:h-[92px] lg:w-[168px]" />
-    </p>
+    </a>
     <div class="flex gap-x-5">
     {#if menuPage}
       <div>

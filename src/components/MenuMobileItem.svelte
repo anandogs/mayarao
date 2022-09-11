@@ -28,7 +28,7 @@
 
 </script>
 
-<a href="/">
+<a href="/menu">
     <img
       src={hoveredStates[category] ? imgHover : img}
       alt="Productions"
