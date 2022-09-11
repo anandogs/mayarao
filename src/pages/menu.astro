@@ -1,12 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.svelte";
-import Menu from "../components/Menu.svelte";
+import MenuDesktop from "../components/MenuDesktop.svelte";
+import MenuMobile from "../components/MenuMobile.svelte";
 ---
 
 <Layout title="Menu">
   <div class="">
     <Navbar menuPage={true} client:load />
-    <Menu client:load />    
+    <div class="lg:hidden">
+      <MenuMobile client:load/>
+    </div>
+    <div class="hidden md:block">
+    <MenuDesktop client:load />
+    </div>
   </div>
 </Layout>

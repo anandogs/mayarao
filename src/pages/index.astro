@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar.svelte";
 
 <Layout title="Maya's site">
 	<div class="hidden lg:block">
-	<Navbar menuPage={false}/>
+	<Navbar menuPage={false} client:load/>
 </div>
 	<main class="h-screen grid justify-items-center pt-9 pb-16 content-between">
 		<div >
@@ -43,7 +43,9 @@ import Navbar from "../components/Navbar.svelte";
 				/>
 			</div>
 				<div class=" pt-5 lg:hidden">
-				<button>enter</button>
+				<a href="/menu">
+					<button>enter</button>
+				</a>
 			</div>
 		</div>
 	</main>
