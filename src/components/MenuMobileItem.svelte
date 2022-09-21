@@ -2,7 +2,6 @@
     export let category:string;
     export let imgWidth:string;
     export let img:string;
-    export let imgHover:string;
 
 
   interface hoverType {
@@ -30,7 +29,8 @@
 
 <a href="/menu">
     <img
-      src={hoveredStates[category] ? imgHover : img}
+      src={img}
+      style={`${hoveredStates[category] ? "filter: brightness(0) invert(1);" : ""}`}
       alt="Productions"
       width={imgWidth}
       on:mouseover={() => toggleHover(category)}
