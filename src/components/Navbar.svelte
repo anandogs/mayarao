@@ -24,7 +24,6 @@
 
 <nav>
   <div>
-
     <a href="/">
       <img src={logo} alt="logo" class="h-[44px] w-[81px] lg:h-[92px] lg:w-[168px]" />
     </a>
@@ -55,6 +54,7 @@
 
 <style>
   nav {
+    z-index: 1;
     position: fixed;
     top: 0;
     left: 0;

@@ -282,7 +282,7 @@
 
 <style>
   menu {
-    height: 100vh;
+    height: 1024px;
     width: 100vw;
   }
   p {
@@ -313,7 +313,7 @@
   }
   .menu_container {
     width: 100%;
-    height: 1024px;
+    height: 100%;
     max-width: 1440px;
     margin: auto;
     position: relative;
