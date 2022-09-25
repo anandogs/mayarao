@@ -1,10 +1,13 @@
 <script lang='ts'>
   import logo from "../images/logo.svg";
   export let menuPage:boolean;
+  export let darkMode:boolean;
+
 
 	let clicked = false;
 	let copyEmail = () => {
 		if (typeof window != 'undefined') {
+      console.log(darkMode)
 			navigator.clipboard
 				.writeText('mayamaze@gmail.com')
 				.then(() => {
@@ -25,22 +28,22 @@
 <nav>
   <div>
     <a href="/">
-      <img src={logo} alt="logo" class="h-[44px] w-[81px] lg:h-[92px] lg:w-[168px]" />
+      <img src={logo} alt="logo" class="h-[44px] w-[81px] lg:h-[92px] lg:w-[168px]" style={darkMode ? "filter: brightness(0) invert(1);" : ""} />
     </a>
     <div class="flex gap-x-5">
     {#if menuPage}
       <div>
-      <button on:click={()=>history.back()}>close</button>
+      <button style={darkMode?";":"border-color:#020202; color:#020202"} on:click={()=>history.back()}>close</button>
     </div>
     {:else}
     <a href="/menu">
     <div>
-      <button>menu</button>
+      <button style={darkMode?"":"border-color:#020202; color:#020202"}>menu</button>
     </div>
   </a>
     {/if}
     <div class="hidden lg:block">
-      <button on:click={copyEmail}>
+      <button style={darkMode?"":"border-color:#020202; color:#020202"} on:click={copyEmail}>
       {#if clicked}
       copied!
       {:else}
@@ -54,6 +57,7 @@
 
 <style>
   nav {
+  
     z-index: 1;
     position: fixed;
     top: 0;

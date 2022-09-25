@@ -1,0 +1,42 @@
+---
+// import GlobalStyles from '../components/GlobalStyles.astro';
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import about from "../../images/menu/about.svg";
+import AboutAccordian from "../../components/AboutAccordian.svelte";
+---
+
+<Layout title="Maya's site">
+  <main class="about">
+    <Navbar menuPage={false} darkMode={false} client:load />
+    <div class="mt-[150px] grid justify-items-center mx-6">
+      <div class="grid justify-items-center gap-y-8 mb-12">
+        <img src={about} class="w-[108.24px] h-[28.14px]" />
+        <div>
+          <p>Maya Krishna Rao</p>
+          <p>April 18, 1953</p>
+          <p>D-9, Landscape City, Porvorim, Goa, India 403521</p>
+          <p>+91-98183-24311</p>
+        </div>
+      </div>
+      <AboutAccordian client:load/>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .about {
+    /* background-color: black; */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  p {
+    text-align: center;
+  }
+  h4 {
+    color: #992965;
+  }
+</style>
