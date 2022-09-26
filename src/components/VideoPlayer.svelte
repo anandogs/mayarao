@@ -130,7 +130,6 @@
             <span bind:this={progressBar1} id="progress-bar" />
           </progress>
         </div>
-      
     </div>
   </figure>
 </main>

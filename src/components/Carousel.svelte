@@ -209,9 +209,4 @@
     background: #c4c4c4;
     border-radius: 30px 0 0 30px;
   }
-  .current-slide {
-    background-color: blue;
-    background: blue;
-    color: black;
-  }
 </style>
