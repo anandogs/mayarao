@@ -35,6 +35,19 @@
       showPause = true;
     }
   };
+  const toggleButton = () => {
+    if (video.paused || video.ended) {
+      showPlay = true;
+      setTimeout(() => {
+        showPlay = false;
+      }, 2000);
+    } else {
+      showPause = true;
+      setTimeout(() => {
+        showPause = false;
+      }, 2000);
+    }
+  };
   const hideButton = () => {
     showPlay = false;
     showPause = false;
@@ -78,28 +91,26 @@
     id="videoContainer"
     on:mouseenter={() => showButton()}
     on:mouseleave={() => hideButton()}
-    on:click={() => showButton()}
+    on:click={() => toggleButton()}
   >
     {#if showPlay}
       <img
       src={play}
       alt="play"
-        class="z-10 cursor-pointer absolute top-1/2 left-1/2"
+        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
         on:click={() => playPause()}
         id="playpause">
     {:else if showPause}  
     <img
         src={pause}
         alt="pause"
-        class="z-10 cursor-pointer  absolute top-1/2 left-1/2"
+        class="z-10 cursor-pointer  absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
         on:click={() => playPause()}
         id="playpause"
         />
     {/if}
     <video
     playsinline
-    autoplay
-    muted
     class="fixed bottom-0 left-0 min-w-full min-h-full"
       on:timeupdate={() => updateProgressBar()}
       on:loadedmetadata={() => setMaxDuration()}
@@ -110,7 +121,7 @@
     >
       <source src={trialVideo} type="video/mp4" />
     </video>
-    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] left-[5%]">
+    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-10">
       
         <div class=" relative">
           <progress
