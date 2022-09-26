@@ -78,8 +78,7 @@
     id="videoContainer"
     on:mouseenter={() => showButton()}
     on:mouseleave={() => hideButton()}
-    on:touchstart={() => showButton()}
-    on:touchend={() => hideButton()}
+    on:click={() => showButton()}
   >
     {#if showPlay}
       <img
