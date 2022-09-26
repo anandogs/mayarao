@@ -96,6 +96,9 @@
         />
     {/if}
     <video
+    playsinline
+    autoplay
+    muted
     class="fixed bottom-0 left-0 min-w-full min-h-full"
       on:timeupdate={() => updateProgressBar()}
       on:loadedmetadata={() => setMaxDuration()}
