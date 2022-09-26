@@ -2,6 +2,7 @@
   import logo from "../images/logo.svg";
   export let menuPage:boolean;
   export let darkMode:boolean;
+  export let email:boolean = true;
 
 
 	let clicked = false;
@@ -42,6 +43,7 @@
     </div>
   </a>
     {/if}
+    {#if email}
     <div class="hidden lg:block">
       <button style={darkMode?"":"border-color:#020202; color:#020202"} on:click={copyEmail}>
       {#if clicked}
@@ -51,6 +53,7 @@
       {/if}
       </button>
     </div>
+    {/if}
   </div>
   </div>
 </nav>

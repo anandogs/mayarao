@@ -1,12 +1,17 @@
 ---
 import Carousel from "../components/Carousel.svelte";
 import Layout from "../layouts/Layout.astro";
+import VideoPlayer from "../components/VideoPlayer.svelte";
+import Navbar from "../components/Navbar.svelte";
 ---
 
 <Layout title="carouselTest">
-    
-    <div style={"height:100px"}></div>
-    <Carousel client:load numberOfSlides={10}/>
-    <div style={"height:100px"}></div>
+    <div class="">
+    <Navbar menuPage={true} email={false} darkMode={true} client:load />
+    <VideoPlayer client:load />
 
+    <!-- <div style={"height:100px"}></div> -->
+    <!-- <Carousel client:load numberOfSlides={10}/> -->
+    <!-- <div style={"height:100px"}></div> -->
+</div>
 </Layout>

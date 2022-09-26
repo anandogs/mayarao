@@ -1,9 +1,17 @@
 <script lang="ts">
   export let toggleItem: any;
-  
+  import { allItems } from "../pages/about/stores/aboutStore";
+  const handleClick = () => {
+    for (const item of allItems) {
+      if (item !== toggleItem) {
+        item.set(false);
+      }
+    }
+    toggleItem.set(!$toggleItem);
+  };
 </script>
 
-<header on:click={() => toggleItem.set(!$toggleItem)} style={"display: grid; justify-content:center;"}>
+<header on:click={() => handleClick()} style={"display: grid; justify-content:center;"}>
   <slot name="heading" />
 </header>
 {#if $toggleItem}

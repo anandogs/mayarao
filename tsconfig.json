@@ -15,6 +15,9 @@
     // Enable strict type checking.
     "strict": true,
     // Error when a value import is only used as a type.
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "lib": [
+      "es5", "es6", "dom", "dom.iterable"
+  ],
   }
 }
