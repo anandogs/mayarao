@@ -5,13 +5,13 @@
   import theatreInEducation from "../images/about/theatre_in_education.svg";
   import kathakali from '../images/about/kathakali.svg';
 
-  import { isSoloGroupCreationsOpen } from "./aboutStore";
-  import { isTheatreInEducationOpen } from "./aboutStore";
-  import { isKathakaliOpen } from "./aboutStore";
+  import { isSoloGroupCreationsOpen } from "./stores/aboutStore";
+  import { isTheatreInEducationOpen } from "./stores/aboutStore";
+  import { isKathakaliOpen } from "./stores/aboutStore";
   
   
-  import {soloGroupCreationsData} from "./soloGroupCreationsData"
-  import { theatreInEducationData } from "./theatreInEducationData";
+  import {soloGroupCreationsData} from "./stores/soloGroupCreationsData"
+  import { theatreInEducationData } from "./stores/theatreInEducationData";
 </script>
 
 <section class="grid gap-y-10">

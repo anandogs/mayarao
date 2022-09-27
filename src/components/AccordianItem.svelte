@@ -1,6 +1,6 @@
 <script lang="ts">
   export let toggleItem: any;
-  import { allItems } from "./aboutStore";
+  import { allItems } from "./stores/aboutStore";
   const handleClick = () => {
     for (const item of allItems) {
       if (item !== toggleItem) {

@@ -43,13 +43,20 @@ const { title } = Astro.props as Props;
         font-size: 0.75rem;
         line-height: 1.25rem;
       }
-
       h4 {
         font-family: "Agrandir Variable";
         font-weight: 336;
         font-style: normal;
         font-size: 1rem;
         line-height: 1.3rem;
+      }
+
+      h3 {
+        font-family: "Agrandir Variable";
+        font-weight: 336;
+        font-style: normal;
+        font-size: 2.1875rem;
+        line-height: 2.84375rem
       }
 
       button {
@@ -68,6 +75,14 @@ const { title } = Astro.props as Props;
         padding-bottom: 11px;
         cursor: pointer;
       }
+
+      @media (min-width: 1024px) {
+        p {
+          font-size: 1rem;
+          line-height: 1.5625rem;
+        }
+      }
+
     </style>
   </body>
 </html>
