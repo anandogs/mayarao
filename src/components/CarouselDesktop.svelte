@@ -1,9 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  export let numberOfSlides: Number;
+  export let numberOfSlides: number;
+  import chevronLeft from '../images/chevron_left.svg';
+  import chevronRight from '../images/chevron_right.svg';
 
   let currentSlide = 1;
-  let lastSlide = numberOfSlides;
+  
+
 
   onMount(() => {
     const images = document.querySelectorAll(".carousel-slide");
@@ -21,6 +24,28 @@
       observer.observe(image);
     });
   });
+
+  const toggleSlide = (direction: string) => {
+    if (direction === "left") {
+      if (currentSlide === 1) {
+        currentSlide = numberOfSlides;
+        
+        
+      } else {
+        currentSlide--;
+      }
+    } else {
+      if (currentSlide === numberOfSlides) {
+        currentSlide = 1;
+      } else {
+        currentSlide++;
+      }
+    }
+    let slideId = `slide-${currentSlide}`;
+    document.getElementById(slideId)!.scrollIntoView({
+  behavior: 'smooth'
+});
+  };
 </script>
 
 <div class="slider">
@@ -31,6 +56,7 @@
       </div>
     {/each}
   </div>
+  <div class="flex">
   <div class="slider-box">
     <a
       style={currentSlide === 1 ? "color:#000;" : ""}
@@ -92,11 +118,17 @@
       class={currentSlide === 10 ? "last-selected" : "last-unselected"}>10</a
     >
   </div>
+  <div class="slider-chevron">
+    <img src={chevronLeft} alt="chevron left" on:click={() => toggleSlide("left")}/>
+    <img src={chevronRight} alt="chevron right" on:click={() => toggleSlide("right")}/>
+  </div>
+</div>
 </div>
 
 <style>
   .slider {
     width: 100vw;
+    
   }
 
   .slides {
@@ -115,7 +147,7 @@
     scroll-snap-align: start;
     flex-shrink: 0;
     width: 100vw;
-    height: 480px;
+    height: 870px;
     background: #c4c4c4;
     display: flex;
     justify-content: center;
@@ -126,8 +158,16 @@
   .slider-box {
     display: flex;
     width: 100%;
-    justify-content: center;
-    padding-top: 20px;
+    justify-content: start;
+    padding-top: 70px;
+    padding-left:78px
+  }
+
+  .slider-chevron {
+    display: flex;
+    column-gap: 50px;
+    padding-top: 70px;
+    padding-right: 80px;
   }
 
   .slider-box > a {
