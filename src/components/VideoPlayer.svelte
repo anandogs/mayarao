@@ -7,10 +7,10 @@
   let progress1: HTMLProgressElement;
   let showPlay: Boolean = false;
   let showPause: Boolean = false;
+  let videoContainer: HTMLElement;
+  let progressBar: HTMLElement;
+  let progressBar1: HTMLElement;
   
-  $: outerWidth = 0
-  let leftOffset = outerWidth - 275;
-
   import play from '../images/play.svg';
   import pause from '../images/pause.svg';
   onMount(() => {
@@ -78,13 +78,13 @@
     video.currentTime = pos1 * video.duration;
   };
 </script>
-<svelte:window bind:outerWidth/>
+
 <main
   class="bg-[#020202] w-full h-screen grid justify-items-center content-center"
 >
 
   <figure
-
+    bind:this={videoContainer}
     id="videoContainer"
     on:mouseenter={() => showButton()}
     on:mouseleave={() => hideButton()}
@@ -94,14 +94,14 @@
       <img
       src={play}
       alt="play"
-        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[45%]"
+      class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
         on:click={() => playPause()}
         id="playpause">
     {:else if showPause}  
     <img
         src={pause}
         alt="pause"
-        class="z-10 cursor-pointer  absolute md:top-1/2 md:left-1/2 top-[48%] left-[45%]"
+        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
         on:click={() => playPause()}
         id="playpause"
         />
@@ -119,7 +119,7 @@
     >
       <source src={trialVideo} type="video/mp4" />
     </video>
-    <div bind:this={videoControls} id="video-controls" class="absolute top-[94%] md:left-[5%] left-[10%]">
+    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-10">
       
         <div class=" relative">
           <progress
@@ -130,7 +130,7 @@
             value="0"
             min="0"
           >
-            <span id="progress-bar"/>
+          <span bind:this={progressBar} id="progress-bar" />
           </progress>
           <progress
             class="progress_1 absolute z-10"
@@ -140,7 +140,7 @@
             value="0"
             min="0"
           >
-            <span id="progress-bar" />
+          <span bind:this={progressBar1} id="progress-bar" />
           </progress>
         </div>
     </div>
@@ -151,15 +151,13 @@
   
   progress {
     border: none;
-    width: 80vw;
-    height: 1px;
-    background: white;
-    
-  }
-  @media (min-width: 768px) {
-    progress {
     width: 275px;
-    }  
+    height: 3px;
+    background: white;
+    border: solid;
+    border-width: 1px;
+    border-color: #020202;
+    
   }
 
   .progress_1 {
