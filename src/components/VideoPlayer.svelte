@@ -1,21 +1,20 @@
 <script lang="ts">
   import trialVideo from "../images/video.mp4";
   import { onMount } from "svelte";
-  let videoContainer: HTMLElement;
   let video: HTMLVideoElement;
   let videoControls: HTMLElement;
   let progress: HTMLProgressElement;
   let progress1: HTMLProgressElement;
-  let progressBar: HTMLElement;
-  let progressBar1: HTMLElement;
   let showPlay: Boolean = false;
   let showPause: Boolean = false;
-  $: innerWidth = 0
-  $: innerHeight = 0
+  
+  $: outerWidth = 0
+  let leftOffset = outerWidth - 275;
+
   import play from '../images/play.svg';
   import pause from '../images/pause.svg';
   onMount(() => {
-    console.log(innerWidth)
+  
     const supportsVideo = !!document.createElement("video").canPlayType;
     if (supportsVideo) {
       video.controls = false;
@@ -79,15 +78,14 @@
     video.currentTime = pos1 * video.duration;
   };
 </script>
-<svelte:window bind:innerWidth />
+<svelte:window bind:outerWidth/>
 <main
   class="bg-[#020202] w-full h-screen grid justify-items-center content-center"
 >
-  <!-- svelte-ignore a11y-media-has-caption -->
 
   <figure
-    
-    bind:this={videoContainer}
+    class="fixed bottom-0 left-0 min-w-full min-h-full"
+
     id="videoContainer"
     on:mouseenter={() => showButton()}
     on:mouseleave={() => hideButton()}
@@ -97,18 +95,19 @@
       <img
       src={play}
       alt="play"
-        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
+        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[45%]"
         on:click={() => playPause()}
         id="playpause">
     {:else if showPause}  
     <img
         src={pause}
         alt="pause"
-        class="z-10 cursor-pointer  absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
+        class="z-10 cursor-pointer  absolute md:top-1/2 md:left-1/2 top-[48%] left-[45%]"
         on:click={() => playPause()}
         id="playpause"
         />
     {/if}
+    <!-- svelte-ignore a11y-media-has-caption -->
     <video
     playsinline
     class="fixed bottom-0 left-0 min-w-full min-h-full"
@@ -121,7 +120,7 @@
     >
       <source src={trialVideo} type="video/mp4" />
     </video>
-    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-10">
+    <div bind:this={videoControls} id="video-controls" class="absolute top-[94%] md:left-[5%] left-[10%]">
       
         <div class=" relative">
           <progress
@@ -132,7 +131,7 @@
             value="0"
             min="0"
           >
-            <span bind:this={progressBar} id="progress-bar" />
+            <span id="progress-bar"/>
           </progress>
           <progress
             class="progress_1 absolute z-10"
@@ -142,7 +141,7 @@
             value="0"
             min="0"
           >
-            <span bind:this={progressBar1} id="progress-bar" />
+            <span id="progress-bar" />
           </progress>
         </div>
     </div>
@@ -150,14 +149,18 @@
 </main>
 
 <style>
+  
   progress {
     border: none;
-    width: 275px;
-    height: 3px;
+    width: 80vw;
+    height: 2px;
     background: white;
-    border: solid;
-    border-width: 1px;
-    border-color: #020202;
+    
+  }
+  @media (min-width: 768px) {
+    progress {
+    width: 275px;
+    }  
   }
 
   .progress_1 {
