@@ -84,7 +84,6 @@
 >
 
   <figure
-    class="fixed bottom-0 left-0 min-w-full min-h-full"
 
     id="videoContainer"
     on:mouseenter={() => showButton()}
@@ -153,7 +152,7 @@
   progress {
     border: none;
     width: 80vw;
-    height: 2px;
+    height: 1px;
     background: white;
     
   }
