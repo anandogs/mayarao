@@ -60,7 +60,7 @@
     backgroundColour = "#000000";
   };
 </script>
-
+<div class="h-screen overflow-hidden" style={`background-color: ${backgroundColour};`}>
 <menu style={`background-color: ${backgroundColour};`}>
   <div class="menu_container">
     <div
@@ -279,11 +279,13 @@
     </div>
   </div>
 </menu>
-
+</div>
 <style>
   menu {
+    /* min-height: 100vh; */
     height: 1024px;
-    width: 100vw;
+    /* overflow: hidden; */
+    /* width: 100vw; */
   }
   p {
     padding-top: 10px;

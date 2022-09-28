@@ -2,10 +2,10 @@ import { map, atom } from 'nanostores';
 
 
 export const isTheatreProgramOpen = map({
-    stage: 1,
+    stage: 2,
 })
 
-export const heiretikos = atom(false)
+export const heiretikos = atom(true)
 export const igloo = atom(false)
 export const razia = atom(false)
 export const sciva = atom(false)

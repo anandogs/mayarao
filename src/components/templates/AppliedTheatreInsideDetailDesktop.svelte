@@ -1,4 +1,6 @@
 <script lang="ts">
+  import CarouselDesktop from "../CarouselDesktop.svelte";
+
   export let title: String;
 </script>
 
@@ -44,6 +46,9 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
+</div>
+<div class="absolute left-0 -translate-x-[75px] pb-[100px]">
+<CarouselDesktop slideshowWidth={2650}/>
 </div>
 </div>
 

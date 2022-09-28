@@ -161,15 +161,18 @@
   }
 
   .slider-box {
+    transform: translateX(75px);
     display: flex;
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
     padding-top: 70px;
     padding-left: 78px;
   }
 
   .slider-chevron {
+    cursor: pointer;
     display: flex;
+    z-index: 20;
     column-gap: 50px;
     padding-top: 70px;
     padding-right: 80px;

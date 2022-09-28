@@ -4,13 +4,13 @@ import Layout from "../layouts/Layout.astro";
 import VideoPlayer from "../components/VideoPlayer.svelte";
 import Navbar from "../components/Navbar.svelte";
 import AudioPlayer from "../components/AudioPlayer.svelte";
-import CarouselDesktop from "../components/CarouselDesktop.svelte";
+import CarouselDesktopFullscreen from "../components/CarouselDesktopFullscreen.svelte";
 ---
 
 <Layout title="carouselTest">
     <div class="">
     <Navbar menuPage={true} email={false} darkMode={true} closeUrl={'/'} client:load />
-        <CarouselFullScreen numberOfSlides={10} client:load />
+        <CarouselDesktopFullscreen numberOfSlides={10} client:load />
     
     <!-- <VideoPlayer client:load /> -->
         <!-- <AudioPlayer client:load/> -->
