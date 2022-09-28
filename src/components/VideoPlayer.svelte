@@ -119,9 +119,9 @@
     >
       <source src={trialVideo} type="video/mp4" />
     </video>
-    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-10">
+    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-1/2 -translate-x-[137.5px]">
       
-        <div class=" relative">
+        <div class="relative">
           <progress
             class=" absolute"
             on:click={(e) => skipAhead(e)}

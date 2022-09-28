@@ -3,6 +3,7 @@
   export let menuPage:boolean;
   export let darkMode:boolean;
   export let email:boolean = true;
+  export let closeUrl:string = "back";
 
 
 	let clicked = false;
@@ -22,6 +23,14 @@
 				});
 		}
 	};
+  const navgigateTo = () => {
+    if (closeUrl === "back") {
+
+      window.history.back();
+    } else {
+      window.location.href = closeUrl;
+    }
+  }
 
 
 </script>
@@ -34,7 +43,7 @@
     <div class="flex gap-x-5">
     {#if menuPage}
       <div>
-      <button style={darkMode?";":"border-color:#020202; color:#020202"} on:click={()=>history.back()}>close</button>
+      <button style={darkMode?";":"border-color:#020202; color:#020202"} on:click={()=>navgigateTo()}>close</button>
     </div>
     {:else}
     <a href="/menu">
