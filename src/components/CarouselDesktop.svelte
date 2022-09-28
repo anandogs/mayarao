@@ -1,36 +1,38 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  export let numberOfSlides: number;
-  import chevronLeft from '../images/chevron_left.svg';
-  import chevronRight from '../images/chevron_right.svg';
+  export let slideshowWidth: number;
+  import chevronLeft from "../images/chevron_left.svg";
+  import chevronRight from "../images/chevron_right.svg";
+  import LM1 from "../images/applied_theatre/slideshow/LM1.png";
+  import LM2 from "../images/applied_theatre/slideshow/LM2.png";
+  import LM3 from "../images/applied_theatre/slideshow/LM3.png";
+  import LM4 from "../images/applied_theatre/slideshow/LM4.png";
+  import LM5 from "../images/applied_theatre/slideshow/LM6.png";
+  import playButton from "../images/play.svg";
+  import AudioPlayer from "./AudioPlayer.svelte";
 
-  let currentSlide = 1;
-  
-
+  let currentSlide: number = 1;
+  let numberOfSlides: number;
+  let slidesToShow: number;
 
   onMount(() => {
-    const images = document.querySelectorAll(".carousel-slide");
-    let observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            currentSlide = parseInt(entry.target.id.split("-")[1]);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    images.forEach((image) => {
-      observer.observe(image);
-    });
+    const calculateNumberOfSlides = () => {
+      let windowWidth = window.innerWidth;
+      let slideRatio = slideshowWidth / windowWidth;
+      let roundedSlideRatio = Math.round(slideRatio);
+      if (roundedSlideRatio < slideRatio) {
+        roundedSlideRatio += 1;
+      }
+      return roundedSlideRatio;
+    };
+    numberOfSlides = calculateNumberOfSlides();
+    slidesToShow = numberOfSlides - 1;
   });
 
   const toggleSlide = (direction: string) => {
     if (direction === "left") {
       if (currentSlide === 1) {
         currentSlide = numberOfSlides;
-        
-        
       } else {
         currentSlide--;
       }
@@ -43,92 +45,96 @@
     }
     let slideId = `slide-${currentSlide}`;
     document.getElementById(slideId)!.scrollIntoView({
-  behavior: 'smooth'
-});
+      behavior: "smooth",
+    });
   };
 </script>
 
 <div class="slider">
   <div class="slides">
-    {#each Array(numberOfSlides) as _, i}
-      <div class="carousel-slide" id={`slide-${i + 1}`}>
-        {i + 1}
+    <div class="carousel-slide" id="slide-1">
+      <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
+        <img
+          src={LM1}
+          alt="slide 1"
+          width="759px"
+          class="absolute top-0 left-0"
+        />
+        <img
+          src={LM2}
+          alt="slide 1"
+          width="418px"
+          class="absolute top-[50px] left-[759px]"
+        />
+
+        <img
+          src={LM4}
+          alt="slide 1"
+          width="759px"
+          class="absolute top-0 left-[1177px]"
+        />
+
+        <img
+          src={LM5}
+          alt="slide 1"
+          width="715px"
+          class="absolute top-[70px] left-[1936px]"
+        />
+
+        <div class="top-[520px] left-[93px] absolute w-full">
+          <AudioPlayer />
+        </div>
+        <a href="/video">
+          <div class="absolute top-[480px] left-[298px]">
+            <div class="relative w-full">
+              <img src={LM3} alt="slide 1" width="751px" />
+              <img
+                src={playButton}
+                alt="play button"
+                class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+              />
+            </div>
+          </div>
+        </a>
       </div>
+    </div>
+
+    {#each Array(slidesToShow) as _, i}
+      <div class="carousel-slide" id={`slide-${i + 2}`} />
     {/each}
   </div>
   <div class="flex">
-  <div class="slider-box">
-    <a
-      style={currentSlide === 1 ? "color:#000;" : ""}
-      href="#slide-1"
-      class={currentSlide === 1 ? "first-selected" : "first-unselected"}>01</a
-    >
-    <a
-      style={currentSlide === 2
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-2">02</a
-    >
-    <a
-      style={currentSlide === 3
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-3">03</a
-    >
-    <a
-      style={currentSlide === 4
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-4">04</a
-    >
-    <a
-      style={currentSlide === 5
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-5">05</a
-    >
-    <a
-      style={currentSlide === 6
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-6">06</a
-    >
-    <a
-      style={currentSlide === 7
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-7">07</a
-    >
-    <a
-      style={currentSlide === 8
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-8">08</a
-    >
-    <a
-      style={currentSlide === 9
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-9">09</a
-    >
-
-    <a
-      style={currentSlide === 10 ? "color:#000;" : ""}
-      href="#slide-10"
-      class={currentSlide === 10 ? "last-selected" : "last-unselected"}>10</a
-    >
+    <div class="slider-box">
+      {#each Array(numberOfSlides) as _, i}
+        <a
+          href={`#slide-${i + 1}`}
+          id={`slider-${i + 1}`}
+          class="slider-dot"
+          style={i + 1 === currentSlide
+            ? "color: #000; border-bottom-color:#020202"
+            : ""}
+          on:click={() => (currentSlide = i + 1)}>{`0${i + 1}`}</a
+        >
+      {/each}
+    </div>
+    <div class="slider-chevron">
+      <img
+        src={chevronLeft}
+        alt="chevron left"
+        on:click={() => toggleSlide("left")}
+      />
+      <img
+        src={chevronRight}
+        alt="chevron right"
+        on:click={() => toggleSlide("right")}
+      />
+    </div>
   </div>
-  <div class="slider-chevron">
-    <img src={chevronLeft} alt="chevron left" on:click={() => toggleSlide("left")}/>
-    <img src={chevronRight} alt="chevron right" on:click={() => toggleSlide("right")}/>
-  </div>
-</div>
 </div>
 
 <style>
   .slider {
     width: 100vw;
-    
   }
 
   .slides {
@@ -143,12 +149,11 @@
     display: none;
   }
 
-  .slides > div {
+  .carousel-slide {
     scroll-snap-align: start;
     flex-shrink: 0;
     width: 100vw;
-    height: 870px;
-    background: #c4c4c4;
+    height: 860px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,7 +165,7 @@
     width: 100%;
     justify-content: start;
     padding-top: 70px;
-    padding-left:78px
+    padding-left: 78px;
   }
 
   .slider-chevron {
@@ -182,71 +187,6 @@
     color: #c4c4c4;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-  }
-
-  .slider-box > a:active {
-    color: #000;
-  }
-
-  .last-unselected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected {
-    border-bottom-color: transparent;
-  }
-
-  .first-unselected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #000;
-    border-radius: 30px 30px;
-    transform: translateX(-0.3px);
-  }
-
-  .last-unselected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #c4c4c4;
-    border-radius: 0 30px 30px 0;
-  }
-
-  .first-selected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #000;
-    border-radius: 30px 30px;
-    transform: translateX(0.3px);
-  }
-
-  .first-unselected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #c4c4c4;
-    border-radius: 30px 0 0 30px;
+    border-bottom-color: #c4c4c4;
   }
 </style>

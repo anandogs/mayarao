@@ -94,14 +94,14 @@
       <img
       src={play}
       alt="play"
-      class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
+      class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
         on:click={() => playPause()}
         id="playpause">
     {:else if showPause}  
     <img
         src={pause}
         alt="pause"
-        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[48%] left-[40%]"
+        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
         on:click={() => playPause()}
         id="playpause"
         />

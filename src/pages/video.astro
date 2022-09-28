@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoPlayer from "../components/VideoPlayer.svelte";
+import Navbar from "../components/Navbar.svelte";
+---
+
+<Layout title="Video Player">
+    <div>
+    <Navbar menuPage={true} email={false} darkMode={true} client:load />
+    <VideoPlayer client:load />
+</div>
+</Layout>
