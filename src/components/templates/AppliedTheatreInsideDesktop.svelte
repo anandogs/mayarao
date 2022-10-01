@@ -82,6 +82,8 @@ import {
         cursor: pointer;
     }
     .drawer {
+      margin-left: 5%;
+      margin-right: 5%;
          display: flex;
          column-gap: 30px;
          flex-wrap: wrap; 
@@ -89,10 +91,12 @@ import {
     }
     .border_bottom_large {
     display: block;
-    width: 100%;
+    width: 90%;
     border-bottom: 1px;
     border-bottom-color: #020202;
     border-bottom-style: solid;
-    margin-bottom: 50px;    
+    margin-bottom: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 </style>

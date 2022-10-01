@@ -47,7 +47,7 @@
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
 </div>
-<div class="absolute left-0 -translate-x-[75px] pb-[100px]">
+<div class="pb-[100px]">
 <CarouselDesktop slideshowWidth={2650}/>
 </div>
 </div>
@@ -55,6 +55,7 @@
 <style>
     h3{
         text-transform: lowercase;
+        margin-left: 5%;
     }
   .credit {
     font-size: 13px;
@@ -71,12 +72,14 @@
     border-top: 1px solid #020202;
     border-bottom: 1px solid #020202;
     padding: 30px 0;
+    margin-left: 5%;
   }
   .project_description {
     display: grid;
     row-gap: 15px;
     width: 484px;
     margin-bottom: 50px ;
+    margin-left: 5%;
   }
   
 </style>

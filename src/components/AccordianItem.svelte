@@ -1,6 +1,11 @@
 <script lang="ts">
+  import type { WritableAtom } from "nanostores";
+
+
   export let toggleItem: any;
-  import { allItems } from "./stores/aboutStore";
+  export let marginTop: number = 24
+  export let allItems:WritableAtom[]
+  
   const handleClick = () => {
     for (const item of allItems) {
       if (item !== toggleItem) {
@@ -11,7 +16,7 @@
   };
 </script>
 
-<header on:click={() => handleClick()} style={"display: grid; justify-content:center;"}>
+<header on:click={() => handleClick()} >
   <slot name="heading" />
 </header>
 {#if $toggleItem}
@@ -19,10 +24,7 @@
     <slot name="content"/>
   </div>
 {/if}
-<div class="border-b border-[#020202] mt-6 w-[216px] m-auto"></div>
+<div class="border-b border-[#020202] w-[216px] lg:w-[90%] m-auto" style={`margin-top: ${marginTop}px`}></div>
 <style>
-    header {
-        display: grid;
-        justify-content: center;
-    }
+
 </style>

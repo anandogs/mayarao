@@ -43,98 +43,101 @@
         currentSlide++;
       }
     }
-    let slideId = `slide-${currentSlide}`;
+    let slideId = `desktop-slide-${currentSlide}`;
     document.getElementById(slideId)!.scrollIntoView({
       behavior: "smooth",
     });
   };
 </script>
 
-<div class="slider">
-  <div class="slides">
-    <div class="carousel-slide" id="slide-1">
-      <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
-        <img
-          src={LM1}
-          alt="slide 1"
-          width="759px"
-          class="absolute top-0 left-0"
-        />
-        <img
-          src={LM2}
-          alt="slide 1"
-          width="418px"
-          class="absolute top-[50px] left-[759px]"
-        />
 
-        <img
-          src={LM4}
-          alt="slide 1"
-          width="759px"
-          class="absolute top-0 left-[1177px]"
-        />
+  <div class="slider">
+    <div class="slides">
+      <div class="carousel-slide" id="desktop-slide-1">
+        <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
+          <img
+            src={LM1}
+            alt="slide 1"
+            width="759px"
+            class="absolute top-0 left-0"
+          />
+          <img
+            src={LM2}
+            alt="slide 1"
+            width="418px"
+            class="absolute top-[50px] left-[759px]"
+          />
 
-        <img
-          src={LM5}
-          alt="slide 1"
-          width="715px"
-          class="absolute top-[70px] left-[1936px]"
-        />
+          <img
+            src={LM4}
+            alt="slide 1"
+            width="759px"
+            class="absolute top-0 left-[1177px]"
+          />
 
-        <div class="top-[520px] left-[93px] absolute w-full">
-          <AudioPlayer />
-        </div>
-        <a href="/video">
-          <div class="absolute top-[480px] left-[298px]">
-            <div class="relative w-full">
-              <img src={LM3} alt="slide 1" width="751px" />
-              <img
-                src={playButton}
-                alt="play button"
-                class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
-              />
-            </div>
+          <img
+            src={LM5}
+            alt="slide 1"
+            width="715px"
+            class="absolute top-[70px] left-[1936px]"
+          />
+
+          <div class="top-[520px] left-[93px] absolute w-full">
+            <AudioPlayer />
           </div>
-        </a>
+          <a href="/video">
+            <div class="absolute top-[480px] left-[298px]">
+              <div class="relative w-full">
+                <img src={LM3} alt="slide 1" width="751px" />
+                <img
+                  src={playButton}
+                  alt="play button"
+                  class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+                />
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
-    {#each Array(slidesToShow) as _, i}
-      <div class="carousel-slide" id={`slide-${i + 2}`} />
-    {/each}
-  </div>
-  <div class="flex">
-    <div class="slider-box">
-      {#each Array(numberOfSlides) as _, i}
-        <a
-          href={`#slide-${i + 1}`}
-          id={`slider-${i + 1}`}
-          class="slider-dot"
-          style={i + 1 === currentSlide
-            ? "color: #000; border-bottom-color:#020202"
-            : ""}
-          on:click={() => (currentSlide = i + 1)}>{`0${i + 1}`}</a
-        >
+      {#each Array(slidesToShow) as _, i}
+        <div class="carousel-slide" id={`desktop-slide-${i + 2}`} />
       {/each}
     </div>
-    <div class="slider-chevron">
-      <img
-        src={chevronLeft}
-        alt="chevron left"
-        on:click={() => toggleSlide("left")}
-      />
-      <img
-        src={chevronRight}
-        alt="chevron right"
-        on:click={() => toggleSlide("right")}
-      />
+    <div class="flex">
+      <div class="slider-box">
+        {#each Array(numberOfSlides) as _, i}
+          <a
+            href={`#desktop-slide-${i + 1}`}
+            id={`slider-${i + 1}`}
+            class="slider-dot"
+            style={i + 1 === currentSlide
+              ? "color: #000; border-bottom-color:#020202"
+              : ""}
+            on:click={() => (currentSlide = i + 1)}>{`0${i + 1}`}</a
+          >
+        {/each}
+      </div>
+      <div class="slider-chevron">
+        <img
+          src={chevronLeft}
+          alt="chevron left"
+          on:click={() => toggleSlide("left")}
+        />
+        <img
+          src={chevronRight}
+          alt="chevron right"
+          on:click={() => toggleSlide("right")}
+        />
+      </div>
     </div>
   </div>
-</div>
 
 <style>
+
   .slider {
     width: 100vw;
+    max-width:100%;
   }
 
   .slides {
@@ -192,4 +195,5 @@
     border-bottom-style: solid;
     border-bottom-color: #c4c4c4;
   }
+
 </style>

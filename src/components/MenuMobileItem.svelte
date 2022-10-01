@@ -2,6 +2,7 @@
     export let category:string;
     export let imgWidth:string;
     export let img:string;
+    export let url:string = '/menu'
 
 
   interface hoverType {
@@ -27,7 +28,7 @@
 
 </script>
 
-<a href="/menu">
+<a href={url}>
     <img
       src={img}
       style={`${hoveredStates[category] ? "filter: brightness(0) invert(1);" : ""}`}

@@ -2,55 +2,59 @@
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.svelte";
 import appliedTheatre from "../../images/menu/applied_theatre.svg";
-import AppliedTheatreTop from '../../components/templates/AppliedTheatreTop.svelte'
-import landingImage from '../../images/applied_theatre/landing.jpg'
+import AppliedTheatreTop from "../../components/templates/AppliedTheatreTop.svelte";
+import landingImage from "../../images/applied_theatre/landing.jpg";
 ---
 
 <Layout title="Applied Theatre">
-  <main>
+  <main class="overflow-x-hidden m-0 p-0">
     <div class="hidden lg:block">
-    <Navbar menuPage={false} darkMode={true} client:load />
-  </div>
-  <div class="lg:hidden">
-    <Navbar menuPage={false} darkMode={false} client:load />
-  </div>
-    <div class="hidden lg:block ">
-      <img class="" src={landingImage} alt="Landing Image">
+      <Navbar menuPage={false} darkMode={true} client:load />
+    </div>
+    <div class="lg:hidden">
+      <Navbar menuPage={false} darkMode={false} client:load />
+    </div>
+    <div class="hidden lg:block">
+      <img class="" src={landingImage} alt="Landing Image" />
     </div>
 
     <section>
-      <img
-        src={appliedTheatre}
-        alt="applied theatre"
-        width="261.14px"
-        height="36.24px"
-      />
-      <div class="page_description">
-        <p>
-          Over the years, Maya has engaged with Applied Theatre in various ways.
-        </p>
-        <p>
-          Starting with street theatre in the 1970's she went on to work with a
-          community theatre and theatre-in-education company in England in the
-          80's. Through the 90's she devised participatory theatre programmes
-          with the National School of Drama Theatre-in-Education Company in
-          Delhi. Alongside she conducted workshops for school teachers on drama
-          as a teaching methodology in the classroom.
-        </p>
-        <p>
-          She was appointed to a 3-member committee to design a drama syllabus
-          across all classes by the state educational authority. Later, as
-          professor at Shiv Nadar University, she designed a post graduate
-          Diploma programme, TEST - Theatre for Education and Social
-          Transformation - a first of its kind in India.
-        </p>
-        <p>
-          2012 onwards Maya has been a regular presence on the street and other
-          non-theatre venues with performances around issues of social concern.
-        </p>
+      <div class="margin-desktop">
+        <img
+          src={appliedTheatre}
+          alt="applied theatre"
+          width="261.14px"
+          height="36.24px"
+        />
+        <div class="page_description">
+          <p>
+            Over the years, Maya has engaged with Applied Theatre in various
+            ways.
+          </p>
+          <p>
+            Starting with street theatre in the 1970's she went on to work with
+            a community theatre and theatre-in-education company in England in
+            the 80's. Through the 90's she devised participatory theatre
+            programmes with the National School of Drama Theatre-in-Education
+            Company in Delhi. Alongside she conducted workshops for school
+            teachers on drama as a teaching methodology in the classroom.
+          </p>
+          <p>
+            She was appointed to a 3-member committee to design a drama syllabus
+            across all classes by the state educational authority. Later, as
+            professor at Shiv Nadar University, she designed a post graduate
+            Diploma programme, TEST - Theatre for Education and Social
+            Transformation - a first of its kind in India.
+          </p>
+          <p>
+            2012 onwards Maya has been a regular presence on the street and
+            other non-theatre venues with performances around issues of social
+            concern.
+          </p>
+        </div>
+        <div class="hidden lg:block w-full border-b border-b-[#020202]"></div>
       </div>
-      <div class="hidden lg:block w-full border-b border-b-[#020202] "/>
-      <AppliedTheatreTop client:load/>
+      <AppliedTheatreTop client:load />
     </section>
   </main>
 </Layout>
@@ -58,6 +62,11 @@ import landingImage from '../../images/applied_theatre/landing.jpg'
 <style>
   section {
     margin-top: 141px;
+    display: grid;
+    row-gap: 30px;
+    justify-items: center;
+  }
+  .margin-desktop {
     display: grid;
     row-gap: 30px;
     justify-items: center;
@@ -71,17 +80,26 @@ import landingImage from '../../images/applied_theatre/landing.jpg'
   }
   @media (min-width: 1024px) {
     section {
-      margin-left: 75px;
-      margin-right: 75px;
+      margin-top: 40px;
+      /* margin-left: 75px; */
+      /* margin-right: 75px; */
       justify-items: start;
-    }
-    .page_description {
-      text-align: start;
-      margin-left: 0;
-
     }
     p {
       width: 484px;
+    }
+    .margin-desktop {
+      margin-left: 5%;
+      margin-right: 5%;
+      display: grid;
+      row-gap: 48px;
+      width: 90%;
+    }
+
+    .page_description {
+      text-align: start;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 </style>

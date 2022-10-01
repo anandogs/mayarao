@@ -115,7 +115,9 @@
     }
     .border_bottom_large {
     display: block;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     border-bottom: 1px;
     border-bottom-color: #020202;
     border-bottom-style: solid;
@@ -126,6 +128,7 @@
       font-size: 28px;
       text-align: start;
       line-height: 36.4px;
+      margin-left: 5%;
     }
     .second_stage {
       line-height: 36.4px;

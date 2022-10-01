@@ -39,13 +39,13 @@
   <div style="transform: translateY(12px);"><MenuMobileItem category="productions" imgWidth="210px" img={productions}/></div>
   <MenuMobileItem category="comedy" imgWidth="119.89px" img={comedy}/>
   <MenuMobileItem category="street" imgWidth="118px" img={street} />
-  <MenuMobileItem category="appliedTheatre" imgWidth="261.14px" img={appliedTheatre}/>
+  <MenuMobileItem category="appliedTheatre" imgWidth="261.14px" img={appliedTheatre} url={'/applied-theatre'}/>
   <MenuMobileItem category="kathakali" imgWidth="174.77px" img={kathakali} />
   <MenuMobileItem category="making" imgWidth="130.85px" img={making} />
   <MenuMobileItem category="teaching" imgWidth="163.8px" img={teaching} />
   <MenuMobileItem category="digitalCreations" imgWidth="275.63px" img={digitalCreations} />
   <MenuMobileItem category="events" imgWidth="99px" img={events} />
-  <MenuMobileItem category="about" imgWidth="108.24px" img={about} />
+  <MenuMobileItem category="about" imgWidth="108.24px" img={about} url={'/about'}/>
 
 
 </menu>

@@ -12,12 +12,15 @@
   
   import {soloGroupCreationsData} from "./stores/soloGroupCreationsData"
   import { theatreInEducationData } from "./stores/theatreInEducationData";
+
+  import { allItems } from "./stores/aboutStore";
+
 </script>
 
 <section class="grid gap-y-10">
   <div>
-    <AccordianItem toggleItem={isSoloGroupCreationsOpen}>
-      <div slot="heading" class="cursor-pointer">
+    <AccordianItem toggleItem={isSoloGroupCreationsOpen} allItems={allItems}>
+      <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={soloGroupCreations}
           class="w-[258px] h-[45.77px]"
@@ -45,8 +48,8 @@
     </AccordianItem>
   </div>
   <div>
-    <AccordianItem toggleItem={isTheatreInEducationOpen}>
-      <div slot="heading" class="cursor-pointer">
+    <AccordianItem toggleItem={isTheatreInEducationOpen} allItems={allItems}>
+      <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={theatreInEducation}
           class="w-[236.54px] h-[32.38px]"
@@ -108,8 +111,8 @@
     </AccordianItem>
   </div>
   <div>
-    <AccordianItem toggleItem={isKathakaliOpen}>
-      <div slot="heading" class="cursor-pointer">
+    <AccordianItem toggleItem={isKathakaliOpen} allItems={allItems}>
+      <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={kathakali}
           class="w-[114.58px] h-[31.25px]"

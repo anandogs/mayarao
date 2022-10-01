@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import making from "../../images/making/making.svg";
+import MakingAccordian from "../../components/MakingAccordian.svelte";
+import landingImage from "../../images/applied_theatre/landing.jpg";
+---
+
+<Layout title="Making">
+  <main class="overflow-x-hidden m-0 p-0">
+    <div class="hidden lg:block">
+      <Navbar menuPage={false} darkMode={true} client:load />
+    </div>
+    <div class="lg:hidden">
+      <Navbar menuPage={false} darkMode={false} client:load />
+    </div>
+    <div class="hidden lg:block">
+      <img class="" src={landingImage} alt="Landing Image" />
+    </div>
+    <div class="making">
+      <img src={making} alt="Making" class="w-[130.85px] h-[38.79px]" />
+      <p>
+        Maya makes her own shows, she has no director. Each show seems to follow
+        a different process of making. She often invites other artists - sound,
+        film, space designers - to improvise with her. For comedy, she may put
+        together a far-out costume, wear it and begin an improvisation, or else
+        pick up a statement from anywhere - usually the morning newspapers - and
+        create a situation around it.
+      </p>
+      <div class="bottom-border"/>
+    </div>
+    <div class="accordian">
+    <MakingAccordian client:load/>
+</div>
+  </main>
+</Layout>
+<style>
+  .making {
+    display: grid;
+    margin-top: 138px;
+    justify-items: center;
+    margin-left: 19px;
+    margin-right: 19px;
+    text-align: center;
+    row-gap: 28.66px;
+  }
+  .accordian {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin-top:43.55px
+  }
+  .bottom-border {
+   display: none;
+  }
+
+  @media (min-width:1024px) {
+    .making {
+      margin-top: 34px;
+      margin-left: 5%;
+      margin-right: 5%;
+      justify-items: flex-start;
+      text-align: left;    
+      row-gap: 50px;
+    }
+    p {
+      width:484px;
+    }
+    .accordian {
+      margin-top: 0px;
+    }
+    .bottom-border {
+   display: block;
+   border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #020202;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  }
+
+</style>
