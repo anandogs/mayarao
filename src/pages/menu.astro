@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.svelte";
 import MenuDesktop from "../components/MenuDesktop.svelte";
 import MenuMobile from "../components/MenuMobile.svelte";
+import Footer from "../components/Footer.svelte";
 ---
 
 <Layout title="Menu">
@@ -14,5 +15,6 @@ import MenuMobile from "../components/MenuMobile.svelte";
     <div class="hidden lg:block">
     <MenuDesktop client:load />
     </div>
+    <Footer />
   </div>
 </Layout>
