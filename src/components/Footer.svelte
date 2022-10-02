@@ -1,5 +1,21 @@
 <script lang="ts">
   import logo from "../images/logo.svg";
+  let clicked = false;
+  let copyEmail = () => {
+    if (typeof window != "undefined") {
+      navigator.clipboard
+        .writeText("mayamaze@gmail.com")
+        .then(() => {
+          clicked = true;
+          setTimeout(() => {
+            clicked = false;
+          }, 2000);
+        })
+        .catch(() => {
+          location.href = "mailto:mayamaze@gmail.com";
+        });
+    }
+  };
 </script>
 
 <footer>
@@ -9,11 +25,17 @@
   <div class="footer-wrapper-desktop">
     <div class="footer-items">
       <div>
-        <button>email maya</button>
+        <button on:click={copyEmail}>
+          {#if clicked}
+            copied!
+          {:else}
+            email maya
+          {/if}
+        </button>
       </div>
-      <div>
+      <a href="/about">
         <button>about maya</button>
-      </div>
+      </a>
       <div class="footer-copyright">
         <h4>copyright 2022 maya krishna rao/ vismayah productions</h4>
         <div class="dot">
@@ -33,9 +55,9 @@
       </div>
     </div>
     <div class="website-by-desktop">
-        <h4>website by</h4>
-        <button>tide x tide</button>
-      </div>
+      <h4>website by</h4>
+      <button>tide x tide</button>
+    </div>
   </div>
 </footer>
 
@@ -60,7 +82,7 @@
     text-align: center;
     row-gap: 25px;
   }
-   h4 {
+  h4 {
     width: 208px;
     font-weight: 469;
     font-size: 10px;
@@ -89,7 +111,6 @@
 
   @media (min-width: 1024px) {
     footer {
-
       justify-content: start;
       justify-items: start;
       padding: 0 75px 74px 75px;
@@ -98,9 +119,9 @@
       margin: 59px 0px 38px 0px;
     }
     .footer-wrapper-desktop {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
     .footer-items {
       display: flex;
@@ -122,16 +143,14 @@
       display: none;
     }
     .website-by-desktop {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    column-gap: 10px;
-  }
-  .website-by-desktop h4 {
-    margin-left: 10vw;
-    width: fit-content;
-    
-  }
-  
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      column-gap: 10px;
+    }
+    .website-by-desktop h4 {
+      margin-left: 10vw;
+      width: fit-content;
+    }
   }
 </style>

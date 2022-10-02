@@ -9,7 +9,6 @@
 	let clicked = false;
 	let copyEmail = () => {
 		if (typeof window != 'undefined') {
-      console.log(darkMode)
 			navigator.clipboard
 				.writeText('mayamaze@gmail.com')
 				.then(() => {
