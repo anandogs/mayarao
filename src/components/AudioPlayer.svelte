@@ -28,13 +28,13 @@ let showPause: boolean = false;
 
 </script>
 
-<div class="bg-black">
+<div class="bg-black cursor-pointer">
   <audio bind:this={audio} controls>
     <source src={soundtrack} type="audio/mpeg" />
   </audio>
 </div>
 {#if showManualControls}
-<div class="relative" on:click={() => playPause()}>
+<div class="relative cursor-pointer" on:click={() => playPause()}>
     {#if showPlay}
   <img src={playButton} alt="Play" class="absolute"/>
     {/if}

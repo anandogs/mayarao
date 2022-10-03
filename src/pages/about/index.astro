@@ -4,15 +4,25 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.svelte";
 import about from "../../images/menu/about.svg";
 import AboutAccordian from "../../components/AboutAccordian.svelte";
+import Footer from "../../components/Footer.svelte";
+import landingImage from '../../images/landing_image_template.png';
 ---
 
 <Layout title="Maya's site">
   <main class="about">
+    <div class="lg:hidden">
     <Navbar menuPage={false} darkMode={false} client:load />
-    <div class="mt-[150px] grid justify-items-center mx-6">
-      <div class="grid justify-items-center gap-y-8 mb-12">
-        <img src={about} class="w-[108.24px] h-[28.14px]" />
-        <div>
+  </div>
+  <div class="hidden lg:block">
+    <Navbar menuPage={false} darkMode={true} client:load />
+  </div>
+  <div class="hidden lg:block w-screen">
+  <img src={landingImage} alt="landing image for about page">
+</div>
+    <div class="mt-[150px] lg:mt-[45px] grid justify-items-center lg:justify-items-start mx-6 lg:mx-0">
+      <div class="grid justify-items-center lg:justify-items-start gap-y-8 mb-12">
+        <img src={about} class="w-[108.24px] h-[28.14px] lg:mx-[20%]" />
+        <div class="lg:mx-[20%]">
           <p>Maya Krishna Rao</p>
           <p>April 18, 1953</p>
           <p>D-9, Landscape City, Porvorim, Goa, India 403521</p>
@@ -21,7 +31,9 @@ import AboutAccordian from "../../components/AboutAccordian.svelte";
       </div>
       <AboutAccordian client:load/>
     </div>
+    
   </main>
+  <Footer client:load />
 </Layout>
 
 <style>
@@ -38,5 +50,19 @@ import AboutAccordian from "../../components/AboutAccordian.svelte";
   }
   h4 {
     color: #992965;
+  }
+  @media (min-width: 1024px) {
+    .about {
+      display: grid;
+      justify-content: start;
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 0px;
+      padding-right: ;
+      
+    }
+    p {
+      text-align: left;
+    }
   }
 </style>

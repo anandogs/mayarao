@@ -24,7 +24,6 @@
 	};
   const navgigateTo = () => {
     if (closeUrl === "back") {
-
       window.history.back();
     } else {
       window.location.href = closeUrl;

@@ -17,21 +17,21 @@
 
 </script>
 
-<section class="grid gap-y-10">
+<section class="grid gap-y-10 w-full">
   <div>
     <AccordianItem toggleItem={isSoloGroupCreationsOpen} allItems={allItems}>
       <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={soloGroupCreations}
-          class="w-[258px] h-[45.77px]"
+          class="w-[258px] lg:w-[407px] h-[45.77px] lg:h-[72.21px] lg:justify-self-start lg:mx-[5%]"
           alt="Solo Group Creations"
         />
       </div>
       <div slot="content" class="pt-2">
-        <h4 class="pb-[30px] text-center text-[#992965]">
+        <h4 class="pb-[30px] text-center text-[#992965] lg:hidden">
           devised, performed and directed
         </h4>
-        <div class="grid gap-y-6 text-center">
+        <div class="grid gap-y-6 text-center lg:mt-4 lg:text-left lg:mx-[5%] lg:w-[489px]">
           {#each soloGroupCreationsData as { heading, body }}
             <div>
               <p
@@ -52,12 +52,12 @@
       <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={theatreInEducation}
-          class="w-[236.54px] h-[32.38px]"
+          class="w-[236.54px] lg:w-[373.15px] h-[32.38px] lg:h-[51.08px] lg:justify-self-start lg:mx-[5%]"
           alt="Solo Group Creations"
         />
       </div>
       <div slot="content" class="pt-2">
-        <div class="grid gap-y-6 text-center pt-6">
+        <div class="grid gap-y-6 text-center lg:mt-4 lg:text-left lg:mx-[5%] lg:w-[489px]">
           <div>
             <p>
               <span
@@ -115,12 +115,12 @@
       <div slot="heading" class="cursor-pointer grid justify-items-center">
         <img
           src={kathakali}
-          class="w-[114.58px] h-[31.25px]"
+          class="w-[114.58px] lg:w-[180.75px] h-[31.25px] lg:h-[49.3px] lg:justify-self-start lg:mx-[5%]"
           alt="Kathakali"
         />
       </div>
       <div slot="content" class="pt-2">
-        <div class="grid gap-y-6 text-center pt-6">
+        <div class="grid gap-y-6 text-center lg:mt-4 lg:text-left lg:mx-[5%] lg:w-[489px]">
           
             <div>
           

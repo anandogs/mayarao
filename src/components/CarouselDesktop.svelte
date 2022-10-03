@@ -10,6 +10,7 @@
   import LM5 from "../images/applied_theatre/slideshow/LM6.png";
   import playButton from "../images/play.svg";
   import AudioPlayer from "./AudioPlayer.svelte";
+  import { isOverlappingDesktopCarousel } from '../components/stores/buttonStore';
 
   let currentSlide: number = 1;
   let numberOfSlides: number;
@@ -27,6 +28,28 @@
     };
     numberOfSlides = calculateNumberOfSlides();
     slidesToShow = numberOfSlides - 1;
+    const slideshowStart = document.getElementById("slideshow-start");
+
+
+    const slideshowOptions = {
+      threshold: 0.9
+      
+    }
+
+    const slideshowObserver = new IntersectionObserver((entry) => {
+          if (entry[0].boundingClientRect.y < 160){
+            isOverlappingDesktopCarousel.set(true);  
+          }
+          
+                else {
+          isOverlappingDesktopCarousel.set(false);
+        }
+
+    }, slideshowOptions);
+    if (slideshowStart) {
+      slideshowObserver.observe(slideshowStart);
+    }
+
   });
 
   const toggleSlide = (direction: string) => {
@@ -51,36 +74,42 @@
 </script>
 
 
-  <div class="slider">
+  <div class="slider" id="slideshow-start">
     <div class="slides">
       <div class="carousel-slide" id="desktop-slide-1">
         <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
+          <a href="/full-screen">
           <img
             src={LM1}
             alt="slide 1"
             width="759px"
             class="absolute top-0 left-0"
           />
+        </a>
+        <a href="/full-screen">
           <img
             src={LM2}
             alt="slide 1"
             width="418px"
             class="absolute top-[50px] left-[759px]"
           />
-
+        </a>
+        <a href="/full-screen">
           <img
             src={LM4}
             alt="slide 1"
             width="759px"
             class="absolute top-0 left-[1177px]"
           />
-
+        </a>
+        <a href="/full-screen">
           <img
             src={LM5}
             alt="slide 1"
             width="715px"
             class="absolute top-[70px] left-[1936px]"
           />
+        </a>
 
           <div class="top-[520px] left-[93px] absolute w-full">
             <AudioPlayer />
@@ -114,7 +143,9 @@
             style={i + 1 === currentSlide
               ? "color: #000; border-bottom-color:#020202"
               : ""}
-            on:click={() => (currentSlide = i + 1)}>{`0${i + 1}`}</a
+            on:click={() => {
+              (currentSlide = i + 1)
+              }}>{`0${i + 1}`}</a
           >
         {/each}
       </div>

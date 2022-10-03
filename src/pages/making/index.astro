@@ -4,10 +4,11 @@ import Navbar from "../../components/Navbar.svelte";
 import making from "../../images/making/making.svg";
 import MakingAccordian from "../../components/MakingAccordian.svelte";
 import landingImage from "../../images/applied_theatre/landing.jpg";
+import Footer from "../../components/Footer.svelte";
 ---
 
 <Layout title="Making">
-  <main class="overflow-x-hidden m-0 p-0">
+  <main class="overflow-x-hidden m-0 p-0 h-screen lg:h-full">
     <div class="hidden lg:block">
       <Navbar menuPage={false} darkMode={true} client:load />
     </div>
@@ -33,6 +34,7 @@ import landingImage from "../../images/applied_theatre/landing.jpg";
     <MakingAccordian client:load/>
 </div>
   </main>
+  <Footer client:load/>
 </Layout>
 <style>
   .making {

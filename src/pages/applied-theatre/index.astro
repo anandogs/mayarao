@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar.svelte";
 import appliedTheatre from "../../images/menu/applied_theatre.svg";
 import AppliedTheatreTop from "../../components/templates/AppliedTheatreTop.svelte";
 import landingImage from "../../images/applied_theatre/landing.jpg";
+import Footer from "../../components/Footer.svelte";
 ---
 
 <Layout title="Applied Theatre">
@@ -18,15 +19,16 @@ import landingImage from "../../images/applied_theatre/landing.jpg";
       <img class="" src={landingImage} alt="Landing Image" />
     </div>
 
-    <section>
+    <section >
       <div class="margin-desktop">
         <img
           src={appliedTheatre}
           alt="applied theatre"
           width="261.14px"
           height="36.24px"
+          class=" lg:justify-self-start"
         />
-        <div class="page_description">
+        <div class="page_description" >
           <p>
             Over the years, Maya has engaged with Applied Theatre in various
             ways.
@@ -56,6 +58,7 @@ import landingImage from "../../images/applied_theatre/landing.jpg";
       </div>
       <AppliedTheatreTop client:load />
     </section>
+  <Footer client:load/>
   </main>
 </Layout>
 
@@ -94,6 +97,7 @@ import landingImage from "../../images/applied_theatre/landing.jpg";
       display: grid;
       row-gap: 48px;
       width: 90%;
+      justify-content: start;
     }
 
     .page_description {

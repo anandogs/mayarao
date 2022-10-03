@@ -13,7 +13,7 @@
   import { allItems } from "./stores/makingStore";
 </script>
 
-<section class="grid gap-y-10">
+<section class="grid gap-y-10 lg:w-full">
   <div>
     <AccordianItem toggleItem={isImprovisationOpen} {allItems}>
       <div slot="heading" class="cursor-pointer heading">
@@ -74,7 +74,7 @@
     </AccordianItem>
   </div>
   <div>
-    <AccordianItem toggleItem={isCameraOpen} {allItems}>
+    <AccordianItem toggleItem={isCameraOpen} {allItems} lastItem={true}>
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={camera}
@@ -114,6 +114,12 @@
     display: grid;
     row-gap: 25px;
   }
+  .heading {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+  }
   @media (min-width: 1024px) {
     p {
       width: 484px;
@@ -122,8 +128,12 @@
       text-align: left;
     }
     .heading {
+      /* display: block; */
+      justify-content: start;
+      
       margin-left: 5%;
       margin-right: 5%;
+
     }
   }
 </style>

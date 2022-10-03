@@ -119,9 +119,9 @@
     >
       <source src={trialVideo} type="video/mp4" />
     </video>
-    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] md:left-[5%] left-1/2 -translate-x-[137.5px]">
+    <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] left-1/2 -translate-x-[137.5px] lg:left-[75px] lg:-translate-x-0">
       
-        <div class="relative">
+        <div class="relative cursor-pointer ">
           <progress
             class=" absolute"
             on:click={(e) => skipAhead(e)}
@@ -133,7 +133,7 @@
           <span bind:this={progressBar} id="progress-bar" />
           </progress>
           <progress
-            class="progress_1 absolute z-10"
+            class="progress_1 absolute z-10 cursor-pointer"
             on:click={(e) => skipAhead(e)}
             bind:this={progress1}
             id="progress"
