@@ -1,9 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  export let numberOfSlides: Number;
+  import type { itemListType } from "./stores/productionsStore"; 
+  export let data: itemListType | undefined;
+  let numberOfSlides: number = data?.images.length || 10;
 
   let currentSlide = 1;
-  let lastSlide = numberOfSlides;
 
   onMount(() => {
     const images = document.querySelectorAll(".carousel-slide");
@@ -25,70 +26,30 @@
 
 <div class="slider ">
   <div class="slides">
-    {#each Array(numberOfSlides) as _, i}
-      <div class="carousel-slide" id={`slide-${i + 1}`}/>
+    {#if data}
+    {#each data.images as image, i}
+      <div class="carousel-slide" id={`slide-${i + 1}`}>
+      <img
+        src={image.src}
+        alt={image.alt}
+        style="width: 100%; height: 100%; object-fit: cover;"
+/>
+      </div>
     {/each}
+    {/if}
   </div>
   <div class="slider-box">
-    <a
-      style={currentSlide === 1 ? "color:#000;" : ""}
-      href="#slide-1"
-      class={currentSlide === 1 ? "first-selected" : "first-unselected"}>01</a
-    >
-    <a
-      style={currentSlide === 2
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-2">02</a
-    >
-    <a
-      style={currentSlide === 3
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-3">03</a
-    >
-    <a
-      style={currentSlide === 4
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-4">04</a
-    >
-    <a
-      style={currentSlide === 5
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-5">05</a
-    >
-    <a
-      style={currentSlide === 6
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-6">06</a
-    >
-    <a
-      style={currentSlide === 7
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-7">07</a
-    >
-    <a
-      style={currentSlide === 8
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-8">08</a
-    >
-    <a
-      style={currentSlide === 9
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-9">09</a
-    >
-
-    <a
-      style={currentSlide === 10 ? "color:#000;" : ""}
-      href="#slide-10"
-      class={currentSlide === 10 ? "last-selected" : "last-unselected"}>10</a
-    >
+    {#each Array(numberOfSlides) as _, i}
+      <a
+        href={`#slide-${i + 1}`}
+        id={`slider-${i + 1}`}
+        class="slider-dot"
+        style={i + 1 === currentSlide
+          ? "color: #000; border-bottom-color:#020202"
+          : ""}
+        on:click={() => (currentSlide = i + 1)}>{`0${i + 1}`}</a
+      >
+    {/each}
   </div>
 </div>
 
@@ -114,13 +75,9 @@
     flex-shrink: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../images/carousel_fullscreen_mobile.png');
-    background-size: cover;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
   }
 
   .slider-box {
@@ -151,65 +108,4 @@
     color: #000;
   }
 
-  .last-unselected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected {
-    border-bottom-color: transparent;
-  }
-
-  .first-unselected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected {
-    border-bottom-color: transparent;
-  }
-
-  .last-selected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #000;
-    border-radius: 30px 30px;
-    transform: translateX(-0.3px);
-  }
-
-  .last-unselected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #c4c4c4;
-    border-radius: 0 30px 30px 0;
-  }
-
-  .first-selected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #000;
-    border-radius: 30px 30px;
-    transform: translateX(0.3px);
-  }
-
-  .first-unselected:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #c4c4c4;
-    border-radius: 30px 0 0 30px;
-  }
 </style>

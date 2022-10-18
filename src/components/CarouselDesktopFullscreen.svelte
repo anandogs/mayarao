@@ -1,8 +1,11 @@
 <script lang="ts">
 
-  export let numberOfSlides: number;
+  
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
+  import type { itemListType } from "./stores/productionsStore"; 
+  export let data: itemListType | undefined;
+  let numberOfSlides: number = data?.images.length || 10;
 
   let currentSlide = 1;
 
@@ -29,9 +32,17 @@
 
 <div class="slider ">
   <div class="slides">
-    {#each Array(numberOfSlides) as _, i}
-      <div class="carousel-slide" id={`desktop-slide-${i + 1}`}/>
+    {#if data}
+    {#each data.images as image, i}
+      <div class="carousel-slide" id={`desktop-slide-${i + 1}`}>
+      <img
+        src={image.src}
+        alt={image.alt}
+        style="width: 100%; height: 100%; object-fit: cover;"
+/>
+      </div>
     {/each}
+    {/if}
   </div>
   <div class="flex">
     <div class="slider-box">
@@ -86,13 +97,9 @@
     flex-shrink: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../images/carousel_fullscreen_desktop.png');
-    background-size: cover;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
   }
 
   .slider-box {

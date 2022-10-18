@@ -3,11 +3,8 @@
   export let slideshowWidth: number;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
-  import LM1 from "../images/applied_theatre/slideshow/LM1.png";
-  import LM2 from "../images/applied_theatre/slideshow/LM2.png";
+  export let images:Array<{src:string, alt:string, width:number, left:number, top:number}>;
   import LM3 from "../images/applied_theatre/slideshow/LM3.png";
-  import LM4 from "../images/applied_theatre/slideshow/LM4.png";
-  import LM5 from "../images/applied_theatre/slideshow/LM6.png";
   import playButton from "../images/play.svg";
   import AudioPlayer from "./AudioPlayer.svelte";
   import { isOverlappingDesktopCarousel } from '../components/stores/buttonStore';
@@ -78,6 +75,21 @@
     <div class="slides">
       <div class="carousel-slide" id="desktop-slide-1">
         <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
+        {#each images as image}
+          <a href="/productions/full-screen/1">
+          <img
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            style={`left: ${image.left}px; position: absolute; top: ${image.top}px;`}
+            class="absolute top-0"
+          />
+        </a>
+        
+        {/each}
+        
+<!--         
+        
           <a href="/full-screen">
           <img
             src={LM1}
@@ -109,7 +121,7 @@
             width="715px"
             class="absolute top-[70px] left-[1936px]"
           />
-        </a>
+        </a> -->
 
           <div class="top-[520px] left-[93px] absolute w-full">
             <AudioPlayer />

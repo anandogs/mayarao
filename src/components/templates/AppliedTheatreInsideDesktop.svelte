@@ -14,17 +14,6 @@ import {
   let hoveredItem: WritableAtom | undefined = undefined;
 
 
-  const hoverDisplayEnter = (hoveredVal: WritableAtom) => {
-    hoveredVal.set(true);
-    hoveredItem = hoveredVal;
-    
-  }
-  const hoverDisplayLeave = (hoveredVal: WritableAtom) => {
-    if (hoveredVal !== clickedItem) {
-      hoveredVal.set(false);
-      hoveredItem = undefined;
-    }
-  }
   const valueClicked = (val: WritableAtom) => {
     for (const item of allItems) {
       if (item !== val) {
@@ -37,19 +26,19 @@ import {
 </script>
 <div>
     <div class="drawer">
-        <h4 on:mouseenter={() => hoverDisplayEnter(heiretikos)} on:mouseleave={() => hoverDisplayLeave(heiretikos)} on:click={() => valueClicked(heiretikos)} style={(clickedItem === heiretikos || hoveredItem === heiretikos) ? "color:#020202":""}>
+        <h4 on:click={() => valueClicked(heiretikos)} style={(clickedItem === heiretikos || hoveredItem === heiretikos) ? "color:#020202":""}>
             Heiretikos, Or the One Who Chooses
         </h4>
-        <h4 on:mouseenter={() => hoverDisplayEnter(igloo)} on:mouseleave={() => hoverDisplayLeave(igloo)} on:click={() => valueClicked(igloo)} style={(clickedItem === igloo || hoveredItem === igloo) ? "color:#020202":""}>
+        <h4 on:click={() => valueClicked(igloo)} style={(clickedItem === igloo || hoveredItem === igloo) ? "color:#020202":""}>
             igloo igloo
           </h4>
-          <h4 on:mouseenter={() => hoverDisplayEnter(razia)} on:mouseleave={() => hoverDisplayLeave(razia)} on:click={() => valueClicked(razia)} style={(clickedItem === razia || hoveredItem === razia) ? "color:#020202":""}>
+          <h4 on:click={() => valueClicked(razia)} style={(clickedItem === razia || hoveredItem === razia) ? "color:#020202":""}>
             razia
           </h4>
-          <h4 on:mouseenter={() => hoverDisplayEnter(sciva)} on:mouseleave={() => hoverDisplayLeave(sciva)} on:click={() => valueClicked(sciva)} style={(clickedItem === sciva || hoveredItem === sciva) ? "color:#020202":""}>
+          <h4 on:click={() => valueClicked(sciva)} style={(clickedItem === sciva || hoveredItem === sciva) ? "color:#020202":""}>
             sciva and jagli
           </h4>
-          <h4 on:mouseenter={() => hoverDisplayEnter(pandita)} on:mouseleave={() => hoverDisplayLeave(pandita)} on:click={() => valueClicked(pandita)} style={(clickedItem === pandita || hoveredItem === pandita) ? "color:#020202":""}>
+          <h4 on:click={() => valueClicked(pandita)} style={(clickedItem === pandita || hoveredItem === pandita) ? "color:#020202":""}>
             pandita ramabai
           </h4>
       </div>

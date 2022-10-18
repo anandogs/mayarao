@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import Footer from "../../components/Footer.svelte";
+import { itemList } from "../../components/stores/productionsStore";
+
+import DesktopDrawer from "../../components/templates/DesktopDrawer.svelte";
+
+import landingImage from "../../images/productions/landing.jpg";
+import productions from "../../images/menu/productions.svg";
+
+---
+
+<Layout title="Productions">
+  <section class="lg:hidden">
+    <Navbar darkMode={false} menuPage={false} />
+  </section>
+  <section class="hidden lg:block">
+    <Navbar darkMode={true} menuPage={false} />
+    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+  </section>
+  <main class="mt-[143.96px] lg:mt-[40px]">
+    <div class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]">
+      <img
+        src={productions}
+        alt="Productions"
+        class="w-[178px] lg:w-[171.21px]"
+      />
+    </div>
+    <div class="text-center mx-[19px] grid gap-y-5 lg:text-start lg:w-[484px] lg:mx-[75px] lg:mb-[50px]">
+      <p >
+        Maya created her first comedy sketch in 1993. It was at short notice -
+        in response to the demolition of Babur's mausoleum, a medieval monument,
+        by right-wing Hindu fundamentalists. She brought a food blender on stage
+        and proceeded to give the audience a detailed chutney recipe which was
+        actually a potted history of the rise of the right-wing in India.
+      </p>
+      <p>
+        On one occasion, she stormed into a women's literary seminar,
+        unannounced, as the 'poet par excellence'. For several years she was a
+        regular presence on Jan. 1 each year on the Sahmat stage – to mark the
+        killing of theatre director, Safdar Hashmi. She would read the morning
+        newspapers of Jan. 1 and come on stage  by 4pm, having created a bizarre
+        character who takes off on the headlines of the day.
+      </p>
+      <p>
+        Maya’s comedy shows are usually episodic. She sets up a green room on
+        stage and for every character created she disappears into it and emerges
+        as a fresh character who has a unique way of looking at the world.
+      </p>
+    </div>
+    <DesktopDrawer itemList={itemList}  client:load/>
+
+  </main>
+  <Footer />
+</Layout>
