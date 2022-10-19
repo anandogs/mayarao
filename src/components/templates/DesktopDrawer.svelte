@@ -32,6 +32,14 @@
       {#if clickedItem}
       <DesktopDrawerContents data={clickedItem} />
       {/if}
+      
+        {#if clickedItem?.quote}
+        <div class="flex justify-center items-center mb-[87px]">
+        <img src={clickedItem.quote} alt="quote" class="quote" />
+      </div>
+        {/if}
+        
+      
 
         
         

@@ -32,7 +32,7 @@
     {/each}
   </div>
   <div class="pb-[100px]">
-    <CarouselDesktop slideshowWidth={5302} images={data.images} />
+    <CarouselDesktop slideshowWidth={5302} data={data} slideshowFor={"productions"}/>
   </div>
 </div>
 

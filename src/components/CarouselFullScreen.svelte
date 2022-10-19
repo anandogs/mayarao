@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import type { itemListType } from "./stores/productionsStore"; 
   export let data: itemListType | undefined;
-  let numberOfSlides: number = data?.images.length || 10;
+  let numberOfSlides: number = data?.images.length || 9;
 
   let currentSlide = 1;
 

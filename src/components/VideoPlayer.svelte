@@ -1,5 +1,5 @@
 <script lang="ts">
-  import trialVideo from "../images/video.mp4";
+  export let videoSrc: string | undefined;
   import { onMount } from "svelte";
   let video: HTMLVideoElement;
   let videoControls: HTMLElement;
@@ -14,7 +14,6 @@
   import play from '../images/play.svg';
   import pause from '../images/pause.svg';
   onMount(() => {
-  
     const supportsVideo = !!document.createElement("video").canPlayType;
     if (supportsVideo) {
       video.controls = false;
@@ -94,14 +93,14 @@
       <img
       src={play}
       alt="play"
-      class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+      class="z-10 cursor-pointer absolute lg:top-1/2 lg:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
         on:click={() => playPause()}
         id="playpause">
     {:else if showPause}  
     <img
         src={pause}
         alt="pause"
-        class="z-10 cursor-pointer absolute md:top-1/2 md:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+        class="z-10 cursor-pointer absolute lg:top-1/2 lg:left-1/2 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
         on:click={() => playPause()}
         id="playpause"
         />
@@ -117,7 +116,7 @@
       controls
       preload="metadata"
     >
-      <source src={trialVideo} type="video/mp4" />
+      <source src={videoSrc} type="video/mp4" />
     </video>
     <div bind:this={videoControls} id="video-controls" class=" absolute top-[94%] left-1/2 -translate-x-[137.5px] lg:left-[75px] lg:-translate-x-0">
       

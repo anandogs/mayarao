@@ -1,13 +1,4 @@
 import { atom, WritableAtom } from "nanostores";
-import looseWoman1 from "/src/images/productions/slideshow/loose_woman/1.jpg";
-import looseWoman2 from "/src/images/productions/slideshow/loose_woman/2.jpg";
-import looseWoman3 from "/src/images/productions/slideshow/loose_woman/3.jpg";
-import looseWoman4 from "/src/images/productions/slideshow/loose_woman/4.jpg";
-import looseWoman5 from "/src/images/productions/slideshow/loose_woman/5.jpg";
-import looseWoman6 from "/src/images/productions/slideshow/loose_woman/6.jpg";
-import looseWoman7 from "/src/images/productions/slideshow/loose_woman/7.jpg";
-import looseWoman8 from "/src/images/productions/slideshow/loose_woman/8.jpg";
-import looseWoman9 from "/src/images/productions/slideshow/loose_woman/9.jpg";
 
 export interface itemListType {
   name: string;
@@ -19,6 +10,10 @@ export interface itemListType {
   text: Array<string>;
   display: WritableAtom;
   images: Array<ImageClass>;
+  videos?: Array<VideoClass>;
+  audio?: Array<ImageClass>;
+  quote?: string;
+  quoteMobile?: string;
 }
 
 class ImageClass {
@@ -33,6 +28,16 @@ class ImageClass {
         this.width = width;
         this.left = left;
         this.top = top;
+    }
+}
+
+class VideoClass extends ImageClass {
+    videoImage: string;
+    videoId: string;
+    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
+        super(src, alt, width, left, top);
+        this.videoImage = videoImage;
+        this.videoId = videoId;
     }
 }
 
@@ -66,6 +71,12 @@ export const itemList = [
         new ImageClass("/src/images/productions/slideshow/loose_woman/7.jpg", "Loose Woman 7", 759, 2651+759+418, 0),
         new ImageClass("/src/images/productions/slideshow/loose_woman/8.jpg", "Loose Woman 8", 715, 2651+759+418+759, 70),
     ],
+    videos: [
+        new VideoClass("/src/images/productions/loose_woman_1.mp4", "Loose Woman Video 1", 650, 50, 506, "/src/images/productions/video_background_1.png", '1'),
+        new VideoClass("/src/images/productions/loose_woman_2.mp4", "Loose Woman Video 2", 650, 1550, 506, "/src/images/productions/video_background_2.png", '2'),
+    ],
+    quote:"/src/images/productions/salt.svg",
+    quoteMobile:"/src/images/productions/salt_mobile.svg",
   },
 
 ];
