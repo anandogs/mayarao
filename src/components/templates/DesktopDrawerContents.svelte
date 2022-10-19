@@ -2,6 +2,7 @@
   import CarouselDesktop from "../CarouselDesktop.svelte";
   import type { itemListType } from "../stores/productionsStore";
   export let data: itemListType;
+
 </script>
 
 <div>
@@ -32,7 +33,7 @@
     {/each}
   </div>
   <div class="pb-[100px]">
-    <CarouselDesktop slideshowWidth={5302} data={data} slideshowFor={"productions"}/>
+    <CarouselDesktop data={data} slideshowFor={"productions"}/>
   </div>
 </div>
 

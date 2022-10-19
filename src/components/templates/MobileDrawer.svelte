@@ -25,7 +25,7 @@ import type { itemListType } from "../stores/productionsStore";
 
 <div>
   <div class="drawer">
-    {#each itemList as item}
+    {#each itemList as item, i}
       <h4
         on:click={() => valueClicked(item)}
         style={clickedItem
@@ -51,11 +51,14 @@ import type { itemListType } from "../stores/productionsStore";
       {/if}
 
       {/if}
+      {#if i !== itemList.length - 1}
+      <div class="border_bottom_large" />
+      {/if}
       {/each}
   </div>
   
   
-  <div class="border_bottom_large" />
+  
 
 
 </div>
@@ -84,7 +87,8 @@ import type { itemListType } from "../stores/productionsStore";
     border-bottom: 1px;
     border-bottom-color: #020202;
     border-bottom-style: solid;
-    margin: auto
+    margin: auto;
+    margin-bottom: 25px;
   }
   p {
     text-align: center;

@@ -12,6 +12,7 @@ export interface itemListType {
   images: Array<ImageClass>;
   videos?: Array<VideoClass>;
   audio?: Array<ImageClass>;
+  slideshowWidth: number;
   quote?: string;
   quoteMobile?: string;
 }
@@ -75,8 +76,36 @@ export const itemList = [
         new VideoClass("/src/images/productions/loose_woman_1.mp4", "Loose Woman Video 1", 650, 50, 506, "/src/images/productions/video_background_1.png", '1'),
         new VideoClass("/src/images/productions/loose_woman_2.mp4", "Loose Woman Video 2", 650, 1550, 506, "/src/images/productions/video_background_2.png", '2'),
     ],
+    slideshowWidth: 5310,
     quote:"/src/images/productions/salt.svg",
     quoteMobile:"/src/images/productions/salt_mobile.svg",
+  },
+  {
+    name: "The-Non-Stop-Feel-Good-Show",
+    metadata: {
+      year: 2013,
+      credits: [
+        { "Stage assistance": "Sudheer Rikhari" },
+        { Lights: "Sumesh" },
+        { Images: "S. Thyagarajan" },
+        { Costume: "Pratima Pandey" },
+        { "Created and Performed By": "Maya Krishna Rao" },
+      ],
+    },
+    id: 2,
+    text: [
+      "An unstoppable woman seeks to flee from the best clothes, food, top cars, super lifestyle and murky politics in the hope of making her life more meaningful. Yet, she is an expert on everything. It’s another thing that themes get a little jumbled in her head sometimes. But the final score is always deeply of the spirit and the mind.",
+      "The show has episodes – short, sharp, affectionate, sometimes moving glimpses of the urban citizen’s idiosyncrasies and obsessions. Every few minutes she disappears into a dressing room, on stage, and emerges a completely different persona.",
+      "The artist, with lightning speed - much like in a Hindi film - takes the audience on a roller coaster ride that goes from the spiritual journey of an NRI jogger to the car- obsessed travails of a beauty expert to an incomparable audio visual ‘autobiography’."
+    ],
+    display: atom(false),
+    images: [
+        new ImageClass("/src/images/productions/slideshow/non_stop/1.jpg", "Non stop feel good show 1", 759, 0, 0),
+    ],
+    videos: [
+        new VideoClass("/src/images/productions/non_stop.mp4", "Loose Woman Video 1", 650, 1000, 506, "/src/images/productions/video_background_non_stop.png", '1'),
+    ],
+    slideshowWidth: 1500,
   },
 
 ];

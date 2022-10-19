@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  export let slideshowWidth: number;
   export let slideshowFor: string;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
@@ -15,17 +14,23 @@
   let numberOfSlides: number;
   let slidesToShow: number;
 
-  onMount(() => {
-    const calculateNumberOfSlides = () => {
+
+  $: {
+    const calculateNumberOfSlides = (slideshowWidth:number) => {
       let windowWidth = window.innerWidth;
-      let slideRatio = slideshowWidth / windowWidth;
+      if (slideshowWidth < windowWidth) {
+        return 1
+      } else {
+        let slideRatio = slideshowWidth / windowWidth;
       let roundedSlideRatio = Math.round(slideRatio);
       if (roundedSlideRatio < slideRatio) {
         roundedSlideRatio += 1;
       }
       return roundedSlideRatio;
     };
-    numberOfSlides = calculateNumberOfSlides();
+      }
+      
+    numberOfSlides = calculateNumberOfSlides(data.slideshowWidth);
     slidesToShow = numberOfSlides - 1;
     const slideshowStart = document.getElementById("slideshow-start");
 
@@ -43,7 +48,10 @@
     if (slideshowStart) {
       slideshowObserver.observe(slideshowStart);
     }
-  });
+    
+     // will only get called when the `color` changed.
+  }
+
 
   const toggleSlide = (direction: string) => {
     if (direction === "left") {
@@ -69,7 +77,7 @@
 <div class="slider" id="slideshow-start">
   <div class="slides">
     <div class="carousel-slide" id="desktop-slide-1">
-      <div class="relative h-full" style={`width: ${slideshowWidth}px;`}>
+      <div class="relative h-full" style={`width: ${data.slideshowWidth}px;`}>
         {#each data.images as image}
           <a href="/{slideshowFor}/full-screen/{data.id}">
             <img

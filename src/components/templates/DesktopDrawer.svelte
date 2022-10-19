@@ -30,7 +30,7 @@
       <div class="border_bottom_large mt-[50px]" />
       
       {#if clickedItem}
-      <DesktopDrawerContents data={clickedItem} />
+      <DesktopDrawerContents data={clickedItem}/>
       {/if}
       
         {#if clickedItem?.quote}
