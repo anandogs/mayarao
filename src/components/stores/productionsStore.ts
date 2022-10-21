@@ -29,7 +29,7 @@ import nonStop5 from '../../images/productions/slideshow/non_stop/5.jpeg';
 import nonStop6 from '../../images/productions/slideshow/non_stop/6.jpeg';
 import nonStop7 from '../../images/productions/slideshow/non_stop/7.jpeg';
 
-import nonStopVideo1 from '../../images/productions/videos/non_stop/non_stop_1.mp4';
+import nonStopVideo1 from '../../images/productions/videos/non_stop/non_stop.mp4';
 
 import nonStopVideoBackground1 from '../../images/productions/slideshow/non_stop/background_1.png';
 
@@ -145,7 +145,7 @@ export const itemList = [
 
     ],
     videos: [
-        new VideoClass(nonStopVideo1, "Non Stop Feel Good Show Video 1", 650, 1000, 506, nonStopVideoBackground1, '1'),
+        new VideoClass(nonStopVideo1, "Non Stop Feel Good Show Video", 650, 1000, 506, nonStopVideoBackground1, '1'),
     ],
     slideshowWidth: 5310,
   },
