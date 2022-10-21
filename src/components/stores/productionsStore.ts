@@ -1,4 +1,13 @@
 import { atom, WritableAtom } from "nanostores";
+import loosewoman1 from '../../images/productions/slideshow/loose_woman/1.jpg';
+import loosewoman2 from '../../images/productions/slideshow/loose_woman/2.jpg';
+import loosewoman3 from '../../images/productions/slideshow/loose_woman/3.jpg';
+import loosewoman4 from '../../images/productions/slideshow/loose_woman/4.jpg';
+import loosewoman5 from '../../images/productions/slideshow/loose_woman/5.jpg';
+import loosewoman6 from '../../images/productions/slideshow/loose_woman/6.jpg';
+import loosewoman7 from '../../images/productions/slideshow/loose_woman/7.jpg';
+import loosewoman8 from '../../images/productions/slideshow/loose_woman/8.jpg';
+
 
 export interface itemListType {
   name: string;
@@ -63,18 +72,18 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-        new ImageClass("./src/images/productions/slideshow/loose_woman/1.jpg", "Loose Woman 1", 759, 0, 0),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/2.jpg", "Loose Woman 2", 418, 0+759, 50),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/3.jpg", "Loose Woman 3", 759, 0+759+418, 0),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/4.jpg", "Loose Woman 4", 715, 0+759+418+759, 70),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/5.jpg", "Loose Woman 5", 759, 2651, 0),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/6.jpg", "Loose Woman 6", 418, 2651+759, 50),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/7.jpg", "Loose Woman 7", 759, 2651+759+418, 0),
-        new ImageClass("./src/images/productions/slideshow/loose_woman/8.jpg", "Loose Woman 8", 715, 2651+759+418+759, 70),
+        new ImageClass(loosewoman1, "Loose Woman 1", 759, 0, 0),
+        new ImageClass(loosewoman2, "Loose Woman 2", 418, 0+759, 50),
+        new ImageClass(loosewoman3, "Loose Woman 3", 759, 0+759+418, 0),
+        new ImageClass(loosewoman4, "Loose Woman 4", 715, 0+759+418+759, 70),
+        new ImageClass(loosewoman5, "Loose Woman 5", 759, 2651, 0),
+        new ImageClass(loosewoman6, "Loose Woman 6", 418, 2651+759, 50),
+        new ImageClass(loosewoman7, "Loose Woman 7", 759, 2651+759+418, 0),
+        new ImageClass(loosewoman8, "Loose Woman 8", 715, 2651+759+418+759, 70),
     ],
     videos: [
-        new VideoClass("./src/images/productions/loose_woman_1.mp4", "Loose Woman Video 1", 650, 50, 506, "./src/images/productions/video_background_1.png", '1'),
-        new VideoClass("./src/images/productions/loose_woman_2.mp4", "Loose Woman Video 2", 650, 1550, 506, "./src/images/productions/video_background_2.png", '2'),
+        new VideoClass("../images/productions/loose_woman_1.mp4", "Loose Woman Video 1", 650, 50, 506, "../images/productions/video_background_1.png", '1'),
+        new VideoClass("../images/productions/loose_woman_2.mp4", "Loose Woman Video 2", 650, 1550, 506, "../images/productions/video_background_2.png", '2'),
     ],
     slideshowWidth: 5310,
     quote:"/src/images/productions/salt.svg",
@@ -100,10 +109,10 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-        new ImageClass("./src/images/productions/slideshow/non_stop/1.jpg", "Non stop feel good show 1", 759, 0, 0),
+        new ImageClass("../images/productions/slideshow/non_stop/1.jpg", "Non stop feel good show 1", 759, 0, 0),
     ],
     videos: [
-        new VideoClass("./src/images/productions/non_stop.mp4", "Loose Woman Video 1", 650, 1000, 506, "./src/images/productions/video_background_non_stop.png", '1'),
+        new VideoClass("../images/productions/non_stop.mp4", "Loose Woman Video 1", 650, 1000, 506, "../images/productions/video_background_non_stop.png", '1'),
     ],
     slideshowWidth: 1500,
   },
