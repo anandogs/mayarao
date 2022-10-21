@@ -36,7 +36,7 @@
 
 
 <menu>
-  <div style="transform: translateY(12px);"><MenuMobileItem category="productions" imgWidth="210px" img={productions}/></div>
+  <div style="transform: translateY(12px);"><MenuMobileItem category="productions" imgWidth="210px" img={productions} url={'/productions'}/></div>
   <MenuMobileItem category="comedy" imgWidth="119.89px" img={comedy}/>
   <MenuMobileItem category="street" imgWidth="118px" img={street} />
   <MenuMobileItem category="appliedTheatre" imgWidth="261.14px" img={appliedTheatre} url={'/applied-theatre'}/>

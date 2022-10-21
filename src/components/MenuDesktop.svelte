@@ -66,7 +66,8 @@
 >
   <menu style={`background-color: ${backgroundColour};`}>
     <div class="menu_container">
-      <div
+      <a
+        href="/productions"
         class="category_image"
         style={categories.production.display
           ? "top: 39.06%; left:20.84%; z-index:10;"
@@ -103,7 +104,7 @@
             <p>khol do</p>
           </div>
         </div>
-      </div>
+      </a>
       <div
         class="category_image"
         style={categories.comedy.display
