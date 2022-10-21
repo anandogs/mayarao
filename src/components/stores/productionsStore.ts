@@ -1,4 +1,7 @@
 import { atom, WritableAtom } from "nanostores";
+
+// loose woman imports --- these will go away once we have a cms
+
 import loosewoman1 from '../../images/productions/slideshow/loose_woman/1.jpg';
 import loosewoman2 from '../../images/productions/slideshow/loose_woman/2.jpg';
 import loosewoman3 from '../../images/productions/slideshow/loose_woman/3.jpg';
@@ -7,6 +10,28 @@ import loosewoman5 from '../../images/productions/slideshow/loose_woman/5.jpg';
 import loosewoman6 from '../../images/productions/slideshow/loose_woman/6.jpg';
 import loosewoman7 from '../../images/productions/slideshow/loose_woman/7.jpg';
 import loosewoman8 from '../../images/productions/slideshow/loose_woman/8.jpg';
+
+import loosewomanVideo1 from '../../images/productions/videos/loose_woman/loose_woman_1.mp4';
+import loosewomanVideo2 from '../../images/productions/videos/loose_woman/loose_woman_2.mp4';
+
+import loosewomanVideoBackground1 from '../../images/productions/slideshow/loose_woman/background_1.png';
+import loosewomanVideoBackground2 from '../../images/productions/slideshow/loose_woman/background_2.png';
+
+import loosewomanQuote from '../../images/productions/salt.svg'
+import loosewomanQuoteMobile from '../../images/productions/salt_mobile.svg'
+
+// non stop feel good show
+import nonStop1 from '../../images/productions/slideshow/non_stop/1.jpeg';
+import nonStop2 from '../../images/productions/slideshow/non_stop/2.jpeg';
+import nonStop3 from '../../images/productions/slideshow/non_stop/3.jpeg';
+import nonStop4 from '../../images/productions/slideshow/non_stop/4.png';
+import nonStop5 from '../../images/productions/slideshow/non_stop/5.jpeg';
+import nonStop6 from '../../images/productions/slideshow/non_stop/6.jpeg';
+import nonStop7 from '../../images/productions/slideshow/non_stop/7.jpeg';
+
+import nonStopVideo1 from '../../images/productions/videos/non_stop/non_stop_1.mp4';
+
+import nonStopVideoBackground1 from '../../images/productions/slideshow/non_stop/background_1.png';
 
 
 export interface itemListType {
@@ -82,12 +107,12 @@ export const itemList = [
         new ImageClass(loosewoman8, "Loose Woman 8", 715, 2651+759+418+759, 70),
     ],
     videos: [
-        new VideoClass("../images/productions/loose_woman_1.mp4", "Loose Woman Video 1", 650, 50, 506, "../images/productions/video_background_1.png", '1'),
-        new VideoClass("../images/productions/loose_woman_2.mp4", "Loose Woman Video 2", 650, 1550, 506, "../images/productions/video_background_2.png", '2'),
+        new VideoClass(loosewomanVideo1, "Loose Woman Video 1", 650, 50, 506, loosewomanVideoBackground1, '1'),
+        new VideoClass(loosewomanVideo2, "Loose Woman Video 2", 650, 1550, 506, loosewomanVideoBackground2, '2'),
     ],
     slideshowWidth: 5310,
-    quote:"/src/images/productions/salt.svg",
-    quoteMobile:"/src/images/productions/salt_mobile.svg",
+    quote: loosewomanQuote,
+    quoteMobile: loosewomanQuoteMobile,
   },
   {
     name: "The-Non-Stop-Feel-Good-Show",
@@ -109,12 +134,20 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-        new ImageClass("../images/productions/slideshow/non_stop/1.jpg", "Non stop feel good show 1", 759, 0, 0),
+      new ImageClass(nonStop1, "Non Stop 1", 759, 0, 0),
+      new ImageClass(nonStop2, "Non Stop 2", 418, 0+759, 50),
+      new ImageClass(nonStop3, "Non Stop 3", 759, 0+759+418, 0),
+      new ImageClass(nonStop4, "Non Stop 4", 715, 0+759+418+759, 70),
+      new ImageClass(nonStop5, "Non Stop 5", 759, 2651, 0),
+      new ImageClass(nonStop6, "Non Stop 6", 418, 2651+759, 50),
+      new ImageClass(nonStop7, "Non Stop 7", 759, 2651+759+418, 0),
+      
+
     ],
     videos: [
-        new VideoClass("../images/productions/non_stop.mp4", "Loose Woman Video 1", 650, 1000, 506, "../images/productions/video_background_non_stop.png", '1'),
+        new VideoClass(nonStopVideo1, "Non Stop Feel Good Show Video 1", 650, 1000, 506, nonStopVideoBackground1, '1'),
     ],
-    slideshowWidth: 1500,
+    slideshowWidth: 5310,
   },
 
 ];
