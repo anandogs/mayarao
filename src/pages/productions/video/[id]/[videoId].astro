@@ -7,21 +7,24 @@ export function getStaticPaths() {
   const videoParams: any = [];
 
   itemList.forEach((item) => {
-    item.videos.forEach((video) => {
+    if (item) {
+      item.videos?.forEach((video) => {
       videoParams.push({
         params: {
           id: item.id.toString(),
           videoId: video.videoId,
         },
       });
-    });
+    });      
+    }
+
   });
   return videoParams;
 }
 
 const { id, videoId } = Astro.params;
 const item = itemList.find((item) => item.id.toString() === id);
-const video = item?.videos.find((video) => video.videoId === videoId);
+const video = item?.videos?.find((video) => video.videoId === videoId);
 ---
 
 <Layout title="Video Player">
