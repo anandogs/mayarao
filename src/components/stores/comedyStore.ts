@@ -43,12 +43,12 @@ export interface itemListType {
   name: string;
   metadata?: {
     year: number;
-    credits: Array<Object>;
+    credits?: Array<Object>;
   };
   id: number;
   text?: Array<string>;
   display: WritableAtom;
-  images: Array<ImageClass>;
+  images?: Array<ImageClass>;
   videos?: Array<VideoClass>;
   audio?: Array<ImageClass>;
   slideshowWidth: number;
@@ -87,9 +87,9 @@ export const itemList = [
     id: 1,
     display: atom(false),
     images: [
-        new ImageClass(paru1, "Body Makeover 1", 759, 0, 0),
-        new ImageClass(paru2, "Body Makeover 2", 418, 0+759, 50),
-        new ImageClass(paru3, "Body Makeover 3", 759, 0+759+418, 0),
+        new ImageClass(paru1, "Paru 1", 759, 0, 0),
+        new ImageClass(paru2, "Paru", 418, 0+759, 50),
+        new ImageClass(paru3, "Paru", 759, 0+759+418, 0),
     ],
 
     slideshowWidth: 2500,
@@ -128,7 +128,7 @@ export const itemList = [
         new ImageClass(jogger4, "Jogger 4", 759, 0+759+759+759, 0),
         new ImageClass(jogger5, "Jogger 5", 759, 0+759+759+759+759, 0),
     ],
-    slideshowWidth: 3500,
+    slideshowWidth: 3000,
   },
   {
     name: "Body Makeover",
@@ -138,6 +138,7 @@ export const itemList = [
         new ImageClass(bodyMakeover1, "Body Makeover 1", 759, 0, 0),
         new ImageClass(bodyMakeover2, "Body Makeover 2", 759, 0+759, 0),
         new ImageClass(bodyMakeover3, "Body Makeover 3", 759, 0+759+759, 0),
+        new ImageClass(bodyMakeover4, "Body Makeover 4", 759, 0+759+759+759, 0),
     ],
     slideshowWidth: 2500,
   },

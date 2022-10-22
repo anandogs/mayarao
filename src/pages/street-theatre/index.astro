@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import Footer from "../../components/Footer.svelte";
+import { itemList } from "../../components/stores/streetTheatreStore";
+
+import DesktopDrawer from "../../components/templates/DesktopDrawer.svelte";
+import MobileDrawer from "../../components/templates/MobileDrawer.svelte";
+
+import landingImage from "../../images/street_theatre/landing.jpg";
+import street from "../../images/menu/street.svg";
+
+---
+
+<Layout title="Street">
+  <section class="lg:hidden">
+    <Navbar darkMode={false} menuPage={false} />
+  </section>
+  <section class="hidden lg:block">
+    <Navbar darkMode={true} menuPage={false} />
+    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+  </section>
+  <main class="mt-[143.96px] lg:mt-[40px]">
+    <div class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]">
+      <img
+        src={street}
+        alt="Street"
+        class="w-[178px] lg:w-[171.21px]"
+      />
+    </div>
+    <div class="text-center mx-[19px] grid gap-y-5 lg:text-start lg:w-[484px] lg:mx-[75px] lg:mb-[50px]">
+      <p >
+        Maya's theatre journey started with street theatre in the late 1970's with Theatre Union, a group she co-founded. After making stage performances for several years, she returned to this form, but this time, solo. Since 2012, she has been responding to events and controversial issues that have engaged women and other sections of society who are taken up with the struggle for rights.
+      </p>
+    </div>
+    <div class="hidden lg:block">
+    <DesktopDrawer itemList={itemList}  client:load/>
+    </div>
+    <div class="lg:hidden mt-[30px] mb-[30px]">
+      <MobileDrawer itemList={itemList} slideshowFor="street-theatre"  client:load/>
+    </div>
+    <div class="lg:hidden">
+    </div>
+  </main>
+  <Footer />
+</Layout>

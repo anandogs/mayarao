@@ -125,12 +125,12 @@ export interface itemListType {
   name: string;
   metadata?: {
     year: number;
-    credits: Array<Object>;
+    credits?: Array<Object>;
   };
   id: number;
   text?: Array<string>;
   display: WritableAtom;
-  images: Array<ImageClass>;
+  images?: Array<ImageClass>;
   videos?: Array<VideoClass>;
   audio?: Array<ImageClass>;
   slideshowWidth: number;

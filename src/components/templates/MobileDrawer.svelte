@@ -36,12 +36,20 @@ import type { itemListType } from "../stores/productionsStore";
       </h4>
       {#if item.display.value}
       <div class="mb-[25px]">
+        {#if item.metadata}
+          <div>
+            <h4 class="credits">year</h4>
+            <p>{item.metadata.year}</p>
+          </div>
+          {/if}
         {#if item.text}
         {#each  item.text as text }
         <p>{text}</p>  
         {/each }       
         {/if}
+        {#if item.images}
         <Carousel data={item} slideshowFor={slideshowFor}/>
+        {/if}
       </div>
       {#if item.quoteMobile}
       <div class="mb-[25px] flex justify-center items-center">
@@ -94,5 +102,12 @@ import type { itemListType } from "../stores/productionsStore";
     margin-left: 19px;
     margin-right: 19px;
     margin-bottom: 25px;
+  }
+  .credits {
+    margin-bottom: 0px;
+    font-size: 0.8125rem;
+    line-height: 17px;
+    letter-spacing: 3%;
+    color: #020202;
   }
 </style>

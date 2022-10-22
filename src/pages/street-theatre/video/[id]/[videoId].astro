@@ -1,0 +1,35 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import VideoPlayer from "../../../../components/VideoPlayer.svelte";
+import Navbar from "../../../../components/Navbar.svelte";
+import { itemList } from "../../../../components/stores/streetTheatreStore";
+export function getStaticPaths() {
+  const videoParams: any = [];
+
+  itemList.forEach((item) => {
+    if (item) {
+      item.videos?.forEach((video) => {
+      videoParams.push({
+        params: {
+          id: item.id.toString(),
+          videoId: video.videoId,
+        },
+      });
+    });      
+    }
+
+  });
+  return videoParams;
+}
+
+const { id, videoId } = Astro.params;
+const item = itemList.find((item) => item.id.toString() === id);
+const video = item?.videos?.find((video) => video.videoId === videoId);
+---
+
+<Layout title="Video Player">
+  <div>
+    <Navbar menuPage={true} email={false} darkMode={true} closeUrl={"/street-theatre"} client:load />
+    <VideoPlayer client:load videoSrc={video?.src}/>
+  </div>
+</Layout>
