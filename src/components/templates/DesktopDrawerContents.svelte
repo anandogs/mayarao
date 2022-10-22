@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { text } from "svelte/internal";
+
 import CarouselDesktop from "../CarouselDesktop.svelte";
   import type { itemListType } from "../stores/productionsStore";
   export let data: itemListType;

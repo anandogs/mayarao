@@ -1,10 +1,7 @@
 <script lang="ts">
   import type { itemListType } from '../stores/productionsStore';
-  
   export let itemList: Array<itemListType>;
-
   import DesktopDrawerContents from "./DesktopDrawerContents.svelte";
-
   let clickedItem: itemListType | undefined = undefined;
 
 

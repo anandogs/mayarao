@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   export let slideshowFor: string;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
@@ -17,6 +16,7 @@
 
   $: {
     const calculateNumberOfSlides = (slideshowWidth:number) => {
+      console.log('here')
       let windowWidth = window.innerWidth;
       if (slideshowWidth < windowWidth) {
         return 1

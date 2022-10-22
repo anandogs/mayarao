@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import Footer from "../../components/Footer.svelte";
+import { itemList } from "../../components/stores/kathakaliStore";
+
+import Carousel from "../../components/Carousel.svelte";
+import CarouselDesktop from "../../components/CarouselDesktop.svelte";
+
+import KathakaliTop from "../../components/KathakaliTop.svelte";
+
+import DesktopDrawer from "../../components/templates/DesktopDrawer.svelte";
+import DesktopDrawerContents from "../../components/templates/DesktopDrawerContents.svelte";
+
+import landingImage from "../../images/kathakali/landing.png";
+import kathakali from "../../images/menu/kathakali.svg";
+
+---
+
+<Layout title="Kathakali">
+  <section class="lg:hidden">
+    <Navbar darkMode={false} menuPage={false} />
+  </section>
+  <section class="hidden lg:block">
+    <Navbar darkMode={true} menuPage={false} />
+    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+  </section>
+  <main class="mt-[143.96px] lg:mt-[40px]">
+    <div class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]">
+      <img
+        src={kathakali}
+        alt="Street"
+        class="w-[178px] lg:w-[171.21px]"
+      />
+    </div>
+    <div class="text-center mx-[19px] grid gap-y-5 lg:text-start lg:w-[484px] lg:mx-[75px] lg:mb-[50px]">
+      <p >
+        Kathakali is a dance theatre form from Kerala in southern India. The performer is trained to both act and dance. The training scheme is long and elaborate. At 7, Maya started learning it both in Kerala and New Delhi. Her first teacher, Guru Mampuzha Madhava Panicker, chose  to teach her the male role - the real cream of Kathakali. Later, she trained for long years with Guru Sadanam Balakrishnan. Kathakali has been a deep inspiration for Maya in the making of contemporary performances and teaching.
+      </p>
+    </div>
+
+    <KathakaliTop client:load/>
+
+  </main>
+  <Footer />
+</Layout>
