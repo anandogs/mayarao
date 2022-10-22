@@ -1,5 +1,7 @@
 <script type="ts">
-  import AccordianItem from "./AccordianItem.svelte";
+  import { isImprovisationOpen, isObjectsOpen, isCameraOpen, allItems, itemList } from "./stores/makingStore";
+
+import AccordianItem from "./AccordianItem.svelte";
   import Carousel from "./Carousel.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
 
@@ -7,10 +9,11 @@
   import objects from "../images/making/objects.svg";
   import camera from "../images/making/camera.svg";
 
-  import { isImprovisationOpen } from "./stores/makingStore";
-  import { isObjectsOpen } from "./stores/makingStore";
-  import { isCameraOpen } from "./stores/makingStore";
-  import { allItems } from "./stores/makingStore";
+
+  const objectsData = itemList.filter((item) => item.name === "Objects")[0];
+  const improvisationData = itemList.filter((item) => item.name === "Improvisation")[0];
+  const cameraData = itemList.filter((item) => item.name === "Camera")[0];
+
 </script>
 
 <section class="grid gap-y-10 lg:w-full">
@@ -33,10 +36,10 @@
             triggering her imagination.
           </p>
           <div class="lg:hidden">
-            <Carousel numberOfSlides={10} />
+            <Carousel slideshowFor={"making"} data={improvisationData} />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowWidth={2650} />
+            <CarouselDesktop slideshowFor={"making"} data={improvisationData} />
           </div>
       
         </div>
@@ -63,10 +66,10 @@
             triggering her imagination.
           </p>
           <div class="lg:hidden">
-            <Carousel numberOfSlides={10} />
+            <Carousel slideshowFor={"making"} data={objectsData} />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowWidth={2650} />
+            <CarouselDesktop slideshowFor={"making"} data={objectsData}  />
           </div>
           <div />
         </div>
@@ -92,10 +95,10 @@
             triggering her imagination.
           </p>
           <div class="lg:hidden">
-            <Carousel numberOfSlides={10} />
+            <Carousel slideshowFor={"making"} data={cameraData}  />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowWidth={2650} />
+            <CarouselDesktop slideshowFor={"making"} data={cameraData}  />
           </div>
           <div />
         </div>
