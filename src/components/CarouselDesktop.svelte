@@ -78,17 +78,18 @@
   <div class="slides">
     <div class="carousel-slide" id="desktop-slide-1">
       <div class="relative h-full" style={`width: ${data.slideshowWidth}px;`}>
+        {#if data.images}
         {#each data.images as image}
           <a href="/{slideshowFor}/full-screen/{data.id}">
             <img
               src={image.src}
               alt={image.alt}
-              width={image.width}
+              width={image.width}              
               style={`left: ${image.left}px; position: absolute; top: ${image.top}px;`}
             />
           </a>
         {/each}
-
+        {/if}
         <!--         
         
           <a href="/full-screen">

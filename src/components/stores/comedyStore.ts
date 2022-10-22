@@ -81,7 +81,7 @@ class VideoClass extends ImageClass {
     }
 }
 
-export const itemList = [
+export const itemList:Array<itemListType> = [
   {
     name: "Paru",
     id: 1,

@@ -3,20 +3,20 @@ import CarouselDesktopFullscreen from "../../../components/CarouselDesktopFullsc
 import CarouselFullScreen from "../../../components/CarouselFullScreen.svelte";
 import Navbar from "../../../components/Navbar.svelte";
 import Layout from "../../../layouts/Layout.astro";
-import { itemList } from "../../../components/stores/comedyStore";
+import { itemList } from "../../../components/stores/streetTheatreStore";
 export function getStaticPaths() {
     return itemList.map((item) => {
     return {
-      params: { comedy: item.id.toString() },
+      params: { id: item.id.toString() },
     };
   });
 }
-const id = Astro.params.comedy
+const id = Astro.params.id
 const item = itemList.find((item) => item.id.toString() === id);
 
 ---
 <Layout title="Images">
-    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/comedy'} client:load/>
+    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/street-theatre'} client:load/>
     <div class="hidden lg:block">
         <CarouselDesktopFullscreen data={item} client:load/>
     </div>
