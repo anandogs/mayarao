@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import Footer from "../../components/Footer.svelte";
+
+import landingImage from "../../images/teaching/landing.jpg";
+import teaching from "../../images/menu/teaching.svg";
+import TeachingTop from "../../components/TeachingTop.svelte";
+---
+
+<Layout title="Applied Theatre">
+  <section class="lg:hidden">
+    <Navbar darkMode={false} menuPage={false} />
+  </section>
+  <section class="hidden lg:block">
+    <Navbar darkMode={true} menuPage={false} />
+    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+  </section>
+  <main class="mt-[143.96px] lg:mt-[40px]">
+    <div
+      class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]"
+    >
+      <img
+        src={teaching}
+        alt="Teaching"
+        class="w-[178px] lg:w-[171.21px]"
+      />
+    </div>
+    <div
+      class="text-center mx-[19px] grid gap-y-5 lg:text-start lg:w-[484px] lg:mx-[75px] lg:mb-[50px]"
+    >
+      <p>
+        Maya has taught acting and performance making at different institutions of higher education. She taught for several years in the National School of Drama and then moved to Shiv Nadar University where she designed and taught a post graduate diploma programme TEST - Theatre for Education and Social Transformation. Subsequently she was visiting faculty at Ashoka University. Alongside she has led theatre workshops for various institutions including Tata Institute of Social Sciences, Mumbai, Rangashankara, Bangalore, Srishti School of Design and Technology, Bangalore, among others. 
+      </p>
+      <p>
+        During the lockdown she was invited to give guest lectures in universities and colleges in India and the USA 
+      </p>
+    </div>
+    
+    <TeachingTop client:load/>
+    
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  
+
+</style>

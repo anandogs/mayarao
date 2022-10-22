@@ -1,0 +1,26 @@
+---
+import CarouselDesktopFullscreen from "../../../components/CarouselDesktopFullscreen.svelte";
+import CarouselFullScreen from "../../../components/CarouselFullScreen.svelte";
+import Navbar from "../../../components/Navbar.svelte";
+import Layout from "../../../layouts/Layout.astro";
+import { itemList } from "../../../components/stores/appliedTheatreStore";
+export function getStaticPaths() {
+    return itemList.map((item) => {
+    return {
+      params: { id: item.id.toString() },
+    };
+  });
+}
+const id = Astro.params.id
+const item = itemList.find((item) => item.id.toString() === id);
+
+---
+<Layout title="Images">
+    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/applied-theatre'} client:load/>
+    <div class="hidden lg:block">
+        <CarouselDesktopFullscreen data={item} client:load/>
+    </div>
+    <div class="block lg:hidden">
+        <CarouselFullScreen data={item} client:load/>
+    </div>
+</Layout>
