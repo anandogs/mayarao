@@ -1,180 +1,167 @@
 <script lang="ts">
-  import { isTeacherEducationOpen } from "../stores/appliedTheatreStore";
-  import { isTheatreProgramOpen } from "../stores/appliedTheatreStore";
-  import AppliedTheatreInsideDetailFirst from "./AppliedTheatreInsideDetailFirst.svelte";
-  import AppliedTheatreInsideMobile from "./AppliedTheatreInsideMobile.svelte";
-  import AppliedTheatreInsideDesktop from "./AppliedTheatreInsideDesktop.svelte";
-  import { onMount } from "svelte";
-  import { isOverlappingDesktopCarousel } from "../stores/buttonStore";
-  import { get } from "svelte/store";
+  import Carousel from "../Carousel.svelte";
+  import CarouselDesktop from "../CarouselDesktop.svelte";
+  import { itemList, teachingList } from "../stores/appliedTheatreStore";
+  import DesktopDrawer from "./DesktopDrawer.svelte";
+  import MobileDrawer from "./MobileDrawer.svelte";
+  let programsStage = 0;
+  let teachingStage = 0;
 
-  let showButton: Boolean = false;
+  const toggleProgramsStage = () => {
+    if (programsStage !== 0) {
+      itemList.forEach((item) => {
+        item.display.value = false;
+      });
+      programsStage = 0;
+    } else {
+      teachingStage = 0;
+      programsStage = 1;
+    }
+  };
 
-  onMount(() => {
-    const pageStart = document.getElementById("page-start");
-    const enrtyOptions = {
-      threshold: 0,
-      rootMargin: "-20% -5%",
-    };
+  const toggleTeachingStage = () => {
+    if (teachingStage !== 0) {
+      teachingStage = 0;
+    } else {
+      programsStage = 0;
+      teachingStage = 1;
+    }
+  };
 
-    const entryObserver = new IntersectionObserver((entry) => {
-      if (entry[0].isIntersecting) {
-        showButton = true;
-      } else {
-        showButton = false;
+  const checkIfClicked = () => {
+    programsStage = 1;
+    teachingStage = 0;
+    itemList.forEach((item) => {
+      if (item.display.value) {
+        programsStage = 2;
       }
-    }, enrtyOptions);
-
-    entryObserver.observe(pageStart!);
-  });
-
-  const setStage = () => {
-    if (isTheatreProgramOpen.get().stage === 1) {
-      isTeacherEducationOpen.set(false);
-      isTheatreProgramOpen.set({
-        stage: 2,
-      });
-    } else {
-      isTheatreProgramOpen.set({
-        stage: 1,
-      });
-    }
-  };
-
-  const toggleTeachingProgram = () => {
-    if (isTeacherEducationOpen.get() === true) {
-      isTeacherEducationOpen.set(false);
-    } else {
-      isTeacherEducationOpen.set(true);
-      isTheatreProgramOpen.set({
-        stage: 1,
-      });
-    }
-  };
-  const scrollToTop = () => {
-    //smooth scroll to top
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
     });
   };
 </script>
 
-{#if showButton}
-<button
-on:click={() => scrollToTop()}
-class="hidden lg:block fixed top-[15%] right-[5%] z-10" style={$isOverlappingDesktopCarousel ? "":"border-color: #020202;  color: #020202"}
->up</button
->
-
-{/if}
-
-<div class="w-full" id="page-start">
-  {#if $isTheatreProgramOpen.stage === 1}
-    <div class="drawer">
-      <h4 on:click={() => setStage()}>theatre programmes for schools</h4>
-      <div class="lg:hidden">
-        <AppliedTheatreInsideMobile />
-      </div>
-      <div class="border_bottom" />
+<div class="w-full">
+  <div class="hidden lg:block">
+    <div class="border_bottom_large mt-[50px]" />
+  </div>
+  <div class="drawer" on:click={() => toggleProgramsStage()}>
+    <div class="lg:hidden mt-[30px]">
+      {#if programsStage === 2}
+        <h4 style="color:#020202; font-size: 1rem;">
+          theatre programmes for schools
+        </h4>
+      {:else}
+        <h4
+          class="text-[2.25rem]"
+          style={programsStage !== 0 ? "color:#020202; font-size: 25px;" : ""}
+        >
+          theatre programmes for schools
+        </h4>
+      {/if}
     </div>
-  {:else if $isTheatreProgramOpen.stage === 2}
-    <div class="drawer">
-      <h4 class="second_stage" on:click={() => setStage()}>
+    <div class="hidden lg:block">
+      <h4
+        class="text-[2.25rem]"
+        style={programsStage !== 0 ? "color:#020202" : ""}
+      >
         theatre programmes for schools
       </h4>
-      <div class="lg:hidden">
-        <AppliedTheatreInsideMobile />
-      </div>
     </div>
-  {:else}
-    <div class="drawer">
-      <h4 class="third_stage" on:click={() => setStage()}>
-        theatre programmes for schools
-      </h4>
-      <div class="lg:hidden">
-        <AppliedTheatreInsideMobile />
-      </div>
+  </div>
+  <div class="hidden lg:block">
+    <div
+      class="drawer mt-[20px] mb-[60px]"
+      on:click={() => toggleTeachingStage()}
+    >
+      <h4 class="text-[2.25rem]">teaching teachers</h4>
+    </div>
+  </div>
+  {#if programsStage !== 0}
+    <div class="hidden lg:block">
+      <DesktopDrawer {itemList} />
+    </div>
+    <div
+      class="lg:hidden mt-[30px] mb-[30px]"
+      on:click={() => checkIfClicked()}
+    >
+      <MobileDrawer {itemList} slideshowFor="applied-theatre" />
     </div>
   {/if}
-
-  <div class="drawer">
-    {#if $isTeacherEducationOpen}
-      <h4 on:click={() => toggleTeachingProgram()} class="second_stage">
-        teacher educations
-      </h4>
-      <AppliedTheatreInsideDetailFirst />
-    {:else}
-      <h4 on:click={() => toggleTeachingProgram()}>teacher educations</h4>
-    {/if}
+  <div class="lg:hidden">
+    <div
+      class="border_bottom_large"
+      style={programsStage === 0
+        ? "padding-bottom:25px;"
+        : "padding-bottom:0px; transform: translateY(-28px);"}
+    />
   </div>
-  {#if $isTheatreProgramOpen.stage === 2}
-    <div class="border_bottom_large" />
-    <div class="hidden lg:block">
-      <AppliedTheatreInsideDesktop />
+
+  <div
+    class="lg:hidden mt-[25px] mb-[46px]"
+    on:click={() => toggleTeachingStage()}
+  >
+    <h4>teaching teachers</h4>
+  </div>
+  {#if teachingStage !== 0}
+    <div class="mb-[45px] lg:mb-[60px]">
+      <div class="lg:hidden">
+        <Carousel data={teachingList[0]} slideshowFor="teaching-teachers" />
+      </div>
+      <div class="hidden lg:block">
+        <CarouselDesktop
+          data={teachingList[0]}
+          slideshowFor="teaching-teachers"
+        />
+      </div>
     </div>
   {/if}
 </div>
 
 <style>
   h4 {
-    text-align: center;
     color: #468fb8;
     text-transform: lowercase;
-  }
-  .drawer {
-    padding-bottom: 25px;
+    font-size: 1rem;
+    line-height: 20.8px;
+    text-align: center;
     cursor: pointer;
   }
-  .border_bottom {
-    margin: auto;
+
+  .border_bottom_large {
+    display: block;
     width: 217px;
     border-bottom: 1px;
     border-bottom-color: #020202;
     border-bottom-style: solid;
-    padding-top: 25px;
+    margin: auto;
+    margin-bottom: 25px;
   }
-  .second_stage {
-    color: #020202;
-    font-size: 1.5625rem;
-    line-height: 1.875rem;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .third_stage {
-    color: #020202;
-  }
-  .border_bottom_large {
-    display: none;
+  .drawer {
+    margin-left: 19px;
+    margin-right: 19px;
   }
   @media (min-width: 1024px) {
-    .border_bottom {
-      display: none;
+    h4 {
+      font-size: 2.25rem;
+      line-height: 36.4px;
     }
+
     .border_bottom_large {
       display: block;
       width: 90%;
-      margin-left: 5%;
-      margin-right: 5%;
       border-bottom: 1px;
       border-bottom-color: #020202;
       border-bottom-style: solid;
       margin-bottom: 50px;
-    }
-
-    h4 {
-      font-size: 28px;
-      text-align: start;
-      line-height: 36.4px;
       margin-left: 5%;
+      margin-right: 5%;
     }
-    .second_stage {
-      line-height: 36.4px;
-      font-size: 28px;
-      text-align: start;
-      padding-left: 0;
-      padding-right: 0;
+    .drawer {
+      font-size: x-large;
+      margin-left: 5%;
+      margin-right: 5%;
+      display: flex;
+      column-gap: 30px;
+      flex-wrap: wrap;
     }
   }
 </style>

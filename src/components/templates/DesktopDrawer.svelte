@@ -19,7 +19,8 @@
   }
 </script>
 <div>
-    <div class="drawer">
+  <div class="border_bottom_large mt-[50px]" />  
+  <div class="drawer">
       {#each itemList as item}
       <h4 on:click={() => valueClicked(item)} style={clickedItem ? clickedItem.name === item.name ? "color:#020202":"":""}>
         {item.name}
@@ -38,11 +39,7 @@
         <img src={clickedItem.quote} alt="quote" class="quote" />
       </div>
         {/if}
-        
-      
-
-        
-        
+         
 </div>
 <style>
     h4 {
