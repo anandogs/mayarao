@@ -105,7 +105,8 @@
           </div>
         </div>
       </a>
-      <div
+      <a
+        href="/comedy"
         class="category_image"
         style={categories.comedy.display
           ? "top: 39.61%; left:47.76%; z-index:10;"
@@ -137,7 +138,7 @@
             <p>mamata</p>
           </div>
         </div>
-      </div>
+      </a>
       <div
         class="category_image"
         style={categories.street.display

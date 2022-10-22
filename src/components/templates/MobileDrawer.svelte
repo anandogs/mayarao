@@ -2,9 +2,7 @@
   import Carousel from "../Carousel.svelte";
 import type { itemListType } from "../stores/productionsStore";
   export let itemList: Array<itemListType>;
-
-  import DesktopDrawerContents from "./DesktopDrawerContents.svelte";
-
+  export let slideshowFor: string;
   let clickedItem: itemListType | undefined = undefined;
 
   const valueClicked = (val: itemListType) => {
@@ -38,11 +36,12 @@ import type { itemListType } from "../stores/productionsStore";
       </h4>
       {#if item.display.value}
       <div class="mb-[25px]">
-        
+        {#if item.text}
         {#each  item.text as text }
         <p>{text}</p>  
-        {/each }        
-        <Carousel data={item} slideshowFor={'productions'}/>
+        {/each }       
+        {/if}
+        <Carousel data={item} slideshowFor={slideshowFor}/>
       </div>
       {#if item.quoteMobile}
       <div class="mb-[25px] flex justify-center items-center">

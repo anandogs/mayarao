@@ -123,12 +123,12 @@ import kholDoVideoBackground1 from '../../images/productions/slideshow/khol_do/b
 
 export interface itemListType {
   name: string;
-  metadata: {
+  metadata?: {
     year: number;
     credits: Array<Object>;
   };
   id: number;
-  text: Array<string>;
+  text?: Array<string>;
   display: WritableAtom;
   images: Array<ImageClass>;
   videos?: Array<VideoClass>;
