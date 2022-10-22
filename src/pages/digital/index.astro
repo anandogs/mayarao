@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import digital from "../../images/menu/digital_creations.svg";
+import DigitalAccordian from "../../components/DigitalAccordian.svelte";
+import landingImage from "../../images/digital/landing.jpg";
+import Footer from "../../components/Footer.svelte";
+---
+
+<Layout title="Digital">
+  <main class="overflow-x-hidden m-0 p-0 h-screen lg:h-full">
+    <div class="hidden lg:block">
+      <Navbar menuPage={false} darkMode={true} client:load />
+    </div>
+    <div class="lg:hidden">
+      <Navbar menuPage={false} darkMode={false} client:load />
+    </div>
+    <div class="hidden lg:block">
+      <img class="" src={landingImage} alt="Landing Image" />
+    </div>
+    <div class="digital">
+      <img src={digital} alt="Digital" class="w-[275.63px] h-[41.04px]" />
+      <p>
+        On Apr 14, 2020, three weeks into the lockdown declared in India, Maya
+        created her first episode of ‘Paru’ - snapshots of Covid in India, seen
+        through the very unique eyes of Paru. Subsequently, Maya collaborated
+        with different artists to create more podcasts and videos, most of them
+        in response to events taking place at the time. All of these were made
+        in a short span of time – from half hour to 3 days.
+      </p>
+      <div class="bottom-border"></div>
+    </div>
+    <div class="accordian">
+      <DigitalAccordian client:load />
+    </div>
+  </main>
+  <Footer client:load />
+</Layout>
+<style>
+  .digital {
+    display: grid;
+    margin-top: 138px;
+    justify-items: center;
+    margin-left: 19px;
+    margin-right: 19px;
+    text-align: center;
+    row-gap: 28.66px;
+  }
+  .accordian {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin-top: 43.55px;
+  }
+  .bottom-border {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .digital {
+      margin-top: 34px;
+      margin-left: 5%;
+      margin-right: 5%;
+      justify-items: flex-start;
+      text-align: left;
+      row-gap: 50px;
+    }
+    p {
+      width: 484px;
+    }
+    .accordian {
+      margin-top: 0px;
+    }
+    .bottom-border {
+      display: block;
+      border-bottom: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: #020202;
+      width: 100%;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+  }
+</style>

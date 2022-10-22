@@ -139,7 +139,8 @@
           </div>
         </div>
       </a>
-      <div
+      <a
+        href="/street-theatre"
         class="category_image"
         style={categories.street.display
           ? "top: 39.1%; left:64.83%; z-index:10;"
@@ -173,7 +174,7 @@
             <p>on gandhi</p>
           </div>
         </div>
-      </div>
+      </a>
       <a
         href="/applied-theatre"
         class="category_image"
@@ -205,7 +206,8 @@
           </div>
         </div>
       </a>
-      <div
+      <a
+        href="/kathakali"
         class="category_image"
         style={categories.kathakali.display
           ? "top: 49.05%; left:48.69%; z-index:10;"
@@ -221,7 +223,7 @@
             categories.kathakali.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-      </div>
+        </a>
       <a
         href="/making"
         class="category_image"
@@ -240,7 +242,8 @@
           }`}
         />
         </a>
-      <div
+      <a
+      href="/teaching"
         class="category_image"
         style={categories.teaching.display
           ? "top: 58.17%; left:16.22%; z-index:10;"
@@ -256,7 +259,7 @@
             categories.teaching.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-      </div>
+        </a>
       <div
         class="category_image"
         style={categories.digitalCreations.display

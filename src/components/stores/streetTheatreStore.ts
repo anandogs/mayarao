@@ -28,7 +28,7 @@ import walkVideoBackground2 from '../../images/street_theatre/slideshow/walk/bac
 import rti1 from '../../images/street_theatre/slideshow/rti/1.jpg';
 import rti2 from '../../images/street_theatre/slideshow/rti/2.jpg';
 
-import rtiVideo1 from '../../images/street_theatre/videos/rti/rti_1.mp4';
+import rtiVideo1 from '../../images/street_theatre/videos/rti/rti.mp4';
 
 import rtiVideoBackground1 from '../../images/street_theatre/slideshow/rti/background_1.png';
 

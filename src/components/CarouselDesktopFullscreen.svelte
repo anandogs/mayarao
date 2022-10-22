@@ -5,7 +5,7 @@
   import chevronRight from "../images/chevron_right.svg";
   import type { itemListType } from "./stores/productionsStore"; 
   export let data: itemListType | undefined;
-  let numberOfSlides: number = data?.images.length || 10;
+  let numberOfSlides: number = data?.images?.length || 10;
 
   let currentSlide = 1;
 
@@ -32,7 +32,7 @@
 
 <div class="slider ">
   <div class="slides">
-    {#if data}
+    {#if data?.images}
     {#each data.images as image, i}
       <div class="carousel-slide" id={`desktop-slide-${i + 1}`}>
       <img
