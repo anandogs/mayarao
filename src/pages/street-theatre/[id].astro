@@ -10,11 +10,21 @@ import MobileDrawer from "../../components/templates/MobileDrawer.svelte";
 import landingImage from "../../images/street_theatre/landing.jpg";
 import street from "../../images/menu/street.svg";
 
+
+export function getStaticPaths() {
+    return itemList.map((item) => {
+    return {
+      params: { id: item.id.toString() },
+    };
+  });
+}
+const id = Astro.params.id
 itemList.forEach((item) => {
   
-  item.display.set(false)
-
+    item.display.set(false)
+  
 });
+itemList.filter((item) => item.id == id)[0].display.set(true)
 ---
 
 <Layout title="Street">

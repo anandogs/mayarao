@@ -260,7 +260,8 @@
           }`}
         />
         </a>
-      <div
+      <a
+      href="/digital"
         class="category_image"
         style={categories.digitalCreations.display
           ? "top: 57.47%; left:36.60%; z-index:10;"
@@ -278,7 +279,7 @@
               : ""
           }`}
         />
-      </div>
+        </a>
       <div
         class="category_image"
         style={categories.events.display

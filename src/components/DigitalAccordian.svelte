@@ -5,7 +5,8 @@ import AccordianItem from "./AccordianItem.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
 
   import paru from "../images/digital/paru.svg";
-  import lockdownStories from "../images/digital/lockdown_stories_desktop.svg";
+  import lockdownStoriesDesktop from "../images/digital/lockdown_stories_desktop.svg";
+  import lockdownStoriesMobile from "../images/digital/lockdown_stories_mobile.svg";
   import videos from "../images/digital/videos.svg";
   import { isLockdownStoriesOpen, isParuOpen, isVideosOpen, allItems, itemList } from "./stores/digitalStore";
 
@@ -21,11 +22,11 @@ import AccordianItem from "./AccordianItem.svelte";
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={paru}
-          class="w-[160.31px] h-[39.41px] lg:w-[279.69px] lg:h-[68.76px]"
+          class="w-[89.78px] h-[41.18px]"
           alt="Paru"
         />
       </div>
-      <div slot="content" class=" pt-2">
+      <div slot="content" class="pt-2">
         <div class="content pb-8 pt-6">
           <p>
             These are short and funny podcasts of the character Paru who picks up  lockdown-peculiar phenomenon to comment on. From life and times with her strange family and Tiger, her soul mate, to the long march of migrant labour in 2020 - all come under her scrutiny. In fact, Paru was a character initially created for the stage - a comedy, in 2013. So far, twenty-two podcast episodes have been made so far. Mansi Thapliyal, photo journalist and designer has created video versions of a few of the episodes, with mixed media - animation, drawing etc. Mar. 2020 onwards
@@ -45,11 +46,20 @@ import AccordianItem from "./AccordianItem.svelte";
   <div>
     <AccordianItem toggleItem={isLockdownStoriesOpen} marginTop={38} {allItems}>
       <div slot="heading" class="cursor-pointer heading">
+        <div class="hidden lg:block">
         <img
-          src={lockdownStories}
-          class="w-[113.1px] h-[24.7px] lg:w-[178.9px] lg:h-[39.07px]"
+          src={lockdownStoriesDesktop}
+          class="w-[382.25px] h-[50.1px]"
           alt="Lockdown Stories"
         />
+      </div>
+      <div class="lg:hidden">
+        <img
+          src={lockdownStoriesMobile}
+          class="w-[202.73px] h-[115.84px]"
+          alt="Lockdown Stories"
+        />
+      </div>
       </div>
       <div slot="content" class="pt-2">
         <div class="content pb-6 pt-6">
@@ -72,7 +82,7 @@ import AccordianItem from "./AccordianItem.svelte";
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={videos}
-          class="w-[92.32px] h-[29.97px] lg:w-[163.68px] lg:h-[53.14px]"
+          class="w-[133.38px] h-[30.31px]"
           alt="Videos"
         />
       </div>

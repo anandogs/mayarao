@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   export let slideshowFor: string;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
@@ -14,9 +13,6 @@
   let numberOfSlides: number;
   let slidesToShow: number;
 
-  onMount(() => {
-    console.log(data);
-  });
 
 
   $: {

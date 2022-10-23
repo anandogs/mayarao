@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar.svelte";
 import about from "../../images/menu/about.svg";
 import AboutAccordian from "../../components/AboutAccordian.svelte";
 import Footer from "../../components/Footer.svelte";
-import landingImage from '../../images/landing_image_template.png';
+import landingImage from '../../images/about/landing.jpg';
 ---
 
 <Layout title="Maya's site">
@@ -16,7 +16,7 @@ import landingImage from '../../images/landing_image_template.png';
   <div class="hidden lg:block">
     <Navbar menuPage={false} darkMode={true} client:load />
   </div>
-  <div class="hidden lg:block w-screen">
+  <div class="hidden lg:block w-full">
   <img src={landingImage} alt="landing image for about page">
 </div>
     <div class="mt-[150px] lg:mt-[45px] grid justify-items-center lg:justify-items-start mx-6 lg:mx-0">

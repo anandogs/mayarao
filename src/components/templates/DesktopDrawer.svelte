@@ -1,9 +1,17 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import type { itemListType } from '../stores/productionsStore';
   export let itemList: Array<itemListType>;
   import DesktopDrawerContents from "./DesktopDrawerContents.svelte";
   let clickedItem: itemListType | undefined = undefined;
 
+  onMount(() => {
+    itemList.forEach((item) => {
+      if (item.display.value) {
+        clickedItem = item;
+      }
+    });
+  });
 
   const valueClicked = (val: itemListType) => {
     for (const item of itemList) {
