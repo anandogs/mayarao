@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   export let slideshowFor: string;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
@@ -13,10 +14,13 @@
   let numberOfSlides: number;
   let slidesToShow: number;
 
+  onMount(() => {
+    console.log(data);
+  });
+
 
   $: {
     const calculateNumberOfSlides = (slideshowWidth:number) => {
-      console.log('here')
       let windowWidth = window.innerWidth;
       if (slideshowWidth < windowWidth) {
         return 1
@@ -90,44 +94,14 @@
           </a>
         {/each}
         {/if}
-        <!--         
         
-          <a href="/full-screen">
-          <img
-            src={LM1}
-            alt="slide 1"
-            width="759px"
-            class="absolute top-0 left-0"
-          />
-        </a>
-        <a href="/full-screen">
-          <img
-            src={LM2}
-            alt="slide 1"
-            width="418px"
-            class="absolute top-[50px] left-[759px]"
-          />
-        </a>
-        <a href="/full-screen">
-          <img
-            src={LM4}
-            alt="slide 1"
-            width="759px"
-            class="absolute top-0 left-[1177px]"
-          />
-        </a>
-        <a href="/full-screen">
-          <img
-            src={LM5}
-            alt="slide 1"
-            width="715px"
-            class="absolute top-[70px] left-[1936px]"
-          />
-        </a> -->
         {#if data.audio}
-        <div class="top-[520px] left-[93px] absolute w-full">
-          <AudioPlayer />
+        {#each data.audio as audio}
+        
+        <div class="w-full" style={`left: ${audio.left}px; position: absolute; top: ${audio.top}px;`}>
+          <AudioPlayer soundtrack={audio.src}/>
         </div>
+        {/each}
         {/if}
         {#if data.videos}
           {#each data.videos as video}

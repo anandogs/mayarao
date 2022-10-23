@@ -1,5 +1,5 @@
 <script lang="ts">
-  import soundtrack from "../images/audio.mp3";
+  export let soundtrack: string;
   import playButton from "../images/audio_play.svg";
   import pauseButton from "../images/audio_pause.svg";
   let showPlay: boolean = true;

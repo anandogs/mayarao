@@ -1,5 +1,4 @@
 <script type="ts">
-  import { isImprovisationOpen, isObjectsOpen, isCameraOpen, allItems, itemList } from "./stores/makingStore";
 
 import AccordianItem from "./AccordianItem.svelte";
   import Carousel from "./Carousel.svelte";
@@ -8,43 +7,34 @@ import AccordianItem from "./AccordianItem.svelte";
   import paru from "../images/digital/paru.svg";
   import lockdownStories from "../images/digital/lockdown_stories_desktop.svg";
   import videos from "../images/digital/videos.svg";
-
-
-  const objectsData = itemList.filter((item) => item.name === "Objects")[0];
-  const improvisationData = itemList.filter((item) => item.name === "Improvisation")[0];
-  const cameraData = itemList.filter((item) => item.name === "Camera")[0];
-
+  import { isLockdownStoriesOpen, isParuOpen, isVideosOpen, allItems, itemList } from "./stores/digitalStore";
 
   const paruData = itemList.filter((item) => item.name === "Paru")[0];
   const lockdownStoriesData = itemList.filter((item) => item.name === "Lockdown Stories")[0];
-  const videoData = itemList.filter((item) => item.name === "Video")[0];
+  const videoData = itemList.filter((item) => item.name === "Videos")[0];
 
 </script>
 
 <section class="grid gap-y-10 lg:w-full">
   <div>
-    <AccordianItem toggleItem={isImprovisationOpen} {allItems}>
+    <AccordianItem toggleItem={isParuOpen} {allItems}>
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={paru}
           class="w-[160.31px] h-[39.41px] lg:w-[279.69px] lg:h-[68.76px]"
-          alt="Improvisation"
+          alt="Paru"
         />
       </div>
       <div slot="content" class=" pt-2">
         <div class="content pb-8 pt-6">
           <p>
-            The centre piece of Maya's making process is IMPROVISATION. She sets
-            up a video camera in a her studio to record improvisations. In the
-            beginning years she would play recorded music that attracted her,
-            yet was not too familiar to her. Music plays a big part in
-            triggering her imagination.
+            These are short and funny podcasts of the character Paru who picks up  lockdown-peculiar phenomenon to comment on. From life and times with her strange family and Tiger, her soul mate, to the long march of migrant labour in 2020 - all come under her scrutiny. In fact, Paru was a character initially created for the stage - a comedy, in 2013. So far, twenty-two podcast episodes have been made so far. Mansi Thapliyal, photo journalist and designer has created video versions of a few of the episodes, with mixed media - animation, drawing etc. Mar. 2020 onwards
           </p>
           <div class="lg:hidden">
-            <Carousel slideshowFor={"making"} data={improvisationData} />
+            <Carousel slideshowFor={"digital"} data={paruData} />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowFor={"making"} data={improvisationData} />
+            <CarouselDesktop slideshowFor={"digital"} data={paruData} />
           </div>
       
         </div>
@@ -53,28 +43,24 @@ import AccordianItem from "./AccordianItem.svelte";
 
   </div>
   <div>
-    <AccordianItem toggleItem={isObjectsOpen} marginTop={38} {allItems}>
+    <AccordianItem toggleItem={isLockdownStoriesOpen} marginTop={38} {allItems}>
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={lockdownStories}
           class="w-[113.1px] h-[24.7px] lg:w-[178.9px] lg:h-[39.07px]"
-          alt="Objects"
+          alt="Lockdown Stories"
         />
       </div>
       <div slot="content" class="pt-2">
         <div class="content pb-6 pt-6">
           <p>
-            The centre piece of Maya's making process is IMPROVISATION. She sets
-            up a video camera in a her studio to record improvisations. In the
-            beginning years she would play recorded music that attracted her,
-            yet was not too familiar to her. Music plays a big part in
-            triggering her imagination.
+            These are music-driven podcasts around themes and issues that took on national importance in the first two years of the lockdown 2020 onwards
           </p>
           <div class="lg:hidden">
-            <Carousel slideshowFor={"making"} data={objectsData} />
+            <Carousel slideshowFor={"digital"} data={lockdownStoriesData} />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowFor={"making"} data={objectsData}  />
+            <CarouselDesktop slideshowFor={"digital"} data={lockdownStoriesData}  />
           </div>
           <div />
         </div>
@@ -82,28 +68,24 @@ import AccordianItem from "./AccordianItem.svelte";
     </AccordianItem>
   </div>
   <div>
-    <AccordianItem toggleItem={isCameraOpen} {allItems} lastItem={true}>
+    <AccordianItem toggleItem={isVideosOpen} {allItems} lastItem={true}>
       <div slot="heading" class="cursor-pointer heading">
         <img
           src={videos}
           class="w-[92.32px] h-[29.97px] lg:w-[163.68px] lg:h-[53.14px]"
-          alt="Camera"
+          alt="Videos"
         />
       </div>
       <div slot="content" class="pt-2">
         <div class="content pb-6 pt-6">
           <p>
-            The centre piece of Maya's making process is IMPROVISATION. She sets
-            up a video camera in a her studio to record improvisations. In the
-            beginning years she would play recorded music that attracted her,
-            yet was not too familiar to her. Music plays a big part in
-            triggering her imagination.
+            Maya also made short videos in mixed media. “So, What’s the Play?” was made as a keynote performance for Foot30, conference, Centre for Drama, Theatre and Performance Studies, University of Toronto. 2021
           </p>
           <div class="lg:hidden">
-            <Carousel slideshowFor={"making"} data={cameraData}  />
+            <Carousel slideshowFor={"digital"} data={videoData}  />
           </div>
           <div class="hidden lg:block">
-            <CarouselDesktop slideshowFor={"making"} data={cameraData}  />
+            <CarouselDesktop slideshowFor={"digital"} data={videoData}  />
           </div>
           <div />
         </div>

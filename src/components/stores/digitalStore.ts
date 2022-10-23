@@ -25,31 +25,35 @@ import cameraVideoBackground1 from '../../images/making/slideshow/camera/backgro
 
 
 //paru
+import paru1 from '../../images/digital/slideshow/paru/1.jpg';
+import paru2 from '../../images/digital/slideshow/paru/2.jpg';
+import paru3 from '../../images/digital/slideshow/paru/3.jpg';
 
+import paruVideo1 from '../../images/digital/videos/paru/paru1.mp4';
+import paruVideo2 from '../../images/digital/videos/paru/paru2.mp4';
+import paruVideo3 from '../../images/digital/videos/paru/paru3.mp4';
 
-//improvisation
-import improvisation1 from '../../images/making/slideshow/improvisation/1.jpg';
-import improvisation2 from '../../images/making/slideshow/improvisation/2.png';
-import improvisation3 from '../../images/making/slideshow/improvisation/3.jpg';
-import improvisation4 from '../../images/making/slideshow/improvisation/4.jpg';
-import improvisation5 from '../../images/making/slideshow/improvisation/5.jpg';
-import improvisation6 from '../../images/making/slideshow/improvisation/6.jpg';
-import improvisation7 from '../../images/making/slideshow/improvisation/7.jpg';
-import improvisation8 from '../../images/making/slideshow/improvisation/8.jpg';
+import paruVideoBackground1 from '../../images/digital/slideshow/paru/background_1.png';
+import paruVideoBackground2 from '../../images/digital/slideshow/paru/background_2.png';
+import paruVideoBackground3 from '../../images/digital/slideshow/paru/background_3.png';
 
-import improvisationVideo1 from '../../images/making/videos/improvisation/improvisation.mp4';
+import paruAudio1 from '../../images/digital/audio/paru/paru1.mp3';
+import paruAudio2 from '../../images/digital/audio/paru/paru2.mp3';
+import paruAudio3 from '../../images/digital/audio/paru/paru3.mp3';
 
-import improvisationVideoBackground1 from '../../images/making/slideshow/improvisation/background_1.png';
+//lockdown_stories
+import lockdownStoriesAudio1 from '../../images/digital/audio/lockdown_stories/lockdown_stories1.mp3';
+import lockdownStoriesAudio2 from '../../images/digital/audio/lockdown_stories/lockdown_stories2.mp3';
+import lockdownStoriesAudio3 from '../../images/digital/audio/lockdown_stories/lockdown_stories3.mp3';
+import lockdownStoriesAudio4 from '../../images/digital/audio/lockdown_stories/lockdown_stories4.mp3';
+import lockdownStoriesAudio5 from '../../images/digital/audio/lockdown_stories/lockdown_stories5.mp3';
+import lockdownStoriesAudio6 from '../../images/digital/audio/lockdown_stories/lockdown_stories6.mp3';
+import lockdownStoriesAudio7 from '../../images/digital/audio/lockdown_stories/lockdown_stories7.mp3';
+import lockdownStoriesAudio8 from '../../images/digital/audio/lockdown_stories/lockdown_stories8.mp3';
 
-//objects
-import objects1 from '../../images/making/slideshow/objects/1.jpg';
-import objects2 from '../../images/making/slideshow/objects/2.jpg';
-import objects3 from '../../images/making/slideshow/objects/3.jpg';
-import objects4 from '../../images/making/slideshow/objects/4.jpg';
-import objects5 from '../../images/making/slideshow/objects/5.jpg';
-import objects6 from '../../images/making/slideshow/objects/6.jpg';
-import objects7 from '../../images/making/slideshow/objects/7.jpg';
-
+//videos
+import videosVideo1 from '../../images/digital/videos/videos/videos1.mp4';
+import videosVideo2 from '../../images/digital/videos/videos/videos2.mp4';
 
 export interface itemListType {
   name: string;
@@ -99,53 +103,41 @@ export const itemList = [
     id: 1,
     display: atom(false),
     images: [
-        new ImageClass(camera1, "Camera 1", 759, 0, 0),
-        new ImageClass(camera2, "Camera 2", 418, 0+759, 50),
-        new ImageClass(camera3, "Camera 3", 759, 0+759+418, 0),
-        new ImageClass(camera4, "Camera 4", 715, 0+759+418+759, 70),
-        new ImageClass(camera5, "Camera 5", 759, 2651, 0),
-        new ImageClass(camera6, "Camera 6", 418, 2651+759, 50),
-        new ImageClass(camera7, "Camera 7", 759, 2651+759+418, 0),
-        new ImageClass(camera8, "Camera 8", 715, 2651+759+418+759, 70),
-        new ImageClass(camera9, "Camera 9",759, 5302, 0),
+        new ImageClass(paru1, "Paru 1", 759, 0, 0),
+        new ImageClass(paru2, "Paru 2", 418, 0+759, 50),
+        new ImageClass(paru3, "Paru 3", 759, 0+759+418, 0),
     ],
     videos: [
-        new VideoClass(cameraVideo1, "Camera Video 1", 650, 50, 506, cameraVideoBackground1, '1'),
+        new VideoClass(paruVideo1, "Paru Video 1", 650, 50, 506, paruVideoBackground1, '1'),
+        new VideoClass(paruVideo2, "Paru Video 2", 650, 850, 506, paruVideoBackground2, '2'),
+        new VideoClass(paruVideo3, "Paru Video 3", 650, 2000, 506, paruVideoBackground3, '3'),
     ],
-    slideshowWidth: 6500,
+    slideshowWidth: 2500,
   },
   {
     name: "Lockdown Stories",
     id: 2,
     display: atom(false),
-    images: [
-        new ImageClass(improvisation1, "Improvisation 1", 759, 0, 0),
-        new ImageClass(improvisation2, "Improvisation 2", 418, 0+759, 50),
-        new ImageClass(improvisation3, "Improvisation 3", 759, 0+759+418, 0),
-        new ImageClass(improvisation4, "Improvisation 4", 715, 0+759+418+759, 70),
-        new ImageClass(improvisation5, "Improvisation 5", 759, 2651, 0),
-        new ImageClass(improvisation6, "Improvisation 6", 418, 2651+759, 50),
-        new ImageClass(improvisation7, "Improvisation 7", 759, 2651+759+418, 0),
-        new ImageClass(improvisation8, "Improvisation 8", 715, 2651+759+418+759, 70),
+    audio: [
+        new ImageClass(lockdownStoriesAudio1, "Lockdown Stories Audio 1", 0, 100, 400),
+        new ImageClass(lockdownStoriesAudio2, "Lockdown Stories Audio 2", 0, 250, 300),
+        new ImageClass(lockdownStoriesAudio3, "Lockdown Stories Audio 3", 0, 400, 200),
+        new ImageClass(lockdownStoriesAudio4, "Lockdown Stories Audio 4", 0, 550, 100),
+        new ImageClass(lockdownStoriesAudio5, "Lockdown Stories Audio 5", 0, 700, 400),
+        new ImageClass(lockdownStoriesAudio6, "Lockdown Stories Audio 6", 0, 850, 300),
+        new ImageClass(lockdownStoriesAudio7, "Lockdown Stories Audio 7", 0, 1000, 200),
+        new ImageClass(lockdownStoriesAudio8, "Lockdown Stories Audio 8", 0, 1150, 100),
     ],
-    videos: [
-        new VideoClass(improvisationVideo1, "Improvisation Video 1", 650, 50, 506, improvisationVideoBackground1, '2'),
-    ],
-    slideshowWidth: 5302,
+    slideshowWidth: 1500,
   },
   {
     name: "Videos",
     id: 3,
     display: atom(false),
-    images: [
-        new ImageClass(objects1, "Objects 1", 759, 0, 0),
-        new ImageClass(objects2, "Objects 2", 418, 0+759, 50),
-        new ImageClass(objects3, "Objects 3", 759, 0+759+418, 0),
-        new ImageClass(objects4, "Objects 4", 715, 0+759+418+759, 70),
-        new ImageClass(objects5, "Objects 5", 759, 2651, 0),
-        new ImageClass(objects6, "Objects 6", 418, 2651+759, 50),
-        new ImageClass(objects7, "Objects 7", 759, 2651+759+418, 0),
+    videos: [
+        new VideoClass(videosVideo1, "Videos Video 1", 650, 50, 506, paruVideoBackground1, '1'),
+        new VideoClass(videosVideo2, "Videos Video 2", 650, 800, 200, paruVideoBackground2, '2'),
     ],
-    slideshowWidth: 2651,
-  }
+    slideshowWidth: 1500,
+  },
 ];
