@@ -5,7 +5,7 @@
   let videoControls: HTMLElement;
   let progress: HTMLProgressElement;
   let progress1: HTMLProgressElement;
-  let showPlay: Boolean = false;
+  let showPlay: Boolean = true;
   let showPause: Boolean = false;
   let videoContainer: HTMLElement;
   let progressBar: HTMLElement;
