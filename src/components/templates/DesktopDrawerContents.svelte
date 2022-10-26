@@ -4,7 +4,7 @@
   export let data: itemListType;
 </script>
 
-<div>
+<div id="contents">
   <div class="mb-[50px]">
     <h3>
       {data.name}

@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { itemListType } from '../stores/productionsStore';
+  export let categoryColor: string = "#468FB8"
   export let itemList: Array<itemListType>;
   import DesktopDrawerContents from "./DesktopDrawerContents.svelte";
   let clickedItem: itemListType | undefined = undefined;
+
 
   onMount(() => {
     itemList.forEach((item) => {
@@ -25,9 +27,9 @@
 </script>
 <div>
   <div class="border_bottom_large mt-[50px]" />  
-  <div class="drawer">
+  <div class="drawer" id="drawer">
       {#each itemList as item}
-      <h4 on:click={() => valueClicked(item)} style={clickedItem ? clickedItem.name === item.name ? "color:#020202":"":""}>
+      <h4 on:click={() => valueClicked(item)} style={clickedItem ? clickedItem.name === item.name ? "color:#020202":`color:${categoryColor}`:`color:${categoryColor}`}>
         {item.name}
       </h4>
       

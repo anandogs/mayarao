@@ -19,12 +19,16 @@
 </script>
 
 <footer>
-  <div class="logo">
+  <div class="logo lg:hidden">
     <img src={logo} alt="logo" />
   </div>
   <div class="footer-wrapper-desktop">
     <div class="footer-items">
-      <div>
+      <div class="grid">
+        <div class="logo hidden lg:block">
+          <img src={logo} alt="logo" />
+        </div>
+      
         <button on:click={copyEmail}>
           {#if clicked}
             copied!
@@ -43,12 +47,12 @@
         </div>
         <h4>all rights reserved.</h4>
       </div>
-      <div>
+      <a href="https://www.facebook.com/maya.k.rao">
         <button>facebook</button>
-      </div>
-      <div>
+      </a>
+      <a href="https://www.instagram.com/maya.k.rao">
         <button>instagram</button>
-      </div>
+      </a>
       <div class="website-by">
         <h4>website by</h4>
         <button>tide x tide</button>
@@ -111,6 +115,7 @@
 
   @media (min-width: 1024px) {
     footer {
+      display: flex;
       justify-content: start;
       justify-items: start;
       padding: 0 75px 74px 75px;

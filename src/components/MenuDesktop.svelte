@@ -31,14 +31,14 @@
   let categories: categoryType = {
     production: new Category(false, true, "#2B948D"),
     comedy: new Category(false, true, "#DC5860"),
-    street: new Category(false, true, "#658A65"),
-    appliedTheatre: new Category(false, true, "#468FB8"),
-    kathakali: new Category(false, true, "#C21111"),
-    making: new Category(false, true, "#EAB040"),
-    teaching: new Category(false, true, "#7A8225"),
-    digitalCreations: new Category(false, true, "#8B88F4"),
-    events: new Category(false, true, "#1DA069"),
-    about: new Category(false, true, "#1DA069"),
+    street: new Category(false, true, "#205F39"),
+    appliedTheatre: new Category(false, true, "#4F6395"),
+    kathakali: new Category(false, true, "#9B2F2F"),
+    making: new Category(false, true, "#CE9628"),
+    teaching: new Category(false, true, "#024C5C"),
+    digitalCreations: new Category(false, true, "#BE8565"),
+    events: new Category(false, true, "#557A8E"),
+    about: new Category(false, true, "#672649"),
   };
 
   let mouseEnterEvent = (hoveredValue: Category) => {
@@ -61,7 +61,7 @@
 </script>
 
 <div
-  class="h-screen overflow-hidden"
+  class="h-[110vh] overflow-hidden"
   style={`background-color: ${backgroundColour};`}
 >
   <menu style={`background-color: ${backgroundColour};`}>
@@ -92,7 +92,7 @@
             : "display:none;"}
         >
           <div>
-            <p>loose woman</p>
+            <a href="/productions/1#contents">loose woman</a>
             <p>non-stop feel good show</p>
             <p>ravanama</p>
             <p>quality street</p>
@@ -246,7 +246,7 @@
       href="/teaching"
         class="category_image"
         style={categories.teaching.display
-          ? "top: 58.17%; left:16.22%; z-index:10;"
+          ? "top: 58.17%; left:26.95%; z-index:10;"
           : "display:none;"}
         on:mouseenter={() => mouseEnterEvent(categories.teaching)}
         on:focus={() => mouseEnterEvent(categories.teaching)}
@@ -264,7 +264,7 @@
       href="/digital"
         class="category_image"
         style={categories.digitalCreations.display
-          ? "top: 57.47%; left:36.60%; z-index:10;"
+          ? "top: 57.91%; left:47.84%; z-index:10;"
           : "display:none;"}
         on:mouseenter={() => mouseEnterEvent(categories.digitalCreations)}
         on:focus={() => mouseEnterEvent(categories.digitalCreations)}
@@ -273,7 +273,7 @@
         <img
           src={digitalCreations}
           alt="Digital Creations"
-          style={`width: 33.87vw; max-width: 487.67px; ${
+          style={`width: 11.7vw; max-width: 169.79px; ${
             categories.digitalCreations.hover
               ? "filter: brightness(0) invert(1);"
               : ""
@@ -283,7 +283,7 @@
       <div
         class="category_image"
         style={categories.events.display
-          ? "top: 57.47%; left:71.75%; z-index:10;"
+          ? "top: 57.47%; left:61.11%; z-index:10;"
           : "display:none;"}
         on:mouseenter={() => mouseEnterEvent(categories.events)}
         on:focus={() => mouseEnterEvent(categories.events)}

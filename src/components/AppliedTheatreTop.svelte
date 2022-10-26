@@ -77,7 +77,7 @@
   </div>
   {#if programsStage !== 0}
     <div class="hidden lg:block">
-      <DesktopDrawer {itemList} />
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} />
     </div>
     <div
       class="lg:hidden mt-[30px] mb-[30px]"
@@ -118,7 +118,7 @@
 
 <style>
   h4 {
-    color: #468fb8;
+    color: #4F6395;
     text-transform: lowercase;
     font-size: 1rem;
     line-height: 20.8px;
