@@ -92,16 +92,20 @@
             : "display:none;"}
         >
           <div>
-            <a href="/productions/1#contents">loose woman</a>
-            <p>non-stop feel good show</p>
-            <p>ravanama</p>
-            <p>quality street</p>
-            <p>are you home, lady macbeth?</p>
-            <p>hand over fist</p>
-            <p>heads are meant for walking into</p>
-            <p>departures</p>
-            <p>the job</p>
-            <p>khol do</p>
+            <a href="/productions/1#drawer"><p>loose woman</p></a>
+            <a href="/productions/2#drawer"><p>non-stop feel good show</p></a>
+            <a href="/productions/3#drawer"><p>ravanama</p></a>
+            <a href="/productions/4#drawer"><p>quality street</p></a>
+            <a href="/productions/5#drawer"
+              ><p>are you home, lady macbeth?</p></a
+            >
+            <a href="/productions/6#drawer"><p>hand over fist</p></a>
+            <a href="/productions/7#drawer"
+              ><p>heads are meant for walking into</p></a
+            >
+            <a href="/productions/8#drawer"><p>departures</p></a>
+            <a href="/productions/9#drawer"><p>the job</p></a>
+            <a href="/productions/10#drawer"><p>khol do</p></a>
           </div>
         </div>
       </a>
@@ -129,13 +133,13 @@
             : "display:none;"}
         >
           <div>
-            <p>paru</p>
-            <p>dinner table</p>
-            <p>melon woman</p>
-            <p>jogger</p>
-            <p>body makeover</p>
-            <p>cooking</p>
-            <p>mamata</p>
+            <a href="/comedy/1#drawer"><p>paru</p></a>
+            <a href="/comedy/2#drawer"><p>dinner table</p></a>
+            <a href="/comedy/3#drawer"><p>melon woman</p></a>
+            <a href="/comedy/4#drawer"><p>jogger</p></a>
+            <a href="/comedy/5#drawer"><p>body makeover</p></a>
+            <a href="/comedy/6#drawer"><p>cooking</p></a>
+            <a href="/comedy/7#drawer"><p>mamata</p></a>
           </div>
         </div>
       </a>
@@ -163,15 +167,15 @@
             : "display:none;"}
         >
           <div class="box_right">
-            <p>om swaha</p>
-            <p>dafa no. 180</p>
-            <p>walk</p>
-            <p>rti</p>
-            <p>artists unite</p>
-            <p>mob lynching</p>
-            <p>shaheen bagh</p>
-            <p>farmer’s strike</p>
-            <p>on gandhi</p>
+            <a href="/street-theatre/1#drawer"><p>om swaha</p></a>
+            <a href="/street-theatre/2#drawer"><p>dafa no. 180</p></a>
+            <a href="/street-theatre/3#drawer"><p>walk</p></a>
+            <a href="/street-theatre/4#drawer"><p>rti</p></a>
+            <a href="/street-theatre/5#drawer"><p>not in my name</p></a>
+            <a href="/street-theatre/6#drawer"><p>artists unite!</p></a>
+            <a href="/street-theatre/7#drawer"><p>shaheen bagh</p></a>
+            <a href="/street-theatre/8#drawer"><p>the preamble</p></a>
+            <a href="/street-theatre/8#drawer"><p>farmer’s strike</p></a>
           </div>
         </div>
       </a>
@@ -201,8 +205,10 @@
             : "display:none;"}
         >
           <div>
-            <p>theatre programmes for schools</p>
-            <p>teaching teachers</p>
+            <a href="/applied-theatre/#drawer"
+              ><p>theatre programmes for schools</p></a
+            >
+            <a href="/applied-theatre/#drawer"><p>teaching teachers</p></a>
           </div>
         </div>
       </a>
@@ -223,7 +229,7 @@
             categories.kathakali.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-        </a>
+      </a>
       <a
         href="/making"
         class="category_image"
@@ -241,9 +247,9 @@
             categories.making.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-        </a>
+      </a>
       <a
-      href="/teaching"
+        href="/teaching"
         class="category_image"
         style={categories.teaching.display
           ? "top: 58.17%; left:26.95%; z-index:10;"
@@ -259,9 +265,9 @@
             categories.teaching.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-        </a>
+      </a>
       <a
-      href="/digital"
+        href="/digital"
         class="category_image"
         style={categories.digitalCreations.display
           ? "top: 57.91%; left:47.84%; z-index:10;"
@@ -279,7 +285,7 @@
               : ""
           }`}
         />
-        </a>
+      </a>
       <div
         class="category_image"
         style={categories.events.display
@@ -298,7 +304,7 @@
         />
       </div>
       <a
-      href="/about"
+        href="/about"
         class="category_image"
         style={categories.about.display
           ? "top: 66.21%; left:43.46%; z-index:10;"
@@ -314,7 +320,7 @@
             categories.about.hover ? "filter: brightness(0) invert(1);" : ""
           }`}
         />
-        </a>
+      </a>
     </div>
   </menu>
 </div>
@@ -335,7 +341,7 @@
     background-size: 217px 1px;
     background-position: left bottom;
   }
-  .box_right > p {
+  .box_right > a > p {
     background-position: right bottom;
     text-align: right;
   }

@@ -23,7 +23,9 @@ itemList.forEach((item) => {
     item.display.set(false)
   
 });
-itemList.filter((item) => item.id == id)[0].display.set(true)
+
+const selectedItem = itemList.filter((item) => item.id == id)[0]
+selectedItem.display.set(true)
 
 ---
 
@@ -33,7 +35,7 @@ itemList.filter((item) => item.id == id)[0].display.set(true)
   </section>
   <section class="hidden lg:block">
     <Navbar darkMode={true} menuPage={false} />
-    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+    <img src={selectedItem.images[0].src} alt="Landing Image" class="w-full object-cover" />
   </section>
   <main class="mt-[143.96px] lg:mt-[40px]">
     <div class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]">

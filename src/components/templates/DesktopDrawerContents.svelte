@@ -4,7 +4,7 @@
   export let data: itemListType;
 </script>
 
-<div id="contents">
+<div>
   <div class="mb-[50px]">
     <h3>
       {data.name}
@@ -52,13 +52,14 @@
     line-height: 17px;
   }
   .heading {
-    letter-spacing: 3%;
+    letter-spacing: .03em;
+    padding-bottom: 6px;
   }
   .details {
     margin-top: 50px;
     display: flex;
     column-gap: 50px;
-    width: 609px;
+    width: fit-content;
     border-top: 1px solid #020202;
     border-bottom: 1px solid #020202;
     padding: 30px 0;

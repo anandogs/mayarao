@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  let drawerFor: string | null = 'teaching';
+  export let itemId: string | number | undefined | null = null;
   import Carousel from "./Carousel.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
   import { itemList, teachingList } from "./stores/teachingStore";
@@ -6,6 +9,25 @@
   import MobileDrawer from "./templates/MobileDrawer.svelte";
   let programsStage = 0;
   let teachingStage = 0;
+
+  onMount(() => {
+    if (document.location.hash === "#drawer") {
+      drawerFor = null;
+      setTimeout(() => {
+        document
+          .querySelector("#drawer")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    }
+    if (itemId) {
+      programsStage = 1;
+      teachingStage = 0;
+      itemList.forEach((item) => {
+        item.display.set(false);
+      });
+      itemList.filter((item) => item.id == itemId)[0].display.set(true);
+    }
+  });
 
   const toggleProgramsStage = () => {
     if (programsStage !== 0) {
@@ -46,9 +68,7 @@
   <div class="drawer" on:click={() => toggleProgramsStage()}>
     <div class="lg:hidden mt-[30px]">
       {#if programsStage === 2}
-        <h4 style="color:#020202; font-size: 1rem;">
-          performance
-        </h4>
+        <h4 style="color:#020202; font-size: 1rem;">performance</h4>
       {:else}
         <h4
           class="text-[2.25rem]"
@@ -63,7 +83,7 @@
         class="text-[2.25rem]"
         style={programsStage !== 0 ? "color:#020202" : ""}
       >
-      performance
+        performance
       </h4>
     </div>
   </div>
@@ -77,7 +97,7 @@
   </div>
   {#if programsStage !== 0}
     <div class="hidden lg:block">
-      <DesktopDrawer {itemList} categoryColor={"#024C5C"} />
+      <DesktopDrawer {itemList} categoryColor={"#024C5C"} {drawerFor} />
     </div>
     <div
       class="lg:hidden mt-[30px] mb-[30px]"
@@ -118,7 +138,7 @@
 
 <style>
   h4 {
-    color: #024C5C;
+    color: #024c5c;
     text-transform: lowercase;
     font-size: 1rem;
     line-height: 20.8px;

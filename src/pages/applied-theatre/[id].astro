@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import Footer from "../../components/Footer.svelte";
+
+import appliedTheatre from "../../images/menu/applied_theatre.svg";
+import AppliedTheatreTop from "../../components/AppliedTheatreTop.svelte";
+
+import { itemList } from "../../components/stores/appliedTheatreStore";
+
+export function getStaticPaths() {
+    return itemList.map((item) => {
+    return {
+      params: { id: item.id.toString() },
+    };
+  });
+}
+const id = Astro.params.id
+itemList.forEach((item) => {
+  
+    item.display.set(false)
+  
+});
+
+const selectedItem = itemList.filter((item) => item.id == id)[0]
+selectedItem.display.set(true)
+
+---
+
+<Layout title="Applied Theatre">
+  <section class="lg:hidden">
+    <Navbar darkMode={false} menuPage={false} />
+  </section>
+  <section class="hidden lg:block">
+    <Navbar darkMode={true} menuPage={false} />
+    <img src={selectedItem.images![0].src} alt="Landing Image" class="w-full object-cover" />
+  </section>
+  <main class="mt-[143.96px] lg:mt-[40px]">
+    <div
+      class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]"
+    >
+      <img
+        src={appliedTheatre}
+        alt="Applied Theatre"
+        class="w-[261.14px]"
+      />
+    </div>
+    <div
+      class="text-center mx-[19px] grid gap-y-5 lg:text-start lg:w-[484px] lg:mx-[75px] lg:mb-[50px]"
+    >
+      <p>
+        Maya's theatre journey started with street theatre in the late 1970's
+        with Theatre Union, a group she co-founded. After making stage
+        performances for several years, she returned to this form, but this
+        time, solo. Since 2012, she has been responding to events and
+        controversial issues that have engaged women and other sections of
+        society who are taken up with the struggle for rights.
+      </p>
+    </div>
+    
+    <AppliedTheatreTop client:load itemId={id}/>
+    
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  
+
+</style>

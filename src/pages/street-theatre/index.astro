@@ -39,7 +39,7 @@ itemList.forEach((item) => {
       </p>
     </div>
     <div class="hidden lg:block">
-    <DesktopDrawer itemList={itemList}  client:load categoryColor={"#205F39"}/>
+    <DesktopDrawer itemList={itemList} drawerFor="street-theatre" client:load categoryColor={"#205F39"}/>
     </div>
     <div class="lg:hidden mt-[30px] mb-[30px]">
       <MobileDrawer itemList={itemList} slideshowFor="street-theatre"  client:load/>

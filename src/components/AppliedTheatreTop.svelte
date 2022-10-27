@@ -1,4 +1,7 @@
 <script lang="ts">
+  export let itemId: string | number | undefined | null = null;
+  let drawerFor:string|null = 'applied-theatre'
+  import { onMount } from "svelte";
   import Carousel from "./Carousel.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
   import { itemList, teachingList } from "./stores/appliedTheatreStore";
@@ -6,6 +9,24 @@
   import MobileDrawer from "./templates/MobileDrawer.svelte";
   let programsStage = 0;
   let teachingStage = 0;
+
+  onMount(() => {
+    if(document.location.hash === '#drawer') {
+      drawerFor = null
+      setTimeout(()=> {document.querySelector("#drawer")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 300)
+    }
+    if (itemId) {
+      programsStage = 1;
+      teachingStage = 0;
+      itemList.forEach((item) => {
+  
+  item.display.set(false)
+
+});
+itemList.filter((item) => item.id == itemId)[0].display.set(true)
+    }
+  })
 
   const toggleProgramsStage = () => {
     if (programsStage !== 0) {
@@ -43,7 +64,7 @@
   <div class="hidden lg:block">
     <div class="border_bottom_large mt-[50px]" />
   </div>
-  <div class="drawer" on:click={() => toggleProgramsStage()}>
+  <div class="drawer" on:click={() => toggleProgramsStage()} id="drawer">
     <div class="lg:hidden mt-[30px]">
       {#if programsStage === 2}
         <h4 style="color:#020202; font-size: 1rem;">
@@ -77,7 +98,7 @@
   </div>
   {#if programsStage !== 0}
     <div class="hidden lg:block">
-      <DesktopDrawer {itemList} categoryColor={"#4F6395"} />
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor={drawerFor} />
     </div>
     <div
       class="lg:hidden mt-[30px] mb-[30px]"

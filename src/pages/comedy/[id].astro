@@ -10,11 +10,23 @@ import MobileDrawer from "../../components/templates/MobileDrawer.svelte";
 import landingImage from "../../images/comedy/landing.jpg";
 import comedy from "../../images/menu/comedy.svg";
 
+
+export function getStaticPaths() {
+    return itemList.map((item) => {
+    return {
+      params: { id: item.id.toString() },
+    };
+  });
+}
+const id = Astro.params.id
 itemList.forEach((item) => {
   
-  item.display.set(false)
-
+    item.display.set(false)
+  
 });
+const selectedItem = itemList.filter((item) => item.id == id)[0]
+selectedItem.display.set(true)
+
 ---
 
 <Layout title="Comedy">
@@ -23,7 +35,7 @@ itemList.forEach((item) => {
   </section>
   <section class="hidden lg:block">
     <Navbar darkMode={true} menuPage={false} />
-    <img src={landingImage} alt="Landing Image" class="w-full object-cover" />
+    <img src={selectedItem.images![0].src} alt="Landing Image" class="w-full object-cover" />
   </section>
   <main class="mt-[143.96px] lg:mt-[40px]">
     <div class="flex items-center justify-center mb-4 lg:justify-start lg:mb-[46px] lg:mx-[75px]">
@@ -48,7 +60,7 @@ itemList.forEach((item) => {
       </p>
     </div>
     <div class="hidden lg:block">
-    <DesktopDrawer itemList={itemList} drawerFor="comedy" client:load categoryColor={"#DC5860"}/>
+    <DesktopDrawer itemList={itemList}  client:load categoryColor={"#DC5860"}/>
     </div>
     <div class="lg:hidden mt-[30px] mb-[30px]">
       <MobileDrawer itemList={itemList} slideshowFor="comedy"  client:load/>
