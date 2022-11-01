@@ -85,8 +85,8 @@ export const itemList = [
     id: 3,
     display: atom(false),
     videos: [
-        new VideoClass(videosVideo1, "Videos Video 1", 650, 50, 506, paruVideoBackground1, '1'),
-        new VideoClass(videosVideo2, "Videos Video 2", 650, 800, 200, paruVideoBackground2, '2'),
+        new VideoClass(videosVideo1, "Videos Video 1", 650, 379, 50, 506, paruVideoBackground1, '1'),
+        new VideoClass(videosVideo2, "Videos Video 2", 650, 379, 800, 200, paruVideoBackground2, '2'),
     ],
     slideshowWidth: 1500,
   },
