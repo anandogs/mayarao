@@ -1,4 +1,6 @@
 import { atom, WritableAtom } from "nanostores";
+import type { itemListType } from "./helpers";
+import { ImageClass, VideoClass } from "./helpers";
 
 // loose woman imports --- these will go away once we have a cms
 
@@ -119,50 +121,6 @@ import kholDoVideo1 from '../../images/productions/videos/khol_do/khol_do.mp4';
 
 import kholDoVideoBackground1 from '../../images/productions/slideshow/khol_do/background_1.png';
 
-
-
-export interface itemListType {
-  name: string;
-  metadata?: {
-    year: number;
-    credits?: Array<Object>;
-  };
-  id: number;
-  text?: Array<string>;
-  display: WritableAtom;
-  images?: Array<ImageClass>;
-  videos?: Array<VideoClass>;
-  audio?: Array<ImageClass>;
-  slideshowWidth: number;
-  quote?: string;
-  quoteMobile?: string;
-}
-
-class ImageClass {
-    src: string;
-    alt: string;
-    width: number;
-    left: number;
-    top: number;
-    constructor(src: string, alt: string, width: number, left: number, top:number) {
-        this.src = src;
-        this.alt = alt;
-        this.width = width;
-        this.left = left;
-        this.top = top;
-    }
-}
-
-class VideoClass extends ImageClass {
-    videoImage: string;
-    videoId: string;
-    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
-        super(src, alt, width, left, top);
-        this.videoImage = videoImage;
-        this.videoId = videoId;
-    }
-}
-
 export const itemList = [
   {
     name: "Loose Woman",
@@ -184,18 +142,18 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(loosewoman1, "Loose Woman 1", 759, 0, 0),
-        new ImageClass(loosewoman2, "Loose Woman 2", 418, 0+759, 50),
-        new ImageClass(loosewoman3, "Loose Woman 3", 759, 0+759+418, 0),
-        new ImageClass(loosewoman4, "Loose Woman 4", 715, 0+759+418+759, 70),
-        new ImageClass(loosewoman5, "Loose Woman 5", 759, 2651, 0),
-        new ImageClass(loosewoman6, "Loose Woman 6", 418, 2651+759, 50),
-        new ImageClass(loosewoman7, "Loose Woman 7", 759, 2651+759+418, 0),
-        new ImageClass(loosewoman8, "Loose Woman 8", 715, 2651+759+418+759, 70),
+        new ImageClass(loosewoman1, "Loose Woman 1", 759, 481, 0, 0),
+        new ImageClass(loosewoman2, "Loose Woman 2", 418, 332, 0+759, 50),
+        new ImageClass(loosewoman3, "Loose Woman 3", 759, 730, 0+759+418, 0),
+        new ImageClass(loosewoman4, "Loose Woman 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(loosewoman5, "Loose Woman 5", 759, 481, 2651, 0),
+        new ImageClass(loosewoman6, "Loose Woman 6", 418, 332, 2651+759, 50),
+        new ImageClass(loosewoman7, "Loose Woman 7", 759, 730, 2651+759+418, 0),
+        new ImageClass(loosewoman8, "Loose Woman 8", 715, 477, 2651+759+418+759, 70),
     ],
     videos: [
-        new VideoClass(loosewomanVideo1, "Loose Woman Video 1", 650, 50, 506, loosewomanVideoBackground1, '1'),
-        new VideoClass(loosewomanVideo2, "Loose Woman Video 2", 650, 1550, 506, loosewomanVideoBackground2, '2'),
+        new VideoClass(loosewomanVideo1, "Loose Woman Video 1", 650, 379, 298, 481, loosewomanVideoBackground1, '1'),
+        new VideoClass(loosewomanVideo2, "Loose Woman Video 2", 650, 379, 2800, 481, loosewomanVideoBackground2, '2'),
     ],
     slideshowWidth: 5310,
     quote: loosewomanQuote,
@@ -221,20 +179,20 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(nonStop1, "Non Stop 1", 759, 0, 0),
-      new ImageClass(nonStop2, "Non Stop 2", 418, 0+759, 50),
-      new ImageClass(nonStop3, "Non Stop 3", 759, 0+759+418, 0),
-      new ImageClass(nonStop4, "Non Stop 4", 715, 0+759+418+759, 70),
-      new ImageClass(nonStop5, "Non Stop 5", 759, 2651, 0),
-      new ImageClass(nonStop6, "Non Stop 6", 418, 2651+759, 50),
-      new ImageClass(nonStop7, "Non Stop 7", 759, 2651+759+418, 0),
+      new ImageClass(nonStop1, "Non Stop 1", 759, 481, 0, 0),
+      new ImageClass(nonStop2, "Non Stop 2", 418, 332, 0+759, 50),
+      new ImageClass(nonStop3, "Non Stop 3", 759, 730, 0+759+418, 0),
+      new ImageClass(nonStop4, "Non Stop 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(nonStop5, "Non Stop 5", 759, 481, 2651, 0),
+      new ImageClass(nonStop6, "Non Stop 6", 418, 332, 2651+759, 50),
+      new ImageClass(nonStop7, "Non Stop 7", 759, 730, 2651+759+418, 0),
       
 
     ],
     videos: [
-        new VideoClass(nonStopVideo1, "Non Stop Feel Good Show Video", 650, 1000, 506, nonStopVideoBackground1, '1'),
+        new VideoClass(nonStopVideo1, "Non Stop Feel Good Show Video", 650, 379, 298, 481, nonStopVideoBackground1, '1'),
     ],
-    slideshowWidth: 5310,
+    slideshowWidth: 4600,
   },
   {
     name: "Ravanama",
@@ -254,13 +212,13 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(ravanama1, "Ravanama 1", 759, 0, 0),
-      new ImageClass(ravanama2, "Ravanama 2", 418, 0+759, 50),      
+      new ImageClass(ravanama1, "Ravanama 1", 759, 481, 0, 0),
+      new ImageClass(ravanama2, "Ravanama 2", 418, 332, 0+759, 50),      
     ],
     videos: [
-      new VideoClass(ravanamaVideo1, "Ravanama Video 1", 650, 1000, 506, ravanamaVideoBackground1, '1'),
+      new VideoClass(ravanamaVideo1, "Ravanama Video 1", 650, 379, 298, 481, ravanamaVideoBackground1, '1'),
     ],
-    slideshowWidth: 2000,
+    slideshowWidth: 1200,
   },
   {
     name: "Quality Street",
@@ -280,13 +238,13 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(qualityStreet1, "Quality Street 1", 759, 0, 0),
-      new ImageClass(qualityStreet2, "Quality Street 2", 418, 0+759, 50),
+      new ImageClass(qualityStreet1, "Quality Street 1", 759, 481, 0, 0),
+      new ImageClass(qualityStreet2, "Quality Street 2", 418, 332, 0+759, 50),
     ],
     videos: [
-      new VideoClass(qualityStreetVideo1, "Quality Street Video 1", 650, 1000, 506, qualityStreetVideoBackground1, '1'),
+      new VideoClass(qualityStreetVideo1, "Quality Street Video 1", 650, 379, 298, 481, qualityStreetVideoBackground1, '1'),
     ],
-    slideshowWidth: 2000,
+    slideshowWidth: 1200,
   },
   {
     name: "Are You Home Lady Macbeth?",
@@ -307,10 +265,10 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(ladyMacbeth1, "Are You Home Lady Macbeth 1", 759, 0, 0),
-      new ImageClass(ladyMacbeth2, "Are You Home Lady Macbeth 2", 418, 0+759, 50),
-      new ImageClass(ladyMacbeth3, "Are You Home Lady Macbeth 3", 759, 0+759+418, 0),
-      new ImageClass(ladyMacbeth4, "Are You Home Lady Macbeth 4", 715, 0+759+418+759, 70),
+      new ImageClass(ladyMacbeth1, "Are You Home Lady Macbeth 1", 759, 481, 0, 0),
+      new ImageClass(ladyMacbeth2, "Are You Home Lady Macbeth 2", 418, 332, 0+759, 50),
+      new ImageClass(ladyMacbeth3, "Are You Home Lady Macbeth 3", 759, 730, 0+759+418, 0),
+      new ImageClass(ladyMacbeth4, "Are You Home Lady Macbeth 4", 715, 477, 0+759+418+759, 70),
     ],
     slideshowWidth: 2000,
   },
@@ -335,15 +293,15 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(handOverFist1, "Hand Over Fist 1", 759, 0, 0),
-      new ImageClass(handOverFist2, "Hand Over Fist 2", 418, 0+759, 50),
-      new ImageClass(handOverFist3, "Hand Over Fist 3", 759, 0+759+418, 0),
-      new ImageClass(handOverFist4, "Hand Over Fist 4", 715, 0+759+418+759, 70),
-      new ImageClass(handOverFist5, "Hand Over Fist 5", 759, 0+759+418+759+715, 0),
-      new ImageClass(handOverFist6, "Hand Over Fist 6", 418, 0+759+418+759+715+759, 50),
+      new ImageClass(handOverFist1, "Hand Over Fist 1", 759, 481, 0, 0),
+      new ImageClass(handOverFist2, "Hand Over Fist 2", 418, 332, 0+759, 50),
+      new ImageClass(handOverFist3, "Hand Over Fist 3", 759, 730, 0+759+418, 0),
+      new ImageClass(handOverFist4, "Hand Over Fist 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(handOverFist5, "Hand Over Fist 5", 759, 481, 0+759+418+759+715, 0),
+      new ImageClass(handOverFist6, "Hand Over Fist 6", 418, 332, 0+759+418+759+715+759, 50),
     ],
     videos: [
-      new VideoClass(handOverFistVideo1, "Hand Over Fist Video 1", 650, 50, 506, handOverFistVideoBackground1, '1'),
+      new VideoClass(handOverFistVideo1, "Hand Over Fist Video 1", 650, 379, 298, 481, handOverFistVideoBackground1, '1'),
     ],
     slideshowWidth: 4000,
   },
@@ -366,16 +324,16 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(headsAre1, "Heads Are Meant For Walking Into 1", 759, 0, 0),
-      new ImageClass(headsAre2, "Heads Are Meant For Walking Into 2", 418, 0+759, 50),
-      new ImageClass(headsAre3, "Heads Are Meant For Walking Into 3", 759, 0+759+418, 0),
-      new ImageClass(headsAre4, "Heads Are Meant For Walking Into 4", 715, 0+759+418+759, 70),
-      new ImageClass(headsAre5, "Heads Are Meant For Walking Into 5", 759, 0+759+418+759+715, 0),
-      new ImageClass(headsAre6, "Heads Are Meant For Walking Into 6", 418, 0+759+418+759+715+759, 50),
-      new ImageClass(headsAre7, "Heads Are Meant For Walking Into 7", 759, 0+759+418+759+715+759+418, 0),
+      new ImageClass(headsAre1, "Heads Are Meant For Walking Into 1", 759, 481, 0, 0),
+      new ImageClass(headsAre2, "Heads Are Meant For Walking Into 2", 418, 332, 0+759, 50),
+      new ImageClass(headsAre3, "Heads Are Meant For Walking Into 3", 759, 730, 0+759+418, 0),
+      new ImageClass(headsAre4, "Heads Are Meant For Walking Into 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(headsAre5, "Heads Are Meant For Walking Into 5", 759, 481, 0+759+418+759+715, 0),
+      new ImageClass(headsAre6, "Heads Are Meant For Walking Into 6", 418, 332, 0+759+418+759+715+759, 50),
+      new ImageClass(headsAre7, "Heads Are Meant For Walking Into 7", 759, 730, 0+759+418+759+715+759+418, 0),
     ],
     videos: [
-      new VideoClass(headsAreVideo1, "Heads Are Meant For Walking Into Video 1", 650, 50, 506, headsAreVideoBackground1, '1'),
+      new VideoClass(headsAreVideo1, "Heads Are Meant For Walking Into Video 1", 650, 379, 298, 481, headsAreVideoBackground1, '1'),
     ],
     slideshowWidth: 4500,
   },
@@ -399,12 +357,12 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(departures1, "Departures 1", 759, 0, 0),
-      new ImageClass(departures2, "Departures 2", 418, 0+759, 50),
-      new ImageClass(departures3, "Departures 3", 759, 0+759+418, 0),
-      new ImageClass(departures4, "Departures 4", 715, 0+759+418+759, 70),
-      new ImageClass(departures5, "Departures 5", 759, 0+759+418+759+715, 0),
-      new ImageClass(departures6, "Departures 6", 418, 0+759+418+759+715+759, 50),
+      new ImageClass(departures1, "Departures 1", 759, 481, 0, 0),
+      new ImageClass(departures2, "Departures 2", 418, 332, 0+759, 50),
+      new ImageClass(departures3, "Departures 3", 759, 730, 0+759+418, 0),
+      new ImageClass(departures4, "Departures 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(departures5, "Departures 5", 759, 481, 0+759+418+759+715, 0),
+      new ImageClass(departures6, "Departures 6", 418, 332, 0+759+418+759+715+759, 50),
     ],
     slideshowWidth: 4000,
   },
@@ -427,17 +385,17 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(theJob1, "The Job 1", 759, 0, 0),
-      new ImageClass(theJob2, "The Job 2", 418, 0+759, 50),
-      new ImageClass(theJob3, "The Job 3", 759, 0+759+418, 0),
-      new ImageClass(theJob4, "The Job 4", 715, 0+759+418+759, 70),
-      new ImageClass(theJob5, "The Job 5", 759, 2651, 0),
-      new ImageClass(theJob6, "The Job 6", 418, 2651+759, 50),
-      new ImageClass(theJob7, "The Job 7", 759, 2651+759+418, 0),
-      new ImageClass(theJob8, "The Job 8", 715, 2651+759+418+759, 70),
+      new ImageClass(theJob1, "The Job 1", 759, 481, 0, 0),
+      new ImageClass(theJob2, "The Job 2", 418, 332, 0+759, 50),
+      new ImageClass(theJob3, "The Job 3", 759, 730, 0+759+418, 0),
+      new ImageClass(theJob4, "The Job 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(theJob5, "The Job 5", 759, 481, 2651, 0),
+      new ImageClass(theJob6, "The Job 6", 418, 332, 2651+759, 50),
+      new ImageClass(theJob7, "The Job 7", 759, 730, 2651+759+418, 0),
+      new ImageClass(theJob8, "The Job 8", 715, 477, 2651+759+418+759, 70),
     ],
     videos: [
-      new VideoClass(theJobVideo1, "The Job Video", 650, 50, 506, theJobVideoBackground1, '1')
+      new VideoClass(theJobVideo1, "The Job Video", 650, 379, 298, 481, theJobVideoBackground1, '1')
     ],
   slideshowWidth: 5310,
   },
@@ -461,20 +419,20 @@ export const itemList = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(kholDo1, "Khol Do 1", 759, 0, 0),
-      new ImageClass(kholDo2, "Khol Do 2", 418, 0+759, 50),
-      new ImageClass(kholDo3, "Khol Do 3", 759, 0+759+418, 0),
-      new ImageClass(kholDo4, "Khol Do 4", 715, 0+759+418+759, 70),
-      new ImageClass(kholDo5, "Khol Do 5", 759, 2651, 0),
-      new ImageClass(kholDo6, "Khol Do 6", 418, 2651+759, 50),
-      new ImageClass(kholDo7, "Khol Do 7", 759, 2651+759+418, 0),
-      new ImageClass(kholDo8, "Khol Do 8", 715, 2651+759+418+759, 70),
-      new ImageClass(kholDo9, "Khol Do 5", 759, 5302, 0),
-      new ImageClass(kholDo10, "Khol Do 6", 418, 5302+759, 50),
-      new ImageClass(kholDo11, "Khol Do 7", 759, 5302+759+418, 0),
+      new ImageClass(kholDo1, "Khol Do 1", 759, 481, 0, 0),
+      new ImageClass(kholDo2, "Khol Do 2", 418, 332, 0+759, 50),
+      new ImageClass(kholDo3, "Khol Do 3", 759, 730, 0+759+418, 0),
+      new ImageClass(kholDo4, "Khol Do 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(kholDo5, "Khol Do 5", 759, 481, 2651, 0),
+      new ImageClass(kholDo6, "Khol Do 6", 418, 332, 2651+759, 50),
+      new ImageClass(kholDo7, "Khol Do 7", 759, 730, 2651+759+418, 0),
+      new ImageClass(kholDo8, "Khol Do 8", 715, 477, 2651+759+418+759, 70),
+      new ImageClass(kholDo9, "Khol Do 5", 759, 481, 5302, 0),
+      new ImageClass(kholDo10, "Khol Do 6", 418, 332, 5302+759, 50),
+      new ImageClass(kholDo11, "Khol Do 7", 759, 730, 5302+759+418, 0),
     ],
     videos: [
-      new VideoClass(kholDoVideo1, "Khol Do Video", 650, 50, 506, kholDoVideoBackground1, '1')
+      new VideoClass(kholDoVideo1, "Khol Do Video", 650, 379, 298, 481, kholDoVideoBackground1, '1')
     ],
   slideshowWidth: 7358,
 

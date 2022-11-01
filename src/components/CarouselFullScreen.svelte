@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { itemListType } from "./stores/productionsStore"; 
+  import type { itemListType } from "./stores/helpers"; 
   export let data: itemListType | undefined;
   let numberOfSlides: number = data?.images?.length || 10;
 

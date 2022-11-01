@@ -1,4 +1,6 @@
 import { atom, WritableAtom } from "nanostores";
+import type { itemListType } from "./helpers";
+import { ImageClass, VideoClass } from "./helpers";
 
 //heiretikos
 import heiretikos1 from '../../images/applied_theatre/slideshow/heiretikos/1.jpg';
@@ -40,48 +42,6 @@ import teachingTeachers3 from '../../images/applied_theatre/slideshow/teaching_t
 import teachingTeachers4 from '../../images/applied_theatre/slideshow/teaching_teachers/4.jpg';
 
 
-export interface itemListType {
-  name: string;
-  metadata?: {
-    year: number;
-    credits?: Array<Object>;
-  };
-  id: number;
-  text?: Array<string>;
-  display: WritableAtom;
-  images?: Array<ImageClass>;
-  videos?: Array<VideoClass>;
-  audio?: Array<ImageClass>;
-  slideshowWidth: number;
-  quote?: string;
-  quoteMobile?: string;
-}
-
-class ImageClass {
-    src: string;
-    alt: string;
-    width: number;
-    left: number;
-    top: number;
-    constructor(src: string, alt: string, width: number, left: number, top:number) {
-        this.src = src;
-        this.alt = alt;
-        this.width = width;
-        this.left = left;
-        this.top = top;
-    }
-}
-
-class VideoClass extends ImageClass {
-    videoImage: string;
-    videoId: string;
-    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
-        super(src, alt, width, left, top);
-        this.videoImage = videoImage;
-        this.videoId = videoId;
-    }
-}
-
 export let stage = atom(0);
 
 export const teachingList:Array<itemListType> = [
@@ -94,10 +54,10 @@ export const teachingList:Array<itemListType> = [
         ],
         display: atom(false),
         images: [
-            new ImageClass(teachingTeachers1, "Teaching Teachers 1", 759, 0, 0),
-            new ImageClass(teachingTeachers2, "Teaching Teachers 2", 418, 0+759, 50),
-            new ImageClass(teachingTeachers3, "Teaching Teachers 3", 759, 0+759+418, 0),
-            new ImageClass(teachingTeachers4, "Teaching Teachers 4", 715, 0+759+418+759, 70),
+            new ImageClass(teachingTeachers1, "Teaching Teachers 1", 759, 481, 0, 0),
+            new ImageClass(teachingTeachers2, "Teaching Teachers 2", 418, 332, 0+759, 50),
+            new ImageClass(teachingTeachers3, "Teaching Teachers 3", 759, 730, 0+759+418, 0),
+            new ImageClass(teachingTeachers4, "Teaching Teachers 4", 715, 477, 0+759+418+759, 70),
         ],
         slideshowWidth: 2651,
       },
@@ -115,10 +75,10 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(heiretikos1, "Heiretikos 1", 759, 0, 0),
-        new ImageClass(heiretikos2, "Heiretikos 2", 418, 0+759, 50),
-        new ImageClass(heiretikos3, "Heiretikos 3", 759, 0+759+418, 0),
-        new ImageClass(heiretikos4, "Heiretikos 4", 715, 0+759+418+759, 70),
+        new ImageClass(heiretikos1, "Heiretikos 1", 759, 481, 0, 0),
+        new ImageClass(heiretikos2, "Heiretikos 2", 418, 332, 0+759, 50),
+        new ImageClass(heiretikos3, "Heiretikos 3", 759, 730, 0+759+418, 0),
+        new ImageClass(heiretikos4, "Heiretikos 4", 715, 477, 0+759+418+759, 70),
     ],
     slideshowWidth: 2651,
   },
@@ -133,10 +93,10 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(iglooIgloo1, "Igloo Igloo 1", 759, 0, 0),
-        new ImageClass(iglooIgloo2, "Igloo Igloo 2", 418, 0+759, 50),
-        new ImageClass(iglooIgloo3, "Igloo Igloo 3", 759, 0+759+418, 0),
-        new ImageClass(iglooIgloo4, "Igloo Igloo 4", 715, 0+759+418+759, 70),
+        new ImageClass(iglooIgloo1, "Igloo Igloo 1", 759, 481, 0, 0),
+        new ImageClass(iglooIgloo2, "Igloo Igloo 2", 418, 332, 0+759, 50),
+        new ImageClass(iglooIgloo3, "Igloo Igloo 3", 759, 730, 0+759+418, 0),
+        new ImageClass(iglooIgloo4, "Igloo Igloo 4", 715, 477, 0+759+418+759, 70),
     ],
     slideshowWidth: 2651,
   },
@@ -151,12 +111,12 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(razia1, "razia 1", 759, 0, 0),
-        new ImageClass(razia2, "razia 2", 418, 0+759, 50),
-        new ImageClass(razia3, "razia 3", 759, 0+759+418, 0),
-        new ImageClass(razia4, "razia 4", 715, 0+759+418+759, 70),
-        new ImageClass(razia5, "razia 5", 759, 2651, 0),
-        new ImageClass(razia6, "razia 6", 418, 2651+759, 50),
+        new ImageClass(razia1, "razia 1", 759, 481, 0, 0),
+        new ImageClass(razia2, "razia 2", 418, 332, 0+759, 50),
+        new ImageClass(razia3, "razia 3", 759, 730, 0+759+418, 0),
+        new ImageClass(razia4, "razia 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(razia5, "razia 5", 759, 481, 2651, 0),
+        new ImageClass(razia6, "razia 6", 418, 332, 2651+759, 50),
     ],
     slideshowWidth: 5310,
   },
@@ -171,10 +131,10 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(scivaAndJagli1, "Sciva and Jagli 1", 759, 0, 0),
-        new ImageClass(scivaAndJagli2, "Sciva and Jagli 2", 418, 0+759, 50),
-        new ImageClass(scivaAndJagli3, "Sciva and Jagli 3", 759, 0+759+418, 0),
-        new ImageClass(scivaAndJagli4, "Sciva and Jagli 4", 715, 0+759+418+759, 70),
+        new ImageClass(scivaAndJagli1, "Sciva and Jagli 1", 759, 481, 0, 0),
+        new ImageClass(scivaAndJagli2, "Sciva and Jagli 2", 418, 332, 0+759, 50),
+        new ImageClass(scivaAndJagli3, "Sciva and Jagli 3", 759, 730, 0+759+418, 0),
+        new ImageClass(scivaAndJagli4, "Sciva and Jagli 4", 715, 477, 0+759+418+759, 70),
     ],
     slideshowWidth: 2651,
 
@@ -190,11 +150,11 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(panditaRamabai1, "Pandita Ramabai 1", 759, 0, 0),
-        new ImageClass(panditaRamabai2, "Pandita Ramabai 2", 418, 0+759, 50),
-        new ImageClass(panditaRamabai3, "Pandita Ramabai 3", 759, 0+759+418, 0),
-        new ImageClass(panditaRamabai4, "Pandita Ramabai 4", 715, 0+759+418+759, 70),
-        new ImageClass(panditaRamabai5, "Pandita Ramabai 5", 759, 2651, 0),
+        new ImageClass(panditaRamabai1, "Pandita Ramabai 1", 759, 481, 0, 0),
+        new ImageClass(panditaRamabai2, "Pandita Ramabai 2", 418, 332, 0+759, 50),
+        new ImageClass(panditaRamabai3, "Pandita Ramabai 3", 759, 730, 0+759+418, 0),
+        new ImageClass(panditaRamabai4, "Pandita Ramabai 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(panditaRamabai5, "Pandita Ramabai 5", 759, 481, 2651, 0),
     ],
     slideshowWidth: 3599,
   }

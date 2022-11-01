@@ -3,7 +3,7 @@
   
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
-  import type { itemListType } from "./stores/productionsStore"; 
+  import type { itemListType } from "./stores/helpers"; 
   export let data: itemListType | undefined;
   let numberOfSlides: number = data?.images?.length || 10;
 
@@ -34,11 +34,11 @@
   <div class="slides">
     {#if data?.images}
     {#each data.images as image, i}
-      <div class="carousel-slide" id={`desktop-slide-${i + 1}`}>
+      <div class="carousel-slide" id={`desktop-slide-${i + 1}`} style="background-color: {image.backgroundColor? image.backgroundColor : "#020202"}">
       <img
         src={image.src}
         alt={image.alt}
-        style="width: 100%; height: 100%; object-fit: cover;"
+        style="height: 100%; object-fit: cover;"
 />
       </div>
     {/each}

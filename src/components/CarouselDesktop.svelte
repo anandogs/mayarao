@@ -2,7 +2,7 @@
   export let slideshowFor: string;
   import chevronLeft from "../images/chevron_left.svg";
   import chevronRight from "../images/chevron_right.svg";
-  import type { itemListType } from "./stores/productionsStore";
+  import type { itemListType } from "./stores/helpers";
 
   export let data: itemListType;
   import playButton from "../images/play.svg";
@@ -77,16 +77,21 @@
 <div class="slider" id="slideshow-start">
   <div class="slides">
     <div class="carousel-slide" id="desktop-slide-1">
-      <div class="relative h-full" style={`width: ${data.slideshowWidth}px;`}>
+      <div class="relative h-full" style={`width: ${data.slideshowWidth}px; min-width: 100vw;`}>
         {#if data.images}
         {#each data.images as image}
           <a href="/{slideshowFor}/full-screen/{data.id}">
-            <img
+            <div style={`left: ${image.left}px; position: absolute; top: ${image.top}px; width:${image.width}px; height:${image.height}px; background-color: ${image.backgroundColor? image.backgroundColor : "#020202;"} `}>
+              <div class="flex w-full h-full justify-center">
+              <img
               src={image.src}
               alt={image.alt}
-              width={image.width}              
-              style={`left: ${image.left}px; position: absolute; top: ${image.top}px;`}
+              
+              class="object-contain"
             />
+          </div>
+            </div>
+            
           </a>
         {/each}
         {/if}

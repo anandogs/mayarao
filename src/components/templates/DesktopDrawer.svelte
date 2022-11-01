@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   export let drawerFor:string|null = null;
-  import type { itemListType } from '../stores/productionsStore';
+  import type { itemListType } from '../stores/helpers';
   export let categoryColor: string = "#468FB8"
   export let itemList: Array<itemListType>;
   import DesktopDrawerContents from "./DesktopDrawerContents.svelte";

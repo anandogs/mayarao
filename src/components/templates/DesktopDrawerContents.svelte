@@ -1,6 +1,6 @@
 <script lang="ts">
   import CarouselDesktop from "../CarouselDesktop.svelte";
-  import type { itemListType } from "../stores/productionsStore";
+  import type { itemListType } from "../stores/helpers";
   export let data: itemListType;
 </script>
 
