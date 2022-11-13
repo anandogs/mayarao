@@ -55,14 +55,14 @@
           productionItems.forEach((item) => {
             if (item.name === selectedItem) {
               let itemId = item.id;
-              window.location.href = "/" + hrefLoc + "/" + itemId;
+              window.location.href = "/" + hrefLoc + "/" + itemId + '#drawer';
             }
           });
         case "street-theatre":
           streetTheatreItems.forEach((item) => {
             if (item.name === selectedItem) {
               let itemId = item.id;
-              window.location.href = "/" + hrefLoc + "/" + itemId;
+              window.location.href = "/" + hrefLoc + "/" + itemId  + '#drawer';
             }
           });
       }

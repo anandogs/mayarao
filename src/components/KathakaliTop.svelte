@@ -5,15 +5,15 @@
   import CarouselDesktop from "./CarouselDesktop.svelte";
   import { itemList } from "./stores/kathakaliStore";
   
-    let teachingStage = 0
+    let kathakaliStage = 0
     onMount(() => {
-      teachingStage = 1
+      kathakaliStage = 1
     })
 </script>
 <main>
     
-{#if teachingStage !== 0}
-<div class="mb-[45px] lg:mb-[60px]">
+{#if kathakaliStage !== 0}
+<div class="mb-[45px] lg:mb-[60px]" id='drawer'>
   <div class="lg:hidden">
     <Carousel data={itemList[0]} slideshowFor="kathakali" />
   </div>

@@ -1,13 +1,5 @@
-import { atom, WritableAtom } from "nanostores";
-import type { itemListType } from "./helpers";
+import { atom } from "nanostores";
 import { ImageClass, VideoClass } from "./helpers";
-
-
-export const isParuOpen = atom(false)
-export const isLockdownStoriesOpen = atom(false)
-export const isVideosOpen = atom(false)
-
-export const allItems = [isParuOpen, isLockdownStoriesOpen, isVideosOpen]
 
 
 //paru

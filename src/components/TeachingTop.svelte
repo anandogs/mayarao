@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  let drawerFor: string | null = 'teaching';
+  let drawerAlreadyOpened = false;
   export let itemId: string | number | undefined | null = null;
   import Carousel from "./Carousel.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
@@ -12,7 +12,7 @@
 
   onMount(() => {
     if (document.location.hash === "#drawer") {
-      drawerFor = null;
+      drawerAlreadyOpened = true;
       setTimeout(() => {
         document
           .querySelector("#drawer")
@@ -97,7 +97,11 @@
   </div>
   {#if programsStage !== 0}
     <div class="hidden lg:block">
-      <DesktopDrawer {itemList} categoryColor={"#024C5C"} {drawerFor} />
+      {#if drawerAlreadyOpened}
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor='teaching' isOpenDrawer={true}/>
+      {:else} 
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor='teaching'/>
+      {/if}
     </div>
     <div
       class="lg:hidden mt-[30px] mb-[30px]"

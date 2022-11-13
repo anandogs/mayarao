@@ -36,10 +36,10 @@ let showPause: boolean = false;
 {#if showManualControls}
 <div class="relative cursor-pointer" on:click={() => playPause()}>
     {#if showPlay}
-  <img src={playButton} alt="Play" class="absolute"/>
+  <img src={playButton} alt="Play" />
     {/if}
     {#if showPause}
-  <img src={pauseButton} alt="Pause" class="absolute"/>
+  <img src={pauseButton} alt="Pause" />
     {/if}
 </div>
 {/if}

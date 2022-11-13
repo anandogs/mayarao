@@ -3,7 +3,7 @@ import CarouselDesktopFullscreen from "../../../components/CarouselDesktopFullsc
 import CarouselFullScreen from "../../../components/CarouselFullScreen.svelte";
 import Navbar from "../../../components/Navbar.svelte";
 import Layout from "../../../layouts/Layout.astro";
-import { itemList } from "../../../components/stores/makingStore";
+import { itemList } from "../../../components/stores/digitalStore";
 export function getStaticPaths() {
     return itemList.map((item) => {
     return {
@@ -16,7 +16,7 @@ const item = itemList.find((item) => item.id.toString() === id);
 
 ---
 <Layout title="Images">
-    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/making'} client:load/>
+    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/digital/' + id + '#drawer'} client:load/>
     <div class="hidden lg:block">
         <CarouselDesktopFullscreen data={item} client:load/>
     </div>

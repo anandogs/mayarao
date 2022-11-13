@@ -7,7 +7,6 @@ import { itemList } from "../../components/stores/comedyStore";
 import DesktopDrawer from "../../components/templates/DesktopDrawer.svelte";
 import MobileDrawer from "../../components/templates/MobileDrawer.svelte";
 
-import landingImage from "../../images/comedy/landing.jpg";
 import comedy from "../../images/menu/comedy.svg";
 
 
@@ -60,7 +59,7 @@ selectedItem.display.set(true)
       </p>
     </div>
     <div class="hidden lg:block">
-    <DesktopDrawer itemList={itemList}  client:load categoryColor={"#DC5860"}/>
+      <DesktopDrawer itemList={itemList} drawerFor="comedy" client:load categoryColor={"#DC5860"} isOpenDrawer={true}/>
     </div>
     <div class="lg:hidden mt-[30px] mb-[30px]">
       <MobileDrawer itemList={itemList} slideshowFor="comedy"  client:load/>

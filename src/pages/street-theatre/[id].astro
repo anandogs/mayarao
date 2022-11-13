@@ -18,7 +18,7 @@ export function getStaticPaths() {
     };
   });
 }
-const id = Astro.params.id
+let id = Astro.params.id
 itemList.forEach((item) => {
   
     item.display.set(false)
@@ -49,7 +49,7 @@ itemList.filter((item) => item.id == id)[0].display.set(true)
       </p>
     </div>
     <div class="hidden lg:block">
-    <DesktopDrawer itemList={itemList} client:load categoryColor={"#205F39"}/>
+    <DesktopDrawer itemList={itemList} client:load categoryColor={"#205F39"} drawerFor="street-theatre" isOpenDrawer={true}/>
     </div>
     <div class="lg:hidden mt-[30px] mb-[30px]">
       <MobileDrawer itemList={itemList} slideshowFor="street-theatre"  client:load/>

@@ -1,4 +1,7 @@
-import { atom, WritableAtom } from "nanostores";
+import { atom } from "nanostores";
+import type { itemListType } from "./helpers";
+import { ImageClass, VideoClass } from "./helpers";
+
 
 //om_swaha
 import omswaha1 from '../../images/street_theatre/slideshow/om_swaha/1.jpg';
@@ -68,50 +71,16 @@ import farmersStrikeVideo1 from '../../images/street_theatre/videos/farmers_stri
 
 import farmersStrikeVideoBackground1 from '../../images/street_theatre/slideshow/farmers_strike/background_1.png';
 
+// new ImageClass(loosewoman1, "Loose Woman 1", 759, 481, 0, 0),
+// new ImageClass(loosewoman2, "Loose Woman 2", 418, 332, 0+759, 50),
+// new ImageClass(loosewoman3, "Loose Woman 3", 759, 730, 0+759+418, 0),
+// new ImageClass(loosewoman4, "Loose Woman 4", 715, 477, 0+759+418+759, 70),
+// new ImageClass(loosewoman5, "Loose Woman 5", 759, 481, 2651, 0),
+// new ImageClass(loosewoman6, "Loose Woman 6", 418, 332, 2651+759, 50),
+// new ImageClass(loosewoman7, "Loose Woman 7", 759, 730, 2651+759+418, 0),
+// new ImageClass(loosewoman8, "Loose Woman 8", 715, 477, 2651+759+418+759, 70),
 
 
-
-export interface itemListType {
-  name: string;
-  metadata?: {
-    year: number;
-    credits?: Array<Object>;
-  };
-  id: number;
-  text?: Array<string>;
-  display: WritableAtom;
-  images?: Array<ImageClass>;
-  videos?: Array<VideoClass>;
-  audio?: Array<ImageClass>;
-  slideshowWidth: number
-  quote?: string;
-  quoteMobile?: string;
-}
-
-class ImageClass {
-    src: string;
-    alt: string;
-    width: number;
-    left: number;
-    top: number;
-    constructor(src: string, alt: string, width: number, left: number, top:number) {
-        this.src = src;
-        this.alt = alt;
-        this.width = width;
-        this.left = left;
-        this.top = top;
-    }
-}
-
-class VideoClass extends ImageClass {
-    videoImage: string;
-    videoId: string;
-    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
-        super(src, alt, width, left, top);
-        this.videoImage = videoImage;
-        this.videoId = videoId;
-    }
-}
 
 export const itemList:Array<itemListType> = [
   {
@@ -125,11 +94,11 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(omswaha1, "Om Swaha 1", 759, 0, 0),
-        new ImageClass(omswaha2, "Om Swaha 2", 418, 0+759, 50),
-        new ImageClass(omswaha3, "Om Swaha 3", 759, 0+759+418, 0),
-        new ImageClass(omswaha4, "Om Swaha 4", 715, 0+759+418+759, 70),
-        new ImageClass(omswaha5, "Om Swaha 5", 759, 2651, 0),
+        new ImageClass(omswaha1, "Om Swaha 1", 759, 481, 0, 0),
+        new ImageClass(omswaha2, "Om Swaha 2", 418, 332, 0+759, 50),
+        new ImageClass(omswaha3, "Om Swaha 3", 759, 730, 0+759+418, 0),
+        new ImageClass(omswaha4, "Om Swaha 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(omswaha5, "Om Swaha 5", 759, 481, 2651, 0),
         
     ],
     slideshowWidth: 3500,
@@ -145,8 +114,8 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(dafa1, "Dafa No. 180 1", 759, 0, 0),
-        new ImageClass(dafa2, "Dafa No. 180 2", 418, 0+759, 50),
+        new ImageClass(dafa1, "Dafa No. 180 1", 759, 481, 0, 0),
+        new ImageClass(dafa2, "Dafa No. 180 2", 418, 332, 0+759, 50),
     ],
     slideshowWidth: 1518,
   },
@@ -167,16 +136,16 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(walk1, "Walk 1", 759, 0, 0),
-        new ImageClass(walk2, "Walk 2", 418, 0+759, 50),
-        new ImageClass(walk3, "Walk 3", 759, 0+759+418, 0),
-        new ImageClass(walk4, "Walk 4", 715, 0+759+418+759, 70),
-        new ImageClass(walk5, "Walk 5", 759, 2651, 0),
+        new ImageClass(walk1, "Walk 1", 759, 481, 0, 0),
+        new ImageClass(walk2, "Walk 2", 418, 332, 0+759, 50),
+        new ImageClass(walk3, "Walk 3", 759, 730, 0+759+418, 0),
+        new ImageClass(walk4, "Walk 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(walk5, "Walk 5", 759, 481, 2651, 0),
 
     ],
     videos: [
-        new VideoClass(walkVideo1, "Walk Video 1", 650, 50, 506, walkVideoBackground1, "walkVideo1"),
-        new VideoClass(walkVideo2, "Walk Video 2", 650, 1550, 506, walkVideoBackground2, "walkVideo2"),
+        new VideoClass(walkVideo1, "Walk Video 1", 650, 379, 298, 481, walkVideoBackground1, "walkVideo1"),
+        new VideoClass(walkVideo2, "Walk Video 2", 650, 379, 1900, 481, walkVideoBackground2, "walkVideo2"),
     ],
     slideshowWidth: 3500,
   },
@@ -191,11 +160,11 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(rti1, "RTI 1", 759, 0, 0),
-        new ImageClass(rti2, "RTI 2", 418, 0+759, 50),
+        new ImageClass(rti1, "RTI 1", 759, 481, 0, 0),
+        new ImageClass(rti2, "RTI 2", 418, 332, 0+759, 50),
     ],
     videos: [
-        new VideoClass(rtiVideo1, "RTI Video 1", 650, 50, 506, rtiVideoBackground1, "rtiVideo1"),
+        new VideoClass(rtiVideo1, "RTI Video 1", 650, 379, 298, 481, rtiVideoBackground1, "rtiVideo1"),
     ],
     slideshowWidth: 1518,
   },
@@ -210,10 +179,10 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(notInMyName1, "Not In My Name 1", 759, 0, 0),
-        new ImageClass(notInMyName2, "Not In My Name 2", 418, 0+759, 50),
-        new ImageClass(notInMyName3, "Not In My Name 3", 759, 0+759+418, 0),
-        new ImageClass(notInMyName4, "Not In My Name 4", 715, 0+759+418+759, 70),
+        new ImageClass(notInMyName1, "Not In My Name 1", 759, 481, 0, 0),
+        new ImageClass(notInMyName2, "Not In My Name 2", 418, 332, 0+759, 50),
+        new ImageClass(notInMyName3, "Not In My Name 3", 759, 730, 0+759+418, 0),
+        new ImageClass(notInMyName4, "Not In My Name 4", 715, 477, 0+759+418+759, 70),
     ],
     slideshowWidth: 3000,
 
@@ -229,13 +198,13 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(artistsUnite1, "Artists Unite 1", 759, 0, 0),
-        new ImageClass(artistsUnite2, "Artists Unite 2", 418, 0+759, 50),
-        new ImageClass(artistsUnite3, "Artists Unite 3", 759, 0+759+418, 0),
-        new ImageClass(artistsUnite4, "Artists Unite 4", 715, 0+759+418+759, 70),
+        new ImageClass(artistsUnite1, "Artists Unite 1", 759, 481, 0, 0),
+        new ImageClass(artistsUnite2, "Artists Unite 2", 418, 322, 0+759, 50),
+        new ImageClass(artistsUnite3, "Artists Unite 3", 759, 730, 0+759+418, 0),
+        new ImageClass(artistsUnite4, "Artists Unite 4", 715, 477, 0+759+418+759, 70),
     ],
     videos: [
-        new VideoClass(artistsUniteVideo1, "Artists Unite Video 1", 650, 50, 506, artistsUniteVideoBackground1, "artistsUniteVideo1"),
+        new VideoClass(artistsUniteVideo1, "Artists Unite Video 1", 650, 379, 298, 481, artistsUniteVideoBackground1, "artistsUniteVideo1"),
     ],
     slideshowWidth: 3000,
   },
@@ -250,15 +219,15 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(shaheenBagh1, "Shaheen Bagh 1", 759, 0, 0),
-      new ImageClass(shaheenBagh2, "Shaheen Bagh 2", 418, 0+759, 50),
-      new ImageClass(shaheenBagh3, "Shaheen Bagh 3", 759, 0+759+418, 0),
-      new ImageClass(shaheenBagh4, "Shaheen Bagh 4", 715, 0+759+418+759, 70),
-      new ImageClass(shaheenBagh5, "Shaheen Bagh 5", 759, 2651, 0),
+      new ImageClass(shaheenBagh1, "Shaheen Bagh 1", 759, 481, 0, 0),
+      new ImageClass(shaheenBagh2, "Shaheen Bagh 2", 418, 322, 0+759, 50),
+      new ImageClass(shaheenBagh3, "Shaheen Bagh 3", 759, 730, 0+759+418, 0),
+      new ImageClass(shaheenBagh4, "Shaheen Bagh 4", 715, 477, 0+759+418+759, 70),
+      new ImageClass(shaheenBagh5, "Shaheen Bagh 5", 759, 481, 2651, 0),
     ],
     videos: [
-      new VideoClass(shaheenBaghVideo1, "Shaheen Bagh Video 1", 650, 50, 506, shaheenBaghVideoBackground1, "shaheenBaghVideo1"),
-      new VideoClass(shaheenBaghVideo2, "Shaheen Bagh Video 2", 650, 1550, 506, shaheenBaghVideoBackground2, "shaheenBaghVideo2"),
+      new VideoClass(shaheenBaghVideo1, "Shaheen Bagh Video 1", 650, 379, 298, 481, shaheenBaghVideoBackground1, "shaheenBaghVideo1"),
+      new VideoClass(shaheenBaghVideo2, "Shaheen Bagh Video 2", 650, 379, 1900, 481, shaheenBaghVideoBackground2, "shaheenBaghVideo2"),
     ],
     slideshowWidth:3500,
   },
@@ -285,10 +254,10 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-      new ImageClass(farmersStrike1, "Farmers Strike", 759, 0, 0),
+      new ImageClass(farmersStrike1, "Farmers Strike", 759, 481, 0, 0),
     ],
     videos: [
-      new VideoClass(farmersStrikeVideo1, "Farmers Strike Video 1", 650, 50, 506, farmersStrikeVideoBackground1, "farmerStrikeVideo1"),
+      new VideoClass(farmersStrikeVideo1, "Farmers Strike Video 1", 650, 379, 298, 481, farmersStrikeVideoBackground1, "farmerStrikeVideo1"),
     ],
     slideshowWidth: 1000,
   },

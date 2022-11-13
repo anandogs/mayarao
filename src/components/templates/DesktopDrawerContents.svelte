@@ -2,6 +2,7 @@
   import CarouselDesktop from "../CarouselDesktop.svelte";
   import type { itemListType } from "../stores/helpers";
   export let data: itemListType;
+  export let slideshowFor:string
 </script>
 
 <div>
@@ -37,7 +38,7 @@
   </div>
   {#if data.images || data.audio || data.videos}
     <div class="pb-[100px]">
-      <CarouselDesktop {data} slideshowFor={"productions"} />
+      <CarouselDesktop {data} slideshowFor={slideshowFor} />
     </div>
   {/if}
 </div>

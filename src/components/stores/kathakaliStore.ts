@@ -1,10 +1,5 @@
-import { atom, WritableAtom } from "nanostores";
-
-//heiretikos
-import heiretikos1 from '../../images/applied_theatre/slideshow/heiretikos/1.jpg';
-import heiretikos2 from '../../images/applied_theatre/slideshow/heiretikos/2.jpg';
-import heiretikos3 from '../../images/applied_theatre/slideshow/heiretikos/3.jpg';
-import heiretikos4 from '../../images/applied_theatre/slideshow/heiretikos/4.jpg';
+import { atom } from "nanostores";
+import { ImageClass, VideoClass, itemListType } from "./helpers";
 
 //kathakali
 import kathakali1 from '../../images/kathakali/slideshow/1.jpg';
@@ -20,51 +15,6 @@ import kathakaliVideo1 from '../../images/kathakali/videos/kathakali.mp4'
 
 import kathakaliBackground1 from '../../images/kathakali/slideshow/background_1.png';
 
-
-
-export interface itemListType {
-  name: string;
-  metadata?: {
-    year: number;
-    credits?: Array<Object>;
-  };
-  id: number;
-  text?: Array<string>;
-  display: WritableAtom;
-  images?: Array<ImageClass>;
-  videos?: Array<VideoClass>;
-  audio?: Array<ImageClass>;
-  slideshowWidth: number;
-  quote?: string;
-  quoteMobile?: string;
-}
-
-class ImageClass {
-    src: string;
-    alt: string;
-    width: number;
-    left: number;
-    top: number;
-    constructor(src: string, alt: string, width: number, left: number, top:number) {
-        this.src = src;
-        this.alt = alt;
-        this.width = width;
-        this.left = left;
-        this.top = top;
-    }
-}
-
-class VideoClass extends ImageClass {
-    videoImage: string;
-    videoId: string;
-    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
-        super(src, alt, width, left, top);
-        this.videoImage = videoImage;
-        this.videoId = videoId;
-    }
-}
-
-
 export const itemList:Array<itemListType> = [
   {
     name: "Kathakali",
@@ -74,17 +24,17 @@ export const itemList:Array<itemListType> = [
     ],
     display: atom(false),
     images: [
-        new ImageClass(kathakali1, "Kathakali 1", 759, 0, 0),
-        new ImageClass(kathakali2, "Kathakali 2", 418, 0+759, 50),
-        new ImageClass(kathakali3, "Kathakali 3", 759, 0+759+418, 0),
-        new ImageClass(kathakali4, "Kathakali 4", 715, 0+759+418+759, 70),
-        new ImageClass(kathakali5, "Kathakali 5", 759, 2651, 0),
-        new ImageClass(kathakali6, "Kathakali 6", 418, 2651+759, 50),
-        new ImageClass(kathakali7, "Kathakali 7", 759, 2651+759+418, 0),
-        new ImageClass(kathakali8, "Kathakali 8", 715, 2651+759+418+759, 70),
+        new ImageClass(kathakali1, "Kathakali 1", 759, 481, 0, 0),
+        new ImageClass(kathakali2, "Kathakali 2", 418, 332, 0+759, 50),
+        new ImageClass(kathakali3, "Kathakali 3", 759, 730, 0+759+418, 0),
+        new ImageClass(kathakali4, "Kathakali 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(kathakali5, "Kathakali 5", 759, 481, 2651, 0),
+        new ImageClass(kathakali6, "Kathakali 6", 418, 332, 2651+759, 50),
+        new ImageClass(kathakali7, "Kathakali 7", 759, 730, 2651+759+418, 0),
+        new ImageClass(kathakali8, "Kathakali 8", 715, 477, 2651+759+418+759, 70),
     ],
     videos: [
-        new VideoClass(kathakaliVideo1, "Kathakali Video 1", 650, 0, 506, kathakaliBackground1, '1'),
+        new VideoClass(kathakaliVideo1, "Kathakali Video 1", 650, 379, 298, 481, kathakaliBackground1, '1'),
     ],
     slideshowWidth: 5500,
   },

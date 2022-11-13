@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  export let drawerFor:string|null = null;
+  export let drawerFor:string;
+  export let isOpenDrawer:boolean = false;
   import type { itemListType } from '../stores/helpers';
   export let categoryColor: string = "#468FB8"
   export let itemList: Array<itemListType>;
@@ -28,12 +29,18 @@
         item.display.value = false;
       }
     }
-    if (drawerFor)
+    if (isOpenDrawer)
     {
-      location.href = "./" + drawerFor +"/" + val.id + "#drawer";
+      location.href = "./" + val.id + "#drawer";
     }
     else {
-      location.href = "./" + val.id + "#drawer";
+      if (location.href.endsWith('/')) {
+        location.href = "./" + val.id + "#drawer";        
+      }
+      else {
+        location.href = "./" + drawerFor +"/" + val.id + "#drawer";
+      }
+      
     }
 
   }
@@ -57,12 +64,12 @@
       <div class="border_bottom_large mt-[50px]" />
 
       {#if hoveredItem}
-      <DesktopDrawerContents data={hoveredItem}/>
+      <DesktopDrawerContents data={hoveredItem} slideshowFor={drawerFor}/>
       {/if}
 
       
       {#if !hoveredItem && clickedItem}
-      <DesktopDrawerContents data={clickedItem}/>
+      <DesktopDrawerContents data={clickedItem} slideshowFor={drawerFor}/>
       {/if}
       
         {#if clickedItem?.quote}

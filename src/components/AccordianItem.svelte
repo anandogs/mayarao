@@ -13,6 +13,8 @@
       }
     }
     toggleItem.set(!$toggleItem);
+    setTimeout(()=> {document.querySelector("#drawer")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 300)
   };
 </script>
 

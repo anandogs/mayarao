@@ -1,11 +1,5 @@
-import { atom, WritableAtom } from "nanostores";
-
-
-export const isImprovisationOpen = atom(false)
-export const isObjectsOpen = atom(false)
-export const isCameraOpen = atom(false)
-
-export const allItems = [isImprovisationOpen, isObjectsOpen, isCameraOpen]
+import { atom } from "nanostores";
+import { ImageClass, VideoClass } from "./helpers";
 
 
 //camera
@@ -47,66 +41,24 @@ import objects6 from '../../images/making/slideshow/objects/6.jpg';
 import objects7 from '../../images/making/slideshow/objects/7.jpg';
 
 
-export interface itemListType {
-  name: string;
-  metadata?: {
-    year: number;
-    credits?: Array<Object>;
-  };
-  id: number;
-  text?: Array<string>;
-  display: WritableAtom;
-  images?: Array<ImageClass>;
-  videos?: Array<VideoClass>;
-  audio?: Array<ImageClass>;
-  slideshowWidth: number;
-  quote?: string;
-  quoteMobile?: string;
-}
-
-class ImageClass {
-    src: string;
-    alt: string;
-    width: number;
-    left: number;
-    top: number;
-    constructor(src: string, alt: string, width: number, left: number, top:number) {
-        this.src = src;
-        this.alt = alt;
-        this.width = width;
-        this.left = left;
-        this.top = top;
-    }
-}
-
-class VideoClass extends ImageClass {
-    videoImage: string;
-    videoId: string;
-    constructor(src: string, alt: string, width: number, left: number, top:number, videoImage: string, videoId: string) {
-        super(src, alt, width, left, top);
-        this.videoImage = videoImage;
-        this.videoId = videoId;
-    }
-}
-
 export const itemList = [
   {
     name: "Camera",
     id: 1,
     display: atom(false),
     images: [
-        new ImageClass(camera1, "Camera 1", 759, 0, 0),
-        new ImageClass(camera2, "Camera 2", 418, 0+759, 50),
-        new ImageClass(camera3, "Camera 3", 759, 0+759+418, 0),
-        new ImageClass(camera4, "Camera 4", 715, 0+759+418+759, 70),
-        new ImageClass(camera5, "Camera 5", 759, 2651, 0),
-        new ImageClass(camera6, "Camera 6", 418, 2651+759, 50),
-        new ImageClass(camera7, "Camera 7", 759, 2651+759+418, 0),
-        new ImageClass(camera8, "Camera 8", 715, 2651+759+418+759, 70),
-        new ImageClass(camera9, "Camera 9",759, 5302, 0),
+        new ImageClass(camera1, "Camera 1", 759, 481, 0, 0),
+        new ImageClass(camera2, "Camera 2", 418, 332, 0+759, 50),
+        new ImageClass(camera3, "Camera 3", 759, 730, 0+759+418, 0),
+        new ImageClass(camera4, "Camera 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(camera5, "Camera 5", 759, 481, 2651, 0),
+        new ImageClass(camera6, "Camera 6", 418, 332, 2651+759, 50),
+        new ImageClass(camera7, "Camera 7", 759, 730, 2651+759+418, 0),
+        new ImageClass(camera8, "Camera 8", 715, 477, 2651+759+418+759, 70),
+        new ImageClass(camera9, "Camera 9",759, 481, 5302, 0),
     ],
     videos: [
-        new VideoClass(cameraVideo1, "Camera Video 1", 650, 50, 506, cameraVideoBackground1, '1'),
+        new VideoClass(cameraVideo1, "Camera Video 1", 650, 379, 298, 481, cameraVideoBackground1, '1'),
     ],
     slideshowWidth: 6500,
   },
@@ -115,17 +67,17 @@ export const itemList = [
     id: 2,
     display: atom(false),
     images: [
-        new ImageClass(improvisation1, "Improvisation 1", 759, 0, 0),
-        new ImageClass(improvisation2, "Improvisation 2", 418, 0+759, 50),
-        new ImageClass(improvisation3, "Improvisation 3", 759, 0+759+418, 0),
-        new ImageClass(improvisation4, "Improvisation 4", 715, 0+759+418+759, 70),
-        new ImageClass(improvisation5, "Improvisation 5", 759, 2651, 0),
-        new ImageClass(improvisation6, "Improvisation 6", 418, 2651+759, 50),
-        new ImageClass(improvisation7, "Improvisation 7", 759, 2651+759+418, 0),
-        new ImageClass(improvisation8, "Improvisation 8", 715, 2651+759+418+759, 70),
+        new ImageClass(improvisation1, "Improvisation 1", 759, 481, 0, 0),
+        new ImageClass(improvisation2, "Improvisation 2", 418, 332, 0+759, 50),
+        new ImageClass(improvisation3, "Improvisation 3", 759, 730, 0+759+418, 0),
+        new ImageClass(improvisation4, "Improvisation 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(improvisation5, "Improvisation 5", 759, 481, 2651, 0),
+        new ImageClass(improvisation6, "Improvisation 6", 418, 332, 2651+759, 50),
+        new ImageClass(improvisation7, "Improvisation 7", 759, 730, 2651+759+418, 0),
+        new ImageClass(improvisation8, "Improvisation 8", 715, 477, 2651+759+418+759, 70),
     ],
     videos: [
-        new VideoClass(improvisationVideo1, "Improvisation Video 1", 650, 50, 506, improvisationVideoBackground1, '2'),
+        new VideoClass(improvisationVideo1, "Improvisation Video 1", 650, 379, 298, 481, improvisationVideoBackground1, '2'),
     ],
     slideshowWidth: 5302,
   },
@@ -134,13 +86,13 @@ export const itemList = [
     id: 3,
     display: atom(false),
     images: [
-        new ImageClass(objects1, "Objects 1", 759, 0, 0),
-        new ImageClass(objects2, "Objects 2", 418, 0+759, 50),
-        new ImageClass(objects3, "Objects 3", 759, 0+759+418, 0),
-        new ImageClass(objects4, "Objects 4", 715, 0+759+418+759, 70),
-        new ImageClass(objects5, "Objects 5", 759, 2651, 0),
-        new ImageClass(objects6, "Objects 6", 418, 2651+759, 50),
-        new ImageClass(objects7, "Objects 7", 759, 2651+759+418, 0),
+        new ImageClass(objects1, "Objects 1", 759, 481, 0, 0),
+        new ImageClass(objects2, "Objects 2", 418, 332, 0+759, 50),
+        new ImageClass(objects3, "Objects 3", 759, 730, 0+759+418, 0),
+        new ImageClass(objects4, "Objects 4", 715, 477, 0+759+418+759, 70),
+        new ImageClass(objects5, "Objects 5", 759, 481, 2651, 0),
+        new ImageClass(objects6, "Objects 6", 418, 332, 2651+759, 50),
+        new ImageClass(objects7, "Objects 7", 759, 730, 2651+759+418, 0),
     ],
     slideshowWidth: 2651,
   }

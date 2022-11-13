@@ -1,6 +1,6 @@
 <script lang="ts">
   export let itemId: string | number | undefined | null = null;
-  let drawerFor:string|null = 'applied-theatre'
+  let drawerAlreadyOpened = false;
   import { onMount } from "svelte";
   import Carousel from "./Carousel.svelte";
   import CarouselDesktop from "./CarouselDesktop.svelte";
@@ -12,7 +12,7 @@
 
   onMount(() => {
     if(document.location.hash === '#drawer') {
-      drawerFor = null
+      drawerAlreadyOpened = true;
       setTimeout(()=> {document.querySelector("#drawer")?.scrollIntoView({ behavior: "smooth", block: "start" })
       }, 300)
     }
@@ -98,7 +98,11 @@ itemList.filter((item) => item.id == itemId)[0].display.set(true)
   </div>
   {#if programsStage !== 0}
     <div class="hidden lg:block">
-      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor={drawerFor} />
+      {#if drawerAlreadyOpened}
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor='applied-theatre' isOpenDrawer={true}/>
+      {:else} 
+      <DesktopDrawer {itemList} categoryColor={"#4F6395"} drawerFor='applied-theatre'/>
+      {/if}
     </div>
     <div
       class="lg:hidden mt-[30px] mb-[30px]"

@@ -1,5 +1,4 @@
-import { atom, WritableAtom } from "nanostores";
-import type { itemListType } from "./helpers";
+import { atom } from "nanostores";
 import { ImageClass, VideoClass } from "./helpers";
 
 // loose woman imports --- these will go away once we have a cms

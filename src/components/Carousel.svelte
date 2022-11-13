@@ -1,9 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { itemListType } from "./stores/productionsStore";
+  import type { itemListType } from "./stores/helpers";
   export let data: itemListType | undefined;
   export let slideshowFor: string;
   import playButton from "../images/play.svg";
+  import AudioPlayer from "./AudioPlayer.svelte";
 
   let allData: any = [];
   const id = data?.id;
@@ -56,15 +57,25 @@
                 />
               </div>
             </a>
+            {:else if data.src.split('.')[1] === "mp3"}
+            
+            
+              <div class="relative w-full">
+                <div class="w-full flex justify-center items-center">
+                  <AudioPlayer soundtrack={data.src} />
+                </div>                
+              </div>
+            
+            
+            
           {:else}
-          <a href="/{slideshowFor}/full-screen/{id}">
-            <img
-            src={data.src}
-            alt={data.alt}
-            style="width: 100%; height: 100%; object-fit: cover;"
-          />
-          </a>
-          
+            <a href="/{slideshowFor}/full-screen/{id}">
+              <img
+                src={data.src}
+                alt={data.alt}
+                style="width: 100%; height: 100%; object-fit: cover;"
+              />
+            </a>
           {/if}
         </div>
       {/each}
@@ -88,65 +99,6 @@
         {/if}
       </a>
     {/each}
-    <!-- <a
-      style={currentSlide === 1 ? "color:#000;" : ""}
-      href="#slide-1"
-      class={currentSlide === 1 ? "first-selected" : "first-unselected"}>01</a
-    >
-    <a
-      style={currentSlide === 2
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-2">02</a
-    >
-    <a
-      style={currentSlide === 3
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-3">03</a
-    >
-    <a
-      style={currentSlide === 4
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-4">04</a
-    >
-    <a
-      style={currentSlide === 5
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-5">05</a
-    >
-    <a
-      style={currentSlide === 6
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-6">06</a
-    >
-    <a
-      style={currentSlide === 7
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-7">07</a
-    >
-    <a
-      style={currentSlide === 8
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-8">08</a
-    >
-    <a
-      style={currentSlide === 9
-        ? "color:#000; border-bottom-color: #000;"
-        : "border-bottom-color: #C4C4C4;"}
-      href="#slide-9">09</a
-    >
-
-    <a
-      style={currentSlide === 10 ? "color:#000;" : ""}
-      href="#slide-10"
-      class={currentSlide === 10 ? "last-selected" : "last-unselected"}>10</a
-    > -->
   </div>
 </div>
 

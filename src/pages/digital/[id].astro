@@ -1,10 +1,29 @@
 ---
+import { itemList } from "../../components/stores/digitalStore";
+
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.svelte";
 import digital from "../../images/menu/digital_creations.svg";
 import DigitalAccordian from "../../components/DigitalAccordian.svelte";
 import landingImage from "../../images/digital/landing.jpg";
 import Footer from "../../components/Footer.svelte";
+
+export function getStaticPaths() {
+    return itemList.map((item) => {
+    return {
+      params: { id: item.id.toString() },
+    };
+  }); 
+    
+}
+const { id } = Astro.params
+itemList.forEach((item) => {
+  
+  item.display.set(false)
+
+});
+const selectedItem = itemList.filter((item) => item.id == id)[0]
+selectedItem.display.set(true)
 ---
 
 <Layout title="Digital">
@@ -31,7 +50,7 @@ import Footer from "../../components/Footer.svelte";
       <div class="bottom-border"></div>
     </div>
     <div class="accordian">
-      <DigitalAccordian client:load />
+      <DigitalAccordian client:load itemOpen={id}/>
     </div>
   </main>
   <Footer client:load />
@@ -82,3 +101,5 @@ import Footer from "../../components/Footer.svelte";
     }
   }
 </style>
+
+  

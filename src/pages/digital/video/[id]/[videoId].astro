@@ -29,7 +29,7 @@ const video = item?.videos?.find((video) => video.videoId === videoId);
 
 <Layout title="Video Player">
   <div>
-    <Navbar menuPage={true} email={false} darkMode={true} closeUrl={"/digital"} client:load />
+    <Navbar menuPage={true} email={false} darkMode={true} closeUrl={"/digital/" + id + '#drawer'} client:load />
     <VideoPlayer client:load videoSrc={video?.src}/>
   </div>
 </Layout>

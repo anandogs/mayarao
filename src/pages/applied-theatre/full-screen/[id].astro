@@ -16,7 +16,7 @@ const item = itemList.find((item) => item.id.toString() === id);
 
 ---
 <Layout title="Images">
-    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/applied-theatre'} client:load/>
+    <Navbar menuPage={true} darkMode={true} email={false} closeUrl={'/applied-theatre/' + id + '#drawer'} client:load/>
     <div class="hidden lg:block">
         <CarouselDesktopFullscreen data={item} client:load/>
     </div>
