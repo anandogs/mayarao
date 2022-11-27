@@ -92,7 +92,7 @@
       class="drawer mt-[20px] mb-[60px]"
       on:click={() => toggleTeachingStage()}
     >
-      <h4 class="text-[2.25rem]">mummy</h4>
+      <h4 class="text-[2.25rem]" style={teachingStage === 1? "color:#020202;":""}>mummy</h4>
     </div>
   </div>
   {#if programsStage !== 0}
@@ -171,18 +171,18 @@
 
     .border_bottom_large {
       display: block;
-      width: 90%;
+      width: 92%;
       border-bottom: 1px;
       border-bottom-color: #020202;
       border-bottom-style: solid;
       margin-bottom: 50px;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 4%;
+      margin-right: 4%;
     }
     .drawer {
       font-size: x-large;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 4%;
+      margin-right: 4%;
       display: flex;
       column-gap: 30px;
       flex-wrap: wrap;

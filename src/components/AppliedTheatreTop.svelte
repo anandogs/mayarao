@@ -172,18 +172,18 @@ itemList.filter((item) => item.id == itemId)[0].display.set(true)
 
     .border_bottom_large {
       display: block;
-      width: 90%;
+      width: 92%;
       border-bottom: 1px;
       border-bottom-color: #020202;
       border-bottom-style: solid;
       margin-bottom: 50px;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 4%;
+      margin-right: 4%;
     }
     .drawer {
       font-size: x-large;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 4%;
+      margin-right: 4%;
       display: flex;
       column-gap: 30px;
       flex-wrap: wrap;

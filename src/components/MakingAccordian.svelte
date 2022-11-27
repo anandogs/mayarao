@@ -88,11 +88,9 @@
       <div slot="content" class="pt-2">
         <div class="content pb-6 pt-6">
           <p>
-            The centre piece of Maya's making process is IMPROVISATION. She sets
-            up a video camera in a her studio to record improvisations. In the
-            beginning years she would play recorded music that attracted her,
-            yet was not too familiar to her. Music plays a big part in
-            triggering her imagination.
+            Objects are another source of inspiration….here too she chooses
+            objects randomly to play with. Rarely is there a pre-conceived idea
+            that informs the choice of object(s)
           </p>
           <div class="lg:hidden">
             <Carousel slideshowFor={"making"} data={objectsData} />
@@ -117,11 +115,12 @@
       <div slot="content" class="pt-2">
         <div class="content pb-6 pt-6">
           <p>
-            The centre piece of Maya's making process is IMPROVISATION. She sets
-            up a video camera in a her studio to record improvisations. In the
-            beginning years she would play recorded music that attracted her,
-            yet was not too familiar to her. Music plays a big part in
-            triggering her imagination.
+            Maya works with live feed. Often a film maker or cinematographer is
+            invited to create live feed even as she is improvising. The
+            projections could be blown up images of the objects she is playing
+            with or parts of her own body. Images are often randomly chosen and
+            projected on different surfaces. Sometimes they drive the content of
+            the show, as happened with 'Heads Are Meant for Walking Into'.
           </p>
           <div class="lg:hidden">
             <Carousel slideshowFor={"making"} data={cameraData} />

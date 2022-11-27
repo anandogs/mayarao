@@ -2,6 +2,7 @@ import { atom } from "nanostores";
 import { ImageClass, itemListType } from "./helpers";
 //gati
 import gati1 from '../../images/teaching/slideshow/performances/gati/1.jpg';
+import gati2 from '../../images/teaching/slideshow/performances/gati/2.jpg';
 
 //srishti
 import srishti1 from '../../images/teaching/slideshow/performances/srishti/1.jpg';
@@ -46,6 +47,7 @@ export const itemList:Array<itemListType> = [
     display: atom(false),
     images: [
         new ImageClass(gati1, "Gati 1", 759, 481, 0, 0),
+        new ImageClass(gati2, "Gati 2", 418, 332, 0+759, 50),
         
     ],
     slideshowWidth: 1000,

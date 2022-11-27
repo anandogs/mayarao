@@ -55,7 +55,7 @@
   <div class="border_bottom_large mt-[50px]" />  
   <div class="drawer" id="drawer">
       {#each itemList as item}
-      <h4 on:click={() => valueClicked(item)} style={clickedItem ? clickedItem.name === item.name ? "color:#020202":`color:${categoryColor}`:`color:${categoryColor}`} on:mouseenter={() => valueHovered(item)} on:mouseleave={() => valueUnhovered()}>
+      <h4 on:click={() => valueClicked(item)} style={clickedItem?.name || hoveredItem?.name === item.name ? "color:#020202":`color:${categoryColor}`} on:mouseenter={() => valueHovered(item)} on:mouseleave={() => valueUnhovered()}>
         {item.name}
       </h4>
       
@@ -88,8 +88,8 @@
         cursor: pointer;
     }
     .drawer {
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 4%;
+      margin-right: 4%;
          display: flex;
          column-gap: 30px;
          row-gap: 20px;
@@ -98,12 +98,12 @@
     }
     .border_bottom_large {
     display: block;
-    width: 90%;
+    width: 92%;
     border-bottom: 1px;
     border-bottom-color: #020202;
     border-bottom-style: solid;
     margin-bottom: 50px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 4%;
+    margin-right: 4%;
   }
 </style>
