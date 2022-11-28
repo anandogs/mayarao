@@ -1,7 +1,8 @@
 <script lang="ts">
   import Carousel from "../Carousel.svelte";
-import type { itemListType } from "../stores/helpers";
+  import type { itemListType } from "../stores/helpers";
   export let itemList: Array<itemListType>;
+  export let categoryColor:string = '#020202';
   export let slideshowFor: string;
   let clickedItem: itemListType | undefined = undefined;
   let quoteSrc: string | null = null;
@@ -37,7 +38,7 @@ import type { itemListType } from "../stores/helpers";
           ? clickedItem.name === item.name
             ? "color:#020202; font-size: 1.5625rem; line-height: 30px;"
             : ""
-          : ""}
+          : `color:${categoryColor}`}
       >
         {item.name}
       </h4>
@@ -77,7 +78,6 @@ import type { itemListType } from "../stores/helpers";
 
 <style>
   h4 {
-    color: #468fb8;
     text-align: center;
     text-transform: lowercase;
     font-size: 1rem;

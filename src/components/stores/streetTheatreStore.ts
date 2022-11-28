@@ -38,8 +38,8 @@ import rtiVideoBackground1 from '../../images/street_theatre/slideshow/rti/backg
 //not_in_my_name
 import notInMyName1 from '../../images/street_theatre/slideshow/not_in_my_name/1.jpg';
 import notInMyName2 from '../../images/street_theatre/slideshow/not_in_my_name/2.jpg';
-import notInMyName3 from '../../images/street_theatre/slideshow/not_in_my_name/3.jpg';
-import notInMyName4 from '../../images/street_theatre/slideshow/not_in_my_name/4.jpg';
+import notInMyName3 from '../../images/street_theatre/slideshow/not_in_my_name/4.jpg';
+import notInMyName4 from '../../images/street_theatre/slideshow/not_in_my_name/3.jpg';
 
 //artists_unite
 import artistsUnite1 from '../../images/street_theatre/slideshow/artists_unite/1.jpg';

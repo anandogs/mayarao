@@ -107,7 +107,7 @@
       class="lg:hidden mt-[30px] mb-[30px]"
       on:click={() => checkIfClicked()}
     >
-      <MobileDrawer {itemList} slideshowFor="applied-theatre" />
+      <MobileDrawer {itemList} slideshowFor="applied-theatre" categoryColor={"#4F6395"}/>
     </div>
   {/if}
   <div class="lg:hidden">
