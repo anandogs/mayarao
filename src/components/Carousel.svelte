@@ -124,7 +124,7 @@
     flex-shrink: 0;
     width: 100vw;
     height: 480px;
-    background: #020202;
+    /* background: #020202; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,8 +141,8 @@
   .slider-box > a {
     position: relative;
     padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6.5px;
+    padding-right: 6.5px;
     font-size: 10px;
     line-height: 17px;
     letter-spacing: 0.03em;

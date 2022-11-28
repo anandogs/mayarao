@@ -43,7 +43,7 @@
   <MenuMobileItem category="kathakali" imgWidth="174.77px" img={kathakali} url={'/kathakali'}/>
   <MenuMobileItem category="making" imgWidth="130.85px" img={making} url={'/making'}/>
   <MenuMobileItem category="teaching" imgWidth="163.8px" img={teaching} url={'/teaching'}/>
-  <MenuMobileItem category="digitalCreations" imgWidth="275.63px" img={digitalCreations} url={'/digital'} />
+  <MenuMobileItem category="digitalCreations" imgWidth="97.38px" img={digitalCreations} url={'/digital'} />
   <MenuMobileItem category="events" imgWidth="99px" img={events} />
   <MenuMobileItem category="about" imgWidth="108.24px" img={about} url={'/about'}/>
 

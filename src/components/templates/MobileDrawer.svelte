@@ -1,14 +1,20 @@
 <script lang="ts">
   import Carousel from "../Carousel.svelte";
-import type { itemListType } from "../stores/productionsStore";
+import type { itemListType } from "../stores/helpers";
   export let itemList: Array<itemListType>;
   export let slideshowFor: string;
   let clickedItem: itemListType | undefined = undefined;
-
+  let quoteSrc: string | null = null;
   const valueClicked = (val: itemListType) => {
+    quoteSrc = null
     for (const item of itemList) {
       if (item.display !== val.display) {
         item.display.value = false;
+      }
+      else {
+        if (item.quoteMobile) {
+          quoteSrc = item.quoteMobile;
+        }
       }
     }
     val.display.value = !val.display.value;
@@ -17,6 +23,7 @@ import type { itemListType } from "../stores/productionsStore";
     } else {
       clickedItem = undefined;
     }
+
     
   };
 </script>
@@ -51,23 +58,21 @@ import type { itemListType } from "../stores/productionsStore";
         <Carousel data={item} slideshowFor={slideshowFor}/>
         {/if}
       </div>
-      {#if item.quoteMobile}
-      <div class="mb-[25px] flex justify-center items-center">
-      <img src={item.quoteMobile} alt="quote">
-    </div>
-      {/if}
+      
 
       {/if}
       {#if i !== itemList.length - 1}
       <div class="border_bottom_large" />
       {/if}
+      
       {/each}
+      {#if quoteSrc}
+      <div class="flex justify-center items-center px-4">
+      <img src={quoteSrc} alt="quote">
+    </div>
+      {/if}
   </div>
   
-  
-  
-
-
 </div>
 
 <style>
