@@ -11,6 +11,8 @@
 
 
   onMount(() => {
+    console.log(itemList)
+    console.log(clickedItem)
     if(document.location.hash === '#drawer') {
       setTimeout(()=> {document.querySelector("#drawer")?.scrollIntoView({ behavior: "smooth", block: "start" })
       }, 300)
@@ -55,7 +57,7 @@
   <div class="border_bottom_large mt-[50px]" />  
   <div class="drawer" id="drawer">
       {#each itemList as item}
-      <h4 on:click={() => valueClicked(item)} style={clickedItem?.name || hoveredItem?.name === item.name ? "color:#020202":`color:${categoryColor}`} on:mouseenter={() => valueHovered(item)} on:mouseleave={() => valueUnhovered()}>
+      <h4 on:click={() => valueClicked(item)} style={clickedItem?.name === item.name || hoveredItem?.name === item.name ? "color:#020202":`color:${categoryColor}`} on:mouseenter={() => valueHovered(item)} on:mouseleave={() => valueUnhovered()}>
         {item.name}
       </h4>
       
